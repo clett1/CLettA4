@@ -52,7 +52,7 @@ var locationElement = document.getElementById("location");
 var boxGeoObject = new THREE.Object3D();
 var box = new THREE.Object3D();
 var loader = new THREE.TextureLoader();
-loader.load('https://s-media-cache-ak0.pinimg.com/236x/5a/a7/17/5aa7172be87fd9678afd5aa4cd0efbfd.jpg', function (texture) {
+loader.load('http://imgur.com/ADRyax1', function (texture) {
     var geometry = new THREE.BoxGeometry(1, 1, 1);
     var material = new THREE.MeshBasicMaterial({ map: texture });
     var mesh = new THREE.Mesh(geometry, material);
