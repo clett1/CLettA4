@@ -51,6 +51,7 @@ app.context.setDefaultReferenceFrame(app.context.localOriginEastUpSouth);
 var divXpos = document.createElement('div');
 var divXneg = document.createElement('div');
 
+/*
 // programatically create a stylesheet for our direction divs
 // and add it to the document
 var style = document.createElement("style");
@@ -58,15 +59,15 @@ style.type = 'text/css';
 document.head.appendChild(style);
 var sheet = style.sheet;
 sheet.insertRule("\n.cssContent {\n opacity: 0.75;\n        width: 100px;\n        height: 100px;\n        border-radius: 10px;\n        line-height: 100px;\n        fontSize: 20px;\n        text-align: center;\n    }\n", 0);
-
+*/
 // Put content in each one  (should do this as a couple of functions)
 // for X
 divXpos.className = "cssContent";
 divXpos.style.backgroundColor = "blue";
-divXpos.innerText = "Pos X = East";
+divXpos.innerText = "<h1>Title, Artist</h1><p>This is the text for the description</p>";
 divXneg.className = "cssContent";
 divXneg.style.backgroundColor = "red";
-divXneg.innerText = "Neg X = West";
+divXneg.innerText = "<h1>Artist</h1><p>This is the text for the Artist</p>";
 
 // create 6 CSS3DObjects in the scene graph.  The CSS3DObject object 
 // is used by the CSS3DArgonRenderer. Because an HTML element can only
