@@ -28,10 +28,5 @@ a {
 
 .cssContent {
     opacity: 0.75;
-    width: 100px;
-    height: 100px;       
     border-radius: 10px;        
-    line-height: 100px;        
-    font-size: 20px;      
-    text-align: center;    
 }
