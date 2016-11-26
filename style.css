@@ -29,4 +29,15 @@ a {
 .cssContent {
     opacity: 0.75;
     border-radius: 10px;        
+    width: 120px; 
+    padding: 5px;
+}
+
+h2 {
+    font-size: 15px;
+}
+
+p {
+    font-size: 10px;
+
 }
