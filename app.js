@@ -70,13 +70,14 @@ p1.className = "ARDiv";
 var textNode1 = document.createTextNode("This is the text for the description");
 p1.appendChild(textNode1);
 
-side1.appendChild(header1);
+side1.appendChild(side1Header);
 side1.appendChild(p1);
 
 
-var header2 = document.createElement("h1");
+var side2Header = document.createElement("h1");
 var hText2 = document.createTextNode("Arist Name");
-header1.appendChild(hText2);
+
+side2Header.appendChild(hText2);
 
 var p2 = document.createElement("p");
 p2.className = "ARDiv";
@@ -84,7 +85,7 @@ p2.className = "ARDiv";
 var textNode2 = document.createTextNode("This is the text for the description");
 p1.appendChild(textNode2);
 
-side2.appendChild(header2);
+side2.appendChild(side2Header);
 side2.appendChild(p2);
 
 
