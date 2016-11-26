@@ -70,8 +70,8 @@ p1.className = "ARDiv";
 var textNode1 = document.createTextNode("This is the text for the description");
 p1.appendChild(textNode1);
 
-divXpos.appendChild(header1);
-divXpos.appendChild(p1);
+side1.appendChild(header1);
+side1.appendChild(p1);
 
 
 var header2 = document.createElement("h1");
