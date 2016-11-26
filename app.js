@@ -59,7 +59,7 @@ side1.className = "cssContent";
 side2.className = "cssContent";
 
 
-var side1Header = document.createElement("h1");
+var side1Header = document.createElement("h3");
 var hText1 = document.createTextNode("Title, 1900");
 
 side1Header.appendChild(hText1);
@@ -74,7 +74,7 @@ side1.appendChild(side1Header);
 side1.appendChild(p1);
 
 
-var side2Header = document.createElement("h1");
+var side2Header = document.createElement("h3");
 var hText2 = document.createTextNode("Arist Name");
 
 side2Header.appendChild(hText2);
