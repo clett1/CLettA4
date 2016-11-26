@@ -81,14 +81,14 @@ divXneg.style.backgroundColor = "red";
 
 var header2 = document.createElement("h2");
 var hText2 = document.createTextNode("Title, Artist");
-header1.appendChild(hText2);
+header2.appendChild(hText2);
 
 var p2 = document.createElement("p");
 var textNode2 = document.createTextNode("This is the text for the description");
-p1.appendChild(textNode2);
+p2.appendChild(textNode2);
 
-divXpos.appendChild(header2);
-divXpos.appendChild(p2);
+divXneg.appendChild(header2);
+divXneg.appendChild(p2);
 
 
 // create 6 CSS3DObjects in the scene graph.  The CSS3DObject object 
