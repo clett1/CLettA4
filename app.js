@@ -64,10 +64,32 @@ sheet.insertRule("\n.cssContent {\n opacity: 0.75;\n        width: 100px;\n     
 // for X
 divXpos.className = "cssContent";
 divXpos.style.backgroundColor = "blue";
-divXpos.innerText = "<h1>Title, Artist</h1><p>This is the text for the description</p>";
+
+var header1 = document.createElement("h2");
+var hText1 = document.createTextNode("Title, Artist");
+header1.appendChild(hText1);
+
+var p1 = document.createElement("p");
+var textNode1 = document.createTextNode("This is the text for the description");
+p1.appendChild(textNode1);
+
+divXpos.appendChild(header1);
+divXpos.appendChild(p1);
+
 divXneg.className = "cssContent";
 divXneg.style.backgroundColor = "red";
-divXneg.innerText = "<h1>Artist</h1><p>This is the text for the Artist</p>";
+
+var header2 = document.createElement("h2");
+var hText2 = document.createTextNode("Title, Artist");
+header1.appendChild(hText2);
+
+var p2 = document.createElement("p");
+var textNode2 = document.createTextNode("This is the text for the description");
+p1.appendChild(textNode2);
+
+divXpos.appendChild(header2);
+divXpos.appendChild(p2);
+
 
 // create 6 CSS3DObjects in the scene graph.  The CSS3DObject object 
 // is used by the CSS3DArgonRenderer. Because an HTML element can only
