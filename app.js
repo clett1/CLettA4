@@ -47,48 +47,45 @@ app.view.element.appendChild(hud.domElement);
 // more similar to what is used in the geospatial industry
 app.context.setDefaultReferenceFrame(app.context.localOriginEastUpSouth);
 
-// creating 6 divs to indicate the x y z positioning
-var divXpos = document.createElement('div');
-var divXneg = document.createElement('div');
-
-/*
-// programatically create a stylesheet for our direction divs
-// and add it to the document
-var style = document.createElement("style");
-style.type = 'text/css';
-document.head.appendChild(style);
-var sheet = style.sheet;
-sheet.insertRule("\n.cssContent {\n opacity: 0.75;\n        width: 100px;\n        height: 100px;\n        border-radius: 10px;\n        line-height: 100px;\n        fontSize: 20px;\n        text-align: center;\n    }\n", 0);
+/* Create div elements in documents
+*   sideOne: Side of div with title and year
+*   sideTwo: Side of div with Artist and bio
 */
-// Put content in each one  (should do this as a couple of functions)
-// for X
-divXpos.className = "cssContent";
-divXpos.style.backgroundColor = "blue";
+var side1 = document.createElement('div');
+var side2 = document.createElement('div');
 
-var header1 = document.createElement("h2");
-var hText1 = document.createTextNode("Title, Artist");
-header1.appendChild(hText1);
+//Set class of side 1 and side 2 to "cssContent"
+side1.className = "cssContent";
+side2.className = "cssContent";
+
+
+var side1Header = document.createElement("h1");
+var hText1 = document.createTextNode("Title, 1900");
+
+side1Header.appendChild(hText1);
 
 var p1 = document.createElement("p");
+p1.className = "ARDiv";
+
 var textNode1 = document.createTextNode("This is the text for the description");
 p1.appendChild(textNode1);
 
 divXpos.appendChild(header1);
 divXpos.appendChild(p1);
 
-divXneg.className = "cssContent";
-divXneg.style.backgroundColor = "red";
 
-var header2 = document.createElement("h2");
-var hText2 = document.createTextNode("Title, Artist");
-header2.appendChild(hText2);
+var header2 = document.createElement("h1");
+var hText2 = document.createTextNode("Arist Name");
+header1.appendChild(hText2);
 
 var p2 = document.createElement("p");
-var textNode2 = document.createTextNode("This is the text for the description");
-p2.appendChild(textNode2);
+p2.className = "ARDiv";
 
-divXneg.appendChild(header2);
-divXneg.appendChild(p2);
+var textNode2 = document.createTextNode("This is the text for the description");
+p1.appendChild(textNode2);
+
+side2.appendChild(header2);
+side2.appendChild(p2);
 
 
 // create 6 CSS3DObjects in the scene graph.  The CSS3DObject object 
@@ -102,23 +99,23 @@ divXneg.appendChild(p2);
 // application runs, letting the CSS3DArgonRenderer clone them is 
 // simplest.  If it is changing, passing in two and updating both
 // yourself is simplest.
-var cssObjectXpos = new THREE.CSS3DObject(divXpos);
-var cssObjectXneg = new THREE.CSS3DObject(divXneg);
+var cssObjectSide1 = new THREE.CSS3DObject(side1);
+var cssObjectSide2 = new THREE.CSS3DObject(side2);
 
 // the width and height is used to align things.
-cssObjectXpos.position.x = 200.0;
-cssObjectXpos.position.y = 0.0;
-cssObjectXpos.position.z = 0.0;
-cssObjectXpos.rotation.y = -Math.PI / 2;
+cssObjectSide1.position.x = 200.0;
+cssObjectSide1.position.y = 0.0;
+cssObjectSide1.position.z = 0.0;
+cssObjectSide1.rotation.y = -Math.PI / 2;
 
-cssObjectXneg.position.x = -200.0;
-cssObjectXneg.position.y = 0.0;
-cssObjectXneg.position.z = 0.0;
-cssObjectXneg.rotation.y = Math.PI / 2;
+cssObjectSide2.position.x = -200.0;
+cssObjectSide2.position.y = 0.0;
+cssObjectSide2.position.z = 0.0;
+cssObjectSide2.rotation.y = Math.PI / 2;
 
 
-userLocation.add(cssObjectXpos);
-userLocation.add(cssObjectXneg);
+userLocation.add(cssObjectSide1);
+userLocation.add(cssObjectSide2);
 
 // the updateEvent is called each time the 3D world should be
 // rendered, before the renderEvent.  The state of your application
