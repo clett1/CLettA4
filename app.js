@@ -236,9 +236,9 @@ app.vuforia.isAvailable().then(function (available) {
                     //If location is known, then the target is visible. Therefore we set the THRee object to the target's location and orientation
                     
                     if(targetPose.poseStatus & Argon.PoseStatus.known) {
-                        artPieceObject.position.copy(<any>targetPose.position); //copy location
+                        artPieceObject.position.copy(targetPose.position); //copy location
                         
-                        artPieceObject.quarternion.copy(<any>targetPose.orientation);   //copy orientation
+                        artPieceObject.quarternion.copy(targetPose.orientation);   //copy orientation
                         
                     }
                     
