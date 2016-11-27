@@ -234,10 +234,11 @@ app.renderEvent.addEventListener(function () {
         rAFpending = true;
         viewport = app.view.getViewport();
         subViews = app.view.getSubviews();
-        window.requestAnimationFrame(renderFunc);
+        //window.requestAnimationFrame(renderFunc);
     }
 });
 // the animation callback.  
+/*
 function renderFunc() {
     // if we have 1 subView, we're in mono mode.  If more, stereo.
     var monoMode = subViews.length == 1;
@@ -270,5 +271,5 @@ function renderFunc() {
             hud.render(subview.index);
         }
     }
-}
+}*/
 
