@@ -220,9 +220,10 @@ app.vuforia.isAvailable().then(function (available) {
                 
                 //set up content for desired target
                 var trackables = dataSet.getTrackables();
+                console.log("Trackables " + trackables);
                 
                 var artPiece = app.context.subscribeToEntityById(trackables["Target"].id);
-                
+                console.log(artPiece);
                 //Create a THREE object to put on the trackable. We will add sideOne and sideTwo when the target is found
                 
                 var artPieceObject = new THREE.Object3D;
