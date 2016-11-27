@@ -196,6 +196,7 @@ function renderFunc() {
 */ 
 
 app.vuforia.isAvailable().then(function (available) {
+    console.log("Checking Availablility");
     //vuforia not available on this platform
     if (!available) {
         console.warn("vuforia not available on this platform.");
