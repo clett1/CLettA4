@@ -266,7 +266,7 @@ app.vuforia.isAvailable().then(function (available) {
             });
             //activate the dataset
             api.objectTracker.activateDataSet(dataSet);
-        })
+        });
     }).catch(function(err) {
         console.log("vuforia failed to initialize: " + err.message);
     });
