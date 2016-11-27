@@ -210,28 +210,28 @@ app.vuforia.isAvailable().then(function (available) {
         console.log("Running Vuforia...");
         
         //Argon must download our vuforia dataset. The 
-        api.objectTracker.createDataSet("A4Targets.xml".then ( (dataSet)=> {
+        api.objectTracker.createDataSet("A4Targets.xml").then( function(dataSet) {
             //Data has been successfully downloaded
             console.log("Data download successful");
             
-            dataSet.load().then(()=> {
+            dataSet.load().then(function() {
                 console.log("Data is loaded");
                 
                 //set up content for desired target
-                const trackables = dataSet.getTrackables();
+                var trackables = dataSet.getTrackables();
                 
-                const artPiece = app.context.subscribeToEntityById(trackables["Target"].id);
+                var artPiece = app.context.subscribeToEntityById(trackables["Target"].id);
                 
                 //Create a THREE object to put on the trackable. We will add sideOne and sideTwo when the target is found
                 
-                const artPieceObject = new THREE.Object3D;
+                var artPieceObject = new THREE.Object3D;
                 scene.add(artPieceObject);
                 
                 //call updateEvent each time the 3D world is rendered, before render event
                 
-                app.contect.updateEvent.addEventListener(() => {
+                app.contect.updateEvent.addEventListener(function() {
                     //Get local coordinates (pose) of our target
-                    const targetPose = app.context.getEntityPose(artPiece);
+                    var targetPose = app.context.getEntityPose(artPiece);
                     
                     //If location is known, then the target is visible. Therefore we set the THRee object to the target's location and orientation
                     
@@ -255,7 +255,7 @@ app.vuforia.isAvailable().then(function (available) {
                         sideOne.position.z = 0;
                     
                     } else if(targetPose.poseStatus & Argon.PoseStatus.LOST) {
-                        sideOne.position.z = 0.5;
+                        sideOne.position.z = -0.5;
                         userLocation.add(cssObjectSide1);
                     } 
                     
@@ -267,7 +267,7 @@ app.vuforia.isAvailable().then(function (available) {
             //activate the dataset
             api.objectTracker.activateDataSet(dataSet);
         }))
-    }).catch(function (err) {
+    }).catch(function(err) {
         console.log("vuforia failed to initialize: " + err.message);
     });
 });
