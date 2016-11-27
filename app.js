@@ -220,10 +220,10 @@ app.vuforia.isAvailable().then(function (available) {
                 
                 //set up content for desired target
                 var trackables = dataSet.getTrackables();
-                console.log("Trackables " + trackables);
+                //console.log("Trackables " + trackables);
                 
                 var artPiece = app.context.subscribeToEntityById(trackables["Target"].id);
-                console.log(artPiece);
+                //console.log(artPiece);
                 //Create a THREE object to put on the trackable. We will add sideOne and sideTwo when the target is found
                 
                 var artPieceObject = new THREE.Object3D;
@@ -231,7 +231,7 @@ app.vuforia.isAvailable().then(function (available) {
                 
                 //call updateEvent each time the 3D world is rendered, before render event
                 
-                app.contect.updateEvent.addEventListener(function() {
+                app.context.updateEvent.addEventListener(function() {
                     //Get local coordinates (pose) of our target
                     var targetPose = app.context.getEntityPose(artPiece);
                     
