@@ -209,7 +209,7 @@ app.vuforia.isAvailable().then(function (available) {
 // the updateEvent is called each time the 3D world should be
 // rendered, before the renderEvent.  The state of your application
 // should be updated here.
-app.updateEvent.addEventListener(function () {
+app.context.updateEvent.addEventListener(function () {
     // get the position and orientation (the "pose") of the user
     // in the local coordinate frame.
     var userPose = app.context.getEntityPose(app.context.user);
