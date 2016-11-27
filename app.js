@@ -83,7 +83,7 @@ var p2 = document.createElement("p");
 p2.className = "ARDiv";
 
 var textNode2 = document.createTextNode("This is the text for the description");
-p2.appendChild(textNode2);
+p1.appendChild(textNode2);
 
 side2.appendChild(side2Header);
 side2.appendChild(p2);
@@ -104,19 +104,18 @@ var cssObjectSide1 = new THREE.CSS3DObject(side1);
 var cssObjectSide2 = new THREE.CSS3DObject(side2);
 
 // the width and height is used to align things.
-cssObjectSide1.position.x = 200.0;
-cssObjectSide1.position.y = 0.0;
-cssObjectSide1.position.z = 0.0;
-cssObjectSide1.rotation.y = -Math.PI / 2;
+cssObjectSide1.position.z = -0.50;
+//cssObjectSide1.rotation.y = -Math.PI / 2;
 
+/*
 cssObjectSide2.position.x = -200.0;
 cssObjectSide2.position.y = 0.0;
 cssObjectSide2.position.z = 0.0;
 cssObjectSide2.rotation.y = Math.PI / 2;
-
+*/
 
 userLocation.add(cssObjectSide1);
-userLocation.add(cssObjectSide2);
+//userLocation.add(cssObjectSide2);
 
 // the updateEvent is called each time the 3D world should be
 // rendered, before the renderEvent.  The state of your application
@@ -182,3 +181,145 @@ function renderFunc() {
         }
     }
 }
+
+/* To use Vuforia with argon, the library must be initialized with a valid license key. The argon browser requires each web app to have an encrypted key. The code below initalizes vuforia using the encrtypted license. app.vuforia.isAvailable returns a promise that passes a boolean to the success function (app.vuforia.init)
+*       
+*   app.vuforia.isAvalailbe: 
+    - checks to see if the web app platform supports vuforia
+*       parameters: 
+*       return: 
+*           null if vuforia is not available
+*
+*   app.vuforia.init: 
+*   - initializes argon with license key
+*       parameter: encrypted license data object
+*/ 
+
+app.vuforia.isAvailable().then(function (available) {
+    //vuforia not available on this platform
+    if (!available) {
+        console.warn("vuforia not available on this platform.");
+        return;
+    }
+
+
+    app.vuforia.init({
+        encryptedLicenseData: "-----BEGIN PGP MESSAGE-----
+Version: OpenPGP.js v2.3.2
+Comment: http://openpgpjs.org
+
+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
+=EKz2
+-----END PGP MESSAGE-----"
+    }).then(function (api) {
+        // vuforia has been initialized. 
+        console.log("Running Vuforia...");
+        
+        //Argon must download our vuforia dataset. The 
+        api.objectTracker.createDataSet("A4Targets.xml".then ( (dataSet)=> {
+            //Data has been successfully downloaded
+            console.log("Data download successful");
+            
+            dataSet.load().then(()=> {
+                console.log("Data is loaded");
+                
+                //set up content for desired target
+                const trackables = dataSet.getTrackables();
+                
+                const artPiece = app.context.subscribeToEntityById(trackables["Target"].id);
+                
+                //Create a THREE object to put on the trackable. We will add sideOne and sideTwo when the target is found
+                
+                const artPieceObject = new THREE.Object3D;
+                scene.add(artPieceObject);
+                
+                //call updateEvent each time the 3D world is rendered, before render event
+                
+                app.contect.updateEvent.addEventListener(() => {
+                    //Get local coordinates (pose) of our target
+                    const targetPose = app.context.getEntityPose(artPiece);
+                    
+                    //If location is known, then the target is visible. Therefore we set the THRee object to the target's location and orientation
+                    
+                    if(targetPose.poseStatus & Argon.PoseStatus.known) {
+                        artPieceObject.position.copy(<any>targetPose.position); //copy location
+                        
+                        artPieceObject.quarternion.copy(<any>targetPose.orientation);   //copy orientation
+                        
+                    }
+                    
+                    /*When the target is seen after not being scene, status is FOUND
+                    *   Therefore, move object onto target
+                    *
+                    *When the target is lost after being seen, status is LOST
+                    *   Therefore, remove object from target
+                    *
+                    */
+                    
+                    if(targetPose.poseStatus & Argon.PoseStatus.FOUND) {
+                        artPieceObject.add(cssObjectSide1ne);
+                        sideOne.position.z = 0;
+                    
+                    } else if(targetPose.poseStatus & Argon.PoseStatus.LOST) {
+                        sideOne.position.z = 0.5;
+                        userLocation.add(cssObjectSide1);
+                    } 
+                    
+                })
+            
+            }).catch(function(err) {
+                console.log("could not load dataset: " + err.message);
+            });
+            //activate the dataset
+            api.objectTracker.activateDataSet(dataSet);
+        }))
+    }).catch(function (err) {
+        console.log("vuforia failed to initialize: " + err.message);
+    });
+});
