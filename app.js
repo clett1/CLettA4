@@ -17,7 +17,7 @@ scene.add(userLocation);
 // fixed to the screen (heads-up-display) 
 var renderer = new THREE.CSS3DArgonRenderer();
 
-renderer.setPixelRatio(window.devicePixelRatio);
+//renderer.setPixelRatio(window.devicePixelRatio);
 
 app.view.element.appendChild(renderer.domElement);
 
