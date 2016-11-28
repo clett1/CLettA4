@@ -217,7 +217,10 @@ app.vuforia.isAvailable().then(function (available) {
                         console.log("Target Found");
                         
                         ARProjectionObject.add(cssObjectArt);
-                        cssObjectArt.position.z = 0;
+                        cssObjectArt.position.x = 200.0;
+cssObjectArt.position.y = 0.0;
+cssObjectArt.position.z = 0.0;
+cssObjectArt.rotation.y = -Math.PI / 2;
                     
                     } else if(targetPose.poseStatus & Argon.PoseStatus.LOST) {  
                         //Target is lost
