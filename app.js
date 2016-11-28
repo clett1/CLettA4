@@ -231,7 +231,7 @@ app.vuforia.isAvailable().then(function (available) {
                     
                     //If location is known, then the target is visible. Therefore we set the THREE object to the target's location and orientation
                     if(targetPose.poseStatus & Argon.PoseStatus.KNOWN) {
-                        console.log("Target location found");
+                        //console.log("Target location found");
                         ARProjectionObject.position.copy(targetPose.position); //copy location 
                         ARProjectionObject.quaternion.copy(targetPose.orientation);   //copy orientation
 
