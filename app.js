@@ -227,7 +227,7 @@ app.vuforia.isAvailable().then(function (available) {
                     //Get local coordinates (pose) of our target
                     var targetPose = app.context.getEntityPose(targetEntity);
                     
-                    console.log(Argon.PoseStatus.known);
+                    //console.log(Argon.PoseStatus.known);
                     
                     //If location is known, then the target is visible. Therefore we set the THREE object to the target's location and orientation
                     if(targetPose.poseStatus & Argon.PoseStatus.known) {
