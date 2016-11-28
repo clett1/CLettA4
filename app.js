@@ -73,11 +73,12 @@ var cssObjectXneg = new THREE.CSS3DObject(divXneg);
 // the width and height is used to align things.
 //cssObjectXpos.position.x = 200.0;
 //cssObjectXpos.position.y = 0.0;
+/*
 cssObjectXpos.position.x = 200;
 cssObjectXpos.position.y = 0;
 cssObjectXpos.position.z = 0;
 cssObjectXpos.rotation.y = -Math.PI / 2;
-/*
+
 cssObjectXneg.position.x = -200.0;
 cssObjectXneg.position.y = 0.0;
 cssObjectXneg.position.z = 0.0;
@@ -140,13 +141,20 @@ userLocation.add(cssObjectXpos);
                     if(targetPose.poseStatus & Argon.PoseStatus.FOUND) {
                         //Target has been found
                         console.log("Target Found");
+                        cssObjectXpos.position.copy(targetPose.position); //copy location
                         
+                        cssObjectXpos.quarternion.copy(targetPose.orientation);   //copy orientation
                         //ARProjectionObject.add(cssObjectXpos);
                        // cssObjectXpos.position.z = 0;
                     
                     } else if(targetPose.poseStatus & Argon.PoseStatus.LOST) {  
                         //Target is lost
                         console.log("Target Lost");
+                        
+                        cssObjectXpos.position.x = 0;
+                        cssObjectXpos.position.y = 0;
+                        cssObjectXpos.position.z = -0.5;
+                        
                         
                         //cssObjectXpos.position.z = -0.5;
                         //userLocation.add(cssObjectXpos);
