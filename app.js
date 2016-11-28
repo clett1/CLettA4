@@ -75,7 +75,8 @@ var scene = new THREE.Scene();
 			var cube = new THREE.Mesh( geometry, material );
 			scene.add( cube );
 
-			camera.position.z = 5;
+			camera.position.z = 10;
+
 
 			var render = function () {
 				requestAnimationFrame( render );
