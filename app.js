@@ -69,7 +69,7 @@ divXneg.innerText = "Neg X = West";
 // yourself is simplest.
 var cssObjectXpos = new THREE.CSS3DSprite(divXpos);
 cssObjectXpos.scale.set(.5, .5, .5);
-cssObjectXpos.position.set(0, 0, -.05);
+cssObjectXpos.position.set(0, 0, 0);
 
 //var cssObjectXneg = new THREE.CSS3DSprite(divXneg);
 
