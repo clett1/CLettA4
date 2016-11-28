@@ -54,7 +54,7 @@ scene.add(argonTextObject);
 argonTextObject.position.z = -0.50;
 userLocation.add(argonTextObject);
 var loader = new THREE.FontLoader();
-loader.load('../resources/fonts/helvetiker_bold.typeface.js', function (font) {
+loader.load('font.js', function (font) {
     var textGeometry = new THREE.TextGeometry("argon.js", {
         font: font,
         size: 40,
