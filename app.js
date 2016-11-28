@@ -36,6 +36,12 @@ app.view.element.appendChild(hud.domElement);
 // that here.  The other option Argon supports is localOriginEastNorthUp, which is
 // more similar to what is used in the geospatial industry
 app.context.setDefaultReferenceFrame(app.context.localOriginEastUpSouth);
+
+//LABEL OBJECT
+var label3DObject = new THREE.Object3D();
+label3DObject.position.z = -.5;
+userLocation.add(label3DObject);
+
 // creating 6 divs to indicate the x y z positioning
 var divXpos = document.createElement('div');
 var divXneg = document.createElement('div');
@@ -57,10 +63,18 @@ divXneg.style.backgroundColor = "red";
 divXneg.innerText = "Neg X = West";
 
 var cssObjectXpos = new THREE.CSS3DObject(divXpos);
-cssObjectXpos.position.x = 100.0;
-cssObjectXpos.position.y = 0;
-cssObjectXpos.position.x = 0;
-userlocation.add(cssObjectXpos);
+//cssObjectXpos.position.x = 0;
+//cssObjectXpos.position.y = 0;
+//cssObjectXpos.position.x = 0;
+
+cssObjextXpos.scale.set(0.5, 0.5, 0.5);
+cssObjextXpos.position.set(0, 0, 0);
+
+label3DObject.add(cssObjectXpos);
+
+
+//userlocation.add(cssObjectXpos);
+
 // create 6 CSS3DObjects in the scene graph.  The CSS3DObject object 
 // is used by the CSS3DArgonRenderer. Because an HTML element can only
 // appear once in the DOM, we need two elements to create a stereo view.
@@ -131,7 +145,6 @@ cssObjectXneg.rotation.y = Math.PI / 2;
                     //If location is known, then the target is visible. Therefore we set the THREE object to the target's location and orientation
                     if(targetPose.poseStatus & Argon.PoseStatus.known) {
                         console.log("Target location found");
-                        
                         ARProjectionObject.position.copy(targetPose.position); //copy location 
                         ARProjectionObject.quarternion.copy(targetPose.orientation);   //copy orientation
 
@@ -151,14 +164,16 @@ cssObjectXneg.rotation.y = Math.PI / 2;
                         console.log(targetPose.position.x);
                         console.log(targetPose.position.y);
 
-                        ARProjectionObject.add(cssObjectXpos);
+                        ARProjectionObject.add(label3DObject);
+                        label3DObject.position.z = 0;
                       
                     
                     } else if(targetPose.poseStatus & Argon.PoseStatus.LOST) {  
                         //Target is lost
                         console.log("Target Lost");
-                        //cssObjectXpos.position.z = -0.5;
-                        userLocation.add(cssObjectXpos);
+                        
+                        label3DObject.position.z = -0.5;
+                        userLocation.add(label3DObject);
                     } 
                 });
             }).catch(function(err) {
