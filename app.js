@@ -56,7 +56,7 @@ divXneg.className = "cssContent";
 divXneg.style.backgroundColor = "red";
 divXneg.innerText = "Neg X = West";
 
-var cssObjectXpos = new THREE.CSS3DSprite(divXpos);
+var cssObjectXpos = new THREE.CSS3DObject(divXpos);
 cssObjectXpos.scale.set(.5, .5, .5);
 cssObjectXpos.position.set(0, 0, 0);
 
