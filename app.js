@@ -156,7 +156,7 @@ app.vuforia.isAvailable().then(function (available) {
                 var targetEntity = app.context.subscribeToEntityById(trackables["Target"].id);
                 
                 //Create a THREE object to put on the trackable. We will add sideOne and sideTwo when the target is found
-                var ARProjectionObject = new THREE.Object3D;
+                var ARProjectionObject = new THREE.CSS3DObject;
                 scene.add(ARProjectionObject);
                 
                 //call updateEvent each time the 3D world is rendered, before render event
@@ -219,38 +219,55 @@ app.context.updateEvent.addEventListener(function () {
         userLocation.position.copy(userPose.position);
     }
 });
+
+// for the CSS renderer, we want to use requestAnimationFrame to 
+// limit the number of repairs of the DOM.  Otherwise, as the 
+// DOM elements are updated, extra repairs of the DOM could be 
+// initiated.  Extra repairs do not appear to happen within the 
+// animation callback.
+var viewport = null;
+var subViews = null;
+var rAFpending = false;
 app.renderEvent.addEventListener(function () {
-    // set the renderers to know the current size of the viewport.
+    // only schedule a new callback if the old one has completed
+    if (!rAFpending) {
+        rAFpending = true;
+        viewport = app.view.getViewport();
+        subViews = app.view.getSubviews();
+        window.requestAnimationFrame(renderFunc);
+    }
+});
+// the animation callback.  
+function renderFunc() {
+    // if we have 1 subView, we're in mono mode.  If more, stereo.
+    var monoMode = subViews.length == 1;
+    rAFpending = false;
+    // set the renderer to know the current size of the viewport.
     // This is the full size of the viewport, which would include
     // both views if we are in stereo viewing mode
-    var viewport = app.view.getViewport();
     renderer.setSize(viewport.width, viewport.height);
-    cssRenderer.setSize(viewport.width, viewport.height);
     hud.setSize(viewport.width, viewport.height);
-    // there is 1 subview in monocular mode, 2 in stereo mode    
-    for (var _i = 0, _a = app.view.getSubviews(); _i < _a.length; _i++) {
-        var subview = _a[_i];
-        var frustum = subview.frustum;
+    // there is 1 subview in monocular mode, 2 in stereo mode
+    for (var _i = 0, subViews_1 = subViews; _i < subViews_1.length; _i++) {
+        var subview = subViews_1[_i];
         // set the position and orientation of the camera for 
         // this subview
         camera.position.copy(subview.pose.position);
         camera.quaternion.copy(subview.pose.orientation);
-        // the underlying system provides a full projection matrix
-        // for the camera. 
+        // the underlying system provide a full projection matrix
+        // for the camera.  Use it, and then update the FOV of the 
+        // camera from it (needed by the CSS Perspective DIV)
         camera.projectionMatrix.fromArray(subview.projectionMatrix);
+        camera.fov = subview.frustum.fovy * 180 / Math.PI;
         // set the viewport for this view
-        var _b = subview.viewport, x = _b.x, y = _b.y, width = _b.width, height = _b.height;
-        // set the CSS rendering up, by computing the FOV, and render this view
-        camera.fov = THREE.Math.radToDeg(frustum.fovy);
-        cssRenderer.setViewport(x, y, width, height, subview.index);
-        cssRenderer.render(scene, camera, subview.index);
-        // set the webGL rendering parameters and render this view
-        renderer.setViewport(x, y, width, height);
-        renderer.setScissor(x, y, width, height);
-        renderer.setScissorTest(true);
-        renderer.render(scene, camera);
-        // adjust the hud
-        hud.setViewport(x, y, width, height, subview.index);
-        hud.render(subview.index);
+        var _a = subview.viewport, x = _a.x, y = _a.y, width = _a.width, height = _a.height;
+        renderer.setViewport(x, y, width, height, subview.index);
+        // render this view.
+        renderer.render(scene, camera, subview.index);
+        // adjust the hud, but only in mono
+        if (monoMode) {
+            hud.setViewport(x, y, width, height, subview.index);
+            hud.render(subview.index);
+        }
     }
-});
+}
