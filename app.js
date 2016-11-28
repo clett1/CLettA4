@@ -1,4 +1,3 @@
-
 /// <reference path="../../typings/index.d.ts"/>
 // set up Argon
 var app = Argon.init();
@@ -161,7 +160,7 @@ userLocation.add(cssObjectXpos);
     }).catch(function(err) {
         console.log("vuforia failed to initialize: " + err.message);
     });
-});
+
 
 // the updateEvent is called each time the 3D world should be
 // rendered, before the renderEvent.  The state of your application
@@ -227,5 +226,3 @@ function renderFunc() {
         }
     }
 }
-
-
