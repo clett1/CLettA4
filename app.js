@@ -73,6 +73,8 @@ var cssObjectXpos = new THREE.CSS3DObject(divXpos);
 
 //var cssObjectXneg = new THREE.CSS3DSprite(divXneg);
 var argonTextObject = new THREE.Object3D();
+
+argonTextObject.add(cssObjectXpos);
 argonTextObject.position.z = -0.50;
 userLocation.add(argonTextObject);
 
