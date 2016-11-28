@@ -131,7 +131,7 @@ creatorInfo.appendChild(creatorPara);
 
 
 var cssObjectArt = new THREE.CSS3DSprite(artInfo);
-var cssObjectCreator = new THREE.CSS3Sprite(creatorInfo);
+var cssObjectCreator = new THREE.CSS3DSprite(creatorInfo);
 
 // the width and height is used to align things.
 
