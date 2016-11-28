@@ -146,7 +146,7 @@ cssObjectXneg.rotation.y = Math.PI / 2;
                     if(targetPose.poseStatus & Argon.PoseStatus.FOUND) {
                         //Target has been found
                         console.log("Target Found");  
-                        console.log(targetPose);
+                        console.log(targetPose.position);
 
                         ARProjectionObject.add(cssObjectXpos);
                       
