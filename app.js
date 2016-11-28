@@ -113,8 +113,8 @@ userLocation.add(cssObjectXpos);
                 var targetEntity = app.context.subscribeToEntityById(trackables["Target"].id);
                 
                 //Create a THREE object to put on the trackable. We will add sideOne and sideTwo when the target is found
-                var ARProjectionObject = new THREE.Object3D;
-                scene.add(ARProjectionObject);
+                //var ARProjectionObject = new THREE.Object3D;
+                //scene.add(ARProjectionObject);
                 
                 //call updateEvent each time the 3D world is rendered, before render event
                 app.context.updateEvent.addEventListener(function() {
@@ -123,9 +123,9 @@ userLocation.add(cssObjectXpos);
                     
                     //If location is known, then the target is visible. Therefore we set the THREE object to the target's location and orientation
                     if(targetPose.poseStatus & Argon.PoseStatus.known) {
-                        ARProjectionObject.position.copy(targetPose.position); //copy location
+                        cssObjectXpos.position.copy(targetPose.position); //copy location
                         
-                        ARProjectionObject.quarternion.copy(targetPose.orientation);   //copy orientation
+                        cssObjectXpos.quarternion.copy(targetPose.orientation);   //copy orientation
                         
                     }
                     
@@ -141,15 +141,15 @@ userLocation.add(cssObjectXpos);
                         //Target has been found
                         console.log("Target Found");
                         
-                        ARProjectionObject.add(cssObjectXpos);
-                        cssObjectXpos.position.z = 0;
+                        //ARProjectionObject.add(cssObjectXpos);
+                       // cssObjectXpos.position.z = 0;
                     
                     } else if(targetPose.poseStatus & Argon.PoseStatus.LOST) {  
                         //Target is lost
                         console.log("Target Lost");
                         
-                        cssObjectXpos.position.z = -0.5;
-                        userLocation.add(cssObjectXpos);
+                        //cssObjectXpos.position.z = -0.5;
+                        //userLocation.add(cssObjectXpos);
                     } 
                 });
             }).catch(function(err) {
