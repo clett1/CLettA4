@@ -257,8 +257,8 @@ app.vuforia.isAvailable().then(function (available) {
                         //Target is lost
                         console.log("Target Lost");
                         
-                        label3DObject.position.z = -0.5;
-                        userLocation.add(label3DObject);
+                        argonTextObject.position.z = -0.5;
+                        userLocation.add(argonTextObject);
                     } 
                 });
             }).catch(function(err) {
