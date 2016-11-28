@@ -67,8 +67,8 @@ var cssObjectXpos = new THREE.CSS3DObject(divXpos);
 //cssObjectXpos.position.y = 0;
 //cssObjectXpos.position.x = 0;
 
-cssObjectXpos.scale.set(0.5, 0.5, 0.5);
-cssObjectXpos.position.set(0, 0, 0);
+cssObjectXpos.scale.set(0.2, 0.2, 0.2);
+//cssObjectXpos.position.set(0, 0, 0);
 
 label3DObject.add(cssObjectXpos);
 
