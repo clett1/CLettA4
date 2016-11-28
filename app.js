@@ -73,8 +73,9 @@ var cssObjectXneg = new THREE.CSS3DObject(divXneg);
 // the width and height is used to align things.
 //cssObjectXpos.position.x = 200.0;
 //cssObjectXpos.position.y = 0.0;
-
-cssObjectXpos.position.z = -0.5;
+cssObjectXpos.position.x = 200;
+cssObjectXpos.position.y = 0;
+cssObjectXpos.position.z = 0;
 cssObjectXpos.rotation.y = -Math.PI / 2;
 /*
 cssObjectXneg.position.x = -200.0;
