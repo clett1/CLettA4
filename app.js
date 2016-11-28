@@ -33,6 +33,8 @@ var description = document.getElementById('description');
 hud.hudElements[0].appendChild(description);
 app.view.element.appendChild(hud.domElement);
 
+var stats = new Stats();
+hud.hudElements[0].appendChild(stats.dom);
 // Tell argon what local coordinate system you want.  The default coordinate
 // frame used by Argon is Cesium's FIXED frame, which is centered at the center
 // of the earth and oriented with the earth's axes.  
@@ -48,15 +50,67 @@ app.view.element.appendChild(hud.domElement);
 // more similar to what is used in the geospatial industry
 app.context.setDefaultReferenceFrame(app.context.localOriginEastUpSouth);
 
-//LABEL OBJECT
-var label3DObject = new THREE.Object3D();
-label3DObject.position.z = -0.50;
-
-var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-var cube = new THREE.Mesh( geometry, material );
-
-label3DObject.add(cube);
+var uniforms = {
+    amplitude: { type: "f", value: 0.0 }
+};
+var argonTextObject = new THREE.Object3D();
+argonTextObject.position.z = -0.50;
+userLocation.add(argonTextObject);
+var loader = new THREE.FontLoader();
+loader.load('../resources/fonts/helvetiker_bold.typeface.js', function (font) {
+    var textGeometry = new THREE.TextGeometry("argon.js", {
+        font: font,
+        size: 40,
+        height: 5,
+        curveSegments: 3,
+        bevelThickness: 2,
+        bevelSize: 1,
+        bevelEnabled: true
+    });
+    textGeometry.center();
+    var tessellateModifier = new THREE.TessellateModifier(8);
+    for (var i = 0; i < 6; i++) {
+        tessellateModifier.modify(textGeometry);
+    }
+    var explodeModifier = new THREE.ExplodeModifier();
+    explodeModifier.modify(textGeometry);
+    var numFaces = textGeometry.faces.length;
+    var bufferGeometry = new THREE.BufferGeometry().fromGeometry(textGeometry);
+    var colors = new Float32Array(numFaces * 3 * 3);
+    var displacement = new Float32Array(numFaces * 3 * 3);
+    var color = new THREE.Color();
+    for (var f = 0; f < numFaces; f++) {
+        var index = 9 * f;
+        var h = 0.07 + 0.1 * Math.random();
+        var s = 0.5 + 0.5 * Math.random();
+        var l = 0.6 + 0.4 * Math.random();
+        color.setHSL(h, s, l);
+        var d = 5 + 20 * (0.5 - Math.random());
+        for (var i = 0; i < 3; i++) {
+            colors[index + (3 * i)] = color.r;
+            colors[index + (3 * i) + 1] = color.g;
+            colors[index + (3 * i) + 2] = color.b;
+            displacement[index + (3 * i)] = d;
+            displacement[index + (3 * i) + 1] = d;
+            displacement[index + (3 * i) + 2] = d;
+        }
+    }
+    bufferGeometry.addAttribute('customColor', new THREE.BufferAttribute(colors, 3));
+    bufferGeometry.addAttribute('displacement', new THREE.BufferAttribute(displacement, 3));
+    var shaderMaterial = new THREE.ShaderMaterial({
+        uniforms: uniforms,
+        vertexShader: "\n            uniform float amplitude;\n            attribute vec3 customColor;\n            attribute vec3 displacement;\n            varying vec3 vNormal;\n            varying vec3 vColor;\n            void main() {\n                vNormal = normal;\n                vColor = customColor;\n                vec3 newPosition = position + normal * amplitude * displacement;\n                gl_Position = projectionMatrix * modelViewMatrix * vec4( newPosition, 1.0 );\n            }\n        ",
+        fragmentShader: "\n            varying vec3 vNormal;\n            varying vec3 vColor;\n            void main() {\n                const float ambient = 0.4;\n                vec3 light = vec3( 1.0 );\n                light = normalize( light );\n                float directional = max( dot( vNormal, light ), 0.0 );\n                gl_FragColor = vec4( ( directional + ambient ) * vColor, 1.0 );\n            }\n        "
+    });
+    var textMesh = new THREE.Mesh(bufferGeometry, shaderMaterial);
+    argonTextObject.add(textMesh);
+    argonTextObject.scale.set(0.001, 0.001, 0.001);
+    // add an argon updateEvent listener to slowly change the text over time.
+    // we don't have to pack all our logic into one listener.
+    app.context.updateEvent.addEventListener(function () {
+        uniforms.amplitude.value = 1.0 + Math.sin(Date.now() * 0.001 * 0.5);
+    });
+});
 
 /*
 label3DObject.position.z = -.5;
@@ -232,7 +286,7 @@ app.context.updateEvent.addEventListener(function () {
 // renderEvent is fired whenever argon wants the app to update its display
 app.renderEvent.addEventListener(function () {
     // update the rendering stats
-    //stats.update();
+    stats.update();
     // if we have 1 subView, we're in mono mode.  If more, stereo.
     var monoMode = (app.view.getSubviews()).length == 1;
     // set the renderer to know the current size of the viewport.
