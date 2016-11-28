@@ -240,6 +240,7 @@ app.renderEvent.addEventListener(function () {
 // the animation callback.  
 function renderFunc() {
     // if we have 1 subView, we're in mono mode.  If more, stereo.
+        console.log("rendering HTML");
     var monoMode = subViews.length == 1;
     rAFpending = false;
     // set the renderer to know the current size of the viewport.
