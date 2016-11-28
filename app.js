@@ -60,7 +60,7 @@ var cssObjectXpos = new THREE.CSS3DObject(divXpos);
 cssObjectXpos.position.x = 100.0;
 cssObjectXpos.position.y = 0;
 cssObjectXpos.position.x = 0;
-
+userlocation.add(cssObjectXpos);
 // create 6 CSS3DObjects in the scene graph.  The CSS3DObject object 
 // is used by the CSS3DArgonRenderer. Because an HTML element can only
 // appear once in the DOM, we need two elements to create a stereo view.
