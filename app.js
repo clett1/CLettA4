@@ -1,33 +1,7 @@
 // Sets up Argon for the site
 var app = Argon.init();
 
-// set up THREE.  Create a scene, a perspective camera and an object for the user's location
-var scene = new THREE.Scene();
-var camera = new THREE.PerspectiveCamera();
-var userLocation = new THREE.Object3D;
-
-//Add camera to the scene
-scene.add(camera);  
-
-//Add user location to the scene
-scene.add(userLocation); 
-
-/*
-*   CSS3DArgonRenderer: 
-        Create a place to put elements that appear fixed to the screen
-*   
-*   CSS3DArgonHUD:
-        Allows us to easily control things put on the display
-*/
-
-var renderer = new THREE.CSS3DArgonRenderer();
-app.view.element.appendChild(renderer.domElement);
-var hud = new THREE.CSS3DArgonHUD();
-
-//Put description element and add to hudElements. We put this here because it can be hidden
-var description = document.getElementById('description');
-hud.hudElements[0].appendChild(description);
-app.view.element.appendChild(hud.domElement);
+ 
 
 // Tell argon what local coordinate system you want.  The default coordinate
 // frame used by Argon is Cesium's FIXED frame, which is centered at the center
@@ -43,6 +17,64 @@ app.view.element.appendChild(hud.domElement);
 // that here.  The other option Argon supports is localOriginEastNorthUp, which is
 // more similar to what is used in the geospatial industry
 app.context.setDefaultReferenceFrame(app.context.localOriginEastUpSouth);
+
+// set up THREE.  Create a scene, a perspective camera and an object for the user's location
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera();
+var userLocation = new THREE.Object3D;
+
+//Add camera to the scene
+scene.add(camera); 
+
+
+var cssRenderer = new THREE.CSS3DArgonRenderer();
+var hud = new THREE.CSS3DArgonHUD();
+var renderer = new THREE.WebGLRenderer({
+    alpha: true,
+    logarithmicDepthBuffer: true
+});
+renderer.setPixelRatio(window.devicePixelRatio);
+// Assuming the z-orders are the same, the order of sibling elements
+// in the DOM determines which content is in front (top->bottom = back->front)
+app.view.element.appendChild(renderer.domElement);
+app.view.element.appendChild(cssRenderer.domElement);
+app.view.element.appendChild(hud.domElement);
+// We put some elements in the index.html, for convenience. 
+// Here, we retrieve them and move the information boxes to the 
+// the CSS3DArgonHUD hudElement.
+var hudContent = document.getElementById('hud');
+hud.appendChild(hudContent);
+var locationElements = hudContent.getElementsByClassName('location');
+//  We also move the description box to the Argon HUD, but moving it inside the 'hud' element
+var hudDescription = document.getElementById('description');
+hudContent.appendChild(hudDescription);
+
+
+/*
+//Add user location to the scene
+scene.add(userLocation); 
+
+
+*   CSS3DArgonRenderer: 
+        Create a place to put elements that appear fixed to the screen
+*   
+*   CSS3DArgonHUD:
+        Allows us to easily control things put on the display
+
+
+var renderer = new THREE.CSS3DArgonRenderer();
+app.view.element.appendChild(renderer.domElement);
+var hud = new THREE.CSS3DArgonHUD();
+
+//Put description element and add to hudElements. We put this here because it can be hidden
+var description = document.getElementById('description');
+hud.hudElements[0].appendChild(description);
+app.view.element.appendChild(hud.domElement);*/
+
+
+
+
+
 
 /** The next block of code creates the divs that will appear when the target is in sigh.
 *   Styles for both divs can be found in style.css
@@ -156,7 +188,7 @@ app.vuforia.isAvailable().then(function (available) {
                 var targetEntity = app.context.subscribeToEntityById(trackables["Target"].id);
                 
                 //Create a THREE object to put on the trackable. We will add sideOne and sideTwo when the target is found
-                var ARProjectionObject = new THREE.CSS3DObject;
+                var ARProjectionObject = new THREE.Object3D;
                 scene.add(ARProjectionObject);
                 
                 //call updateEvent each time the 3D world is rendered, before render event
@@ -220,54 +252,39 @@ app.context.updateEvent.addEventListener(function () {
     }
 });
 
-// for the CSS renderer, we want to use requestAnimationFrame to 
-// limit the number of repairs of the DOM.  Otherwise, as the 
-// DOM elements are updated, extra repairs of the DOM could be 
-// initiated.  Extra repairs do not appear to happen within the 
-// animation callback.
-var viewport = null;
-var subViews = null;
-var rAFpending = false;
+// renderEvent is fired whenever argon wants the app to update its display
 app.renderEvent.addEventListener(function () {
-    // only schedule a new callback if the old one has completed
-    if (!rAFpending) {
-        rAFpending = true;
-        viewport = app.view.getViewport();
-        subViews = app.view.getSubviews();
-        window.requestAnimationFrame(renderFunc);
-    }
-});
-// the animation callback.  
-function renderFunc() {
-    // if we have 1 subView, we're in mono mode.  If more, stereo.
-    var monoMode = subViews.length == 1;
-    rAFpending = false;
-    // set the renderer to know the current size of the viewport.
+    // set the renderers to know the current size of the viewport.
     // This is the full size of the viewport, which would include
     // both views if we are in stereo viewing mode
+    var viewport = app.view.getViewport();
     renderer.setSize(viewport.width, viewport.height);
+    cssRenderer.setSize(viewport.width, viewport.height);
     hud.setSize(viewport.width, viewport.height);
-    // there is 1 subview in monocular mode, 2 in stereo mode
-    for (var _i = 0, subViews_1 = subViews; _i < subViews_1.length; _i++) {
-        var subview = subViews_1[_i];
+    // there is 1 subview in monocular mode, 2 in stereo mode    
+    for (var _i = 0, _a = app.view.getSubviews(); _i < _a.length; _i++) {
+        var subview = _a[_i];
+        var frustum = subview.frustum;
         // set the position and orientation of the camera for 
         // this subview
         camera.position.copy(subview.pose.position);
         camera.quaternion.copy(subview.pose.orientation);
         // the underlying system provide a full projection matrix
-        // for the camera.  Use it, and then update the FOV of the 
-        // camera from it (needed by the CSS Perspective DIV)
+        // for the camera. 
         camera.projectionMatrix.fromArray(subview.projectionMatrix);
-        camera.fov = subview.frustum.fovy * 180 / Math.PI;
         // set the viewport for this view
-        var _a = subview.viewport, x = _a.x, y = _a.y, width = _a.width, height = _a.height;
-        renderer.setViewport(x, y, width, height, subview.index);
-        // render this view.
-        renderer.render(scene, camera, subview.index);
-        // adjust the hud, but only in mono
-        if (monoMode) {
-            hud.setViewport(x, y, width, height, subview.index);
-            hud.render(subview.index);
-        }
+        var _b = subview.viewport, x = _b.x, y = _b.y, width = _b.width, height = _b.height;
+        // set the CSS rendering up, by computing the FOV, and render this view
+        camera.fov = THREE.Math.radToDeg(frustum.fovy);
+        cssRenderer.setViewport(x, y, width, height, subview.index);
+        cssRenderer.render(scene, camera, subview.index);
+        // set the webGL rendering parameters and render this view
+        renderer.setViewport(x, y, width, height);
+        renderer.setScissor(x, y, width, height);
+        renderer.setScissorTest(true);
+        renderer.render(scene, camera);
+        // adjust the hud
+        hud.setViewport(x, y, width, height, subview.index);
+        hud.render(subview.index);
     }
-}
+});
