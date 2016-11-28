@@ -67,9 +67,7 @@ divXneg.innerText = "Neg X = West";
 // application runs, letting the CSS3DArgonRenderer clone them is 
 // simplest.  If it is changing, passing in two and updating both
 // yourself is simplest.
-var cssObjectXpos = new THREE.CSS3DSprite(divXpos);
-cssObjectXpos.scale.set(.5, .5, .5);
-cssObjectXpos.position.set(0, 0, 0);
+
 
 //var cssObjectXneg = new THREE.CSS3DSprite(divXneg);
 
@@ -127,9 +125,15 @@ cssObjectXneg.rotation.y = Math.PI / 2;
                     
                     //If location is known, then the target is visible. Therefore we set the THREE object to the target's location and orientation
                     if(targetPose.poseStatus & Argon.PoseStatus.known) {
+                        console.log("Target location found");
+                        
                         ARProjectionObject.position.copy(targetPose.position); //copy location
                         
                         ARProjectionObject.quarternion.copy(targetPose.orientation);   //copy orientation
+                        
+                        var cssObjectXpos = new THREE.CSS3DSprite(divXpos);
+                        cssObjectXpos.scale.set(.5, .5, .5);
+                        cssObjectXpos.position.set(0, 0, 0);
                         
                     }
                     
@@ -143,15 +147,16 @@ cssObjectXneg.rotation.y = Math.PI / 2;
                     
                     if(targetPose.poseStatus & Argon.PoseStatus.FOUND) {
                         //Target has been found
-                        console.log("Target Found");
+                        console.log("Target Found");                        
+                        var cssObjectXpos = new THREE.CSS3DSprite(divXpos);
+                        cssObjectXpos.scale.set(.5, .5, .5);
+                        cssObjectXpos.position.set(0, 0, 0);
                       
-                        ARProjectionObject.add(cssObjectXpos);
-                        cssObjectXpos.position.z = 0;
                     
                     } else if(targetPose.poseStatus & Argon.PoseStatus.LOST) {  
                         //Target is lost
                         console.log("Target Lost");
-                        cssObjectXpos.position.z = -0.5;
+                        //cssObjectXpos.position.z = -0.5;
                         userLocation.add(cssObjectXpos);
                     } 
                 });
