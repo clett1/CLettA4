@@ -57,7 +57,9 @@ divXneg.style.backgroundColor = "red";
 divXneg.innerText = "Neg X = West";
 
 var cssObjectXpos = new THREE.CSS3DObject(divXpos);
-cssObjectXpos.position.set(0, 0, 0);
+cssObjectXpos.position.x = 100.0;
+cssObjectXpos.position.y = 0;
+cssObjectXpos.position.x = 0;
 
 // create 6 CSS3DObjects in the scene graph.  The CSS3DObject object 
 // is used by the CSS3DArgonRenderer. Because an HTML element can only
@@ -146,7 +148,8 @@ cssObjectXneg.rotation.y = Math.PI / 2;
                     if(targetPose.poseStatus & Argon.PoseStatus.FOUND) {
                         //Target has been found
                         console.log("Target Found");  
-                        console.log(targetPose.position);
+                        console.log(targetPose.position.x);
+                        console.log(targetPose.position.y);
 
                         ARProjectionObject.add(cssObjectXpos);
                       
