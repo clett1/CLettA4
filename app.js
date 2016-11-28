@@ -233,7 +233,7 @@ app.vuforia.isAvailable().then(function (available) {
                     if(targetPose.poseStatus & Argon.PoseStatus.KNOWN) {
                         console.log("Target location found");
                         ARProjectionObject.position.copy(targetPose.position); //copy location 
-                        ARProjectionObject.quarternion.copy(targetPose.orientation);   //copy orientation
+                        ARProjectionObject.quaternion.copy(targetPose.orientation);   //copy orientation
 
                     }
                     
