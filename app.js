@@ -70,11 +70,12 @@ divXpos.innerText = "Pos X = East";
 
 
 var cssObjectXpos = new THREE.CSS3DObject(divXpos);
-
+cssObjectXpos.position.set(100, 0, 0);
+scene.add(cssObjectXpos);
 //var cssObjectXneg = new THREE.CSS3DSprite(divXneg);
 var argonTextObject = new THREE.Object3D();
 
-argonTextObject.add(cssObjectXpos);
+//argonTextObject.add(cssObjectXpos);
 argonTextObject.position.z = -0.50;
 userLocation.add(argonTextObject);
 
