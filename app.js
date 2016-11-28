@@ -252,7 +252,7 @@ app.vuforia.isAvailable().then(function (available) {
                      
                         console.log(targetPose.position.x);
                         console.log(targetPose.position.y);
-                        console..log(targetPose.orientation);
+                        console.log(targetPose.orientation);
                         
                         ARProjectionObject.add(argonTextObject);
                         argonTextObject.position.z = 0;
