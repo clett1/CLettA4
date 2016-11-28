@@ -130,15 +130,11 @@ creatorInfo.appendChild(creatorPara);
 
 
 
-var cssObjectArt = new THREE.CSS3DObject(artInfo);
-var cssObjectCreator = new THREE.CSS3DObject(creatorInfo);
+var cssObjectArt = new THREE.CSS3DSprite(artInfo);
+var cssObjectCreator = new THREE.CSS3Sprite(creatorInfo);
 
 // the width and height is used to align things.
-//cssObjectArt.position.z = -0.50;
-cssObjectArt.position.x = 200.0;
-cssObjectArt.position.y = 0.0;
-cssObjectArt.position.z = 0.0;
-cssObjectArt.rotation.y = -Math.PI / 2;
+
 
 userLocation.add(cssObjectArt); //add to user location
 
@@ -217,10 +213,7 @@ app.vuforia.isAvailable().then(function (available) {
                         console.log("Target Found");
                         
                         ARProjectionObject.add(cssObjectArt);
-                        cssObjectArt.position.x = 200.0;
-cssObjectArt.position.y = 0.0;
-cssObjectArt.position.z = 0.0;
-cssObjectArt.rotation.y = -Math.PI / 2;
+                        cssObjectArt.position.z = 0.0;
                     
                     } else if(targetPose.poseStatus & Argon.PoseStatus.LOST) {  
                         //Target is lost
