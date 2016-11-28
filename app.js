@@ -142,13 +142,13 @@ userLocation.add(cssObjectXpos);
                         console.log("Target Found");
                         
                         ARProjectionObject.add(cssObjectXpos);
-                        cssObjectArt.position.z = 0;
+                        cssObjectXpos.position.z = 0;
                     
                     } else if(targetPose.poseStatus & Argon.PoseStatus.LOST) {  
                         //Target is lost
                         console.log("Target Lost");
                         
-                        cssObjectArt.position.z = -0.5;
+                        cssObjectXpos.position.z = -0.5;
                         userLocation.add(cssObjectXpos);
                     } 
                 });
