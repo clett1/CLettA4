@@ -57,7 +57,6 @@ divXneg.style.backgroundColor = "red";
 divXneg.innerText = "Neg X = West";
 
 var cssObjectXpos = new THREE.CSS3DObject(divXpos);
-cssObjectXpos.scale.set(.5, .5, .5);
 cssObjectXpos.position.set(0, 0, 0);
 
 // create 6 CSS3DObjects in the scene graph.  The CSS3DObject object 
@@ -131,14 +130,9 @@ cssObjectXneg.rotation.y = Math.PI / 2;
                     if(targetPose.poseStatus & Argon.PoseStatus.known) {
                         console.log("Target location found");
                         
-                        ARProjectionObject.position.copy(targetPose.position); //copy location
-                        
+                        ARProjectionObject.position.copy(targetPose.position); //copy location 
                         ARProjectionObject.quarternion.copy(targetPose.orientation);   //copy orientation
-                        
-                        
-                        
-                        
-                        
+
                     }
                     
                     /*When the target is seen after not being seen, status is FOUND
@@ -151,10 +145,9 @@ cssObjectXneg.rotation.y = Math.PI / 2;
                     
                     if(targetPose.poseStatus & Argon.PoseStatus.FOUND) {
                         //Target has been found
-                        console.log("Target Found");                        
-                        
-                
-                        
+                        console.log("Target Found");  
+                        console.log(targetPose);
+
                         ARProjectionObject.add(cssObjectXpos);
                       
                     
