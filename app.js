@@ -67,8 +67,11 @@ divXneg.innerText = "Neg X = West";
 // application runs, letting the CSS3DArgonRenderer clone them is 
 // simplest.  If it is changing, passing in two and updating both
 // yourself is simplest.
-var cssObjectXpos = new THREE.CSS3DObject(divXpos);
-var cssObjectXneg = new THREE.CSS3DObject(divXneg);
+var cssObjectXpos = new THREE.CSS3DSprite(divXpos);
+cssObjectXpos.scale.set(.5, .5, .5);
+cssObjectXpos.position.set(0, 0, -.05);
+
+//var cssObjectXneg = new THREE.CSS3DSprite(divXneg);
 
 // the width and height is used to align things.
 //cssObjectXpos.position.x = 200.0;
@@ -85,7 +88,7 @@ cssObjectXneg.position.z = 0.0;
 cssObjectXneg.rotation.y = Math.PI / 2;
 */
 //no rotation need for this one
-userLocation.add(cssObjectXpos);
+//userLocation.add(cssObjectXpos);
 //userLocation.add(cssObjectXneg);
 
 
@@ -114,8 +117,8 @@ userLocation.add(cssObjectXpos);
                 var targetEntity = app.context.subscribeToEntityById(trackables["Target"].id);
                 
                 //Create a THREE object to put on the trackable. We will add sideOne and sideTwo when the target is found
-                //var ARProjectionObject = new THREE.Object3D;
-                //scene.add(ARProjectionObject);
+                var ARProjectionObject = new THREE.Object3D;
+                scene.add(ARProjectionObject);
                 
                 //call updateEvent each time the 3D world is rendered, before render event
                 app.context.updateEvent.addEventListener(function() {
@@ -124,9 +127,9 @@ userLocation.add(cssObjectXpos);
                     
                     //If location is known, then the target is visible. Therefore we set the THREE object to the target's location and orientation
                     if(targetPose.poseStatus & Argon.PoseStatus.known) {
-                        cssObjectXpos.position.copy(targetPose.position); //copy location
+                        ARProjectionObject.position.copy(targetPose.position); //copy location
                         
-                        cssObjectXpos.quarternion.copy(targetPose.orientation);   //copy orientation
+                        ARProjectionObject.quarternion.copy(targetPose.orientation);   //copy orientation
                         
                     }
                     
@@ -141,23 +144,15 @@ userLocation.add(cssObjectXpos);
                     if(targetPose.poseStatus & Argon.PoseStatus.FOUND) {
                         //Target has been found
                         console.log("Target Found");
-                        cssObjectXpos.position.copy(targetPose.position); //copy location
-                        
-                        cssObjectXpos.quarternion.copy(targetPose.orientation);   //copy orientation
-                        //ARProjectionObject.add(cssObjectXpos);
-                       // cssObjectXpos.position.z = 0;
+                      
+                        ARProjectionObject.add(cssObjectXpos);
+                        cssObjectXpos.position.z = 0;
                     
                     } else if(targetPose.poseStatus & Argon.PoseStatus.LOST) {  
                         //Target is lost
                         console.log("Target Lost");
-                        
-                        cssObjectXpos.position.x = 0;
-                        cssObjectXpos.position.y = 0;
                         cssObjectXpos.position.z = -0.5;
-                        
-                        
-                        //cssObjectXpos.position.z = -0.5;
-                        //userLocation.add(cssObjectXpos);
+                        userLocation.add(cssObjectXpos);
                     } 
                 });
             }).catch(function(err) {
