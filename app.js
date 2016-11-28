@@ -104,7 +104,7 @@ loader.load('font.js', function (font) {
     });
     var textMesh = new THREE.Mesh(bufferGeometry, shaderMaterial);
     argonTextObject.add(textMesh);
-    argonTextObject.scale.set(0.001, 0.001, 0.001);
+    argonTextObject.scale.set(1, 1, 1);
     // add an argon updateEvent listener to slowly change the text over time.
     // we don't have to pack all our logic into one listener.
     app.context.updateEvent.addEventListener(function () {
