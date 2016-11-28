@@ -61,7 +61,7 @@ var style = document.createElement("style");
 style.type = 'text/css';
 document.head.appendChild(style);
 var sheet = style.sheet;
-sheet.insertRule("\n    .cssContent {\n        opacity: 0.5;\n        width: 100px;\n        height: 100px;\n        border-radius: 50%;\n        line-height: 100px;\n        fontSize: 20px;\n        text-align: center;\n         }\n", 0);
+sheet.insertRule("\n    .somethingElse {\n        opacity: 0.5;\n        width: 100px;\n        height: 100px;\n        border-radius: 50%;\n        line-height: 100px;\n        fontSize: 20px;\n        text-align: center;\n         }\n", 0);
 // Put content in each one  (should do this as a couple of functions)
 // for X
 divXpos.className = "cssContent";
