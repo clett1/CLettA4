@@ -249,8 +249,8 @@ app.vuforia.isAvailable().then(function (available) {
                         console.log(targetPose.position.x);
                         console.log(targetPose.position.y);
 
-                        ARProjectionObject.add(label3DObject);
-                        label3DObject.position.z = 0;
+                        ARProjectionObject.add(argonTextObject);
+                        argonTextObject.position.z = 0;
                       
                     
                     } else if(targetPose.poseStatus & Argon.PoseStatus.LOST) {  
