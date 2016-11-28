@@ -134,7 +134,7 @@ var cssObjectArt = new THREE.CSS3DObject(artInfo);
 var cssObjectCreator = new THREE.CSS3DObject(creatorInfo);
 
 // the width and height is used to align things.
-cssObjectArt.position.z = -0.50;
+//cssObjectArt.position.z = -0.50;
 userLocation.add(cssObjectArt); //add to user location
 
 
