@@ -56,6 +56,10 @@ divXneg.className = "cssContent";
 divXneg.style.backgroundColor = "red";
 divXneg.innerText = "Neg X = West";
 
+var cssObjectXpos = new THREE.CSS3DSprite(divXpos);
+cssObjectXpos.scale.set(.5, .5, .5);
+cssObjectXpos.position.set(0, 0, 0);
+
 // create 6 CSS3DObjects in the scene graph.  The CSS3DObject object 
 // is used by the CSS3DArgonRenderer. Because an HTML element can only
 // appear once in the DOM, we need two elements to create a stereo view.
@@ -137,7 +141,7 @@ cssObjectXneg.rotation.y = Math.PI / 2;
                         
                     }
                     
-                    /*When the target is seen after not being scene, status is FOUND
+                    /*When the target is seen after not being seen, status is FOUND
                     *   Therefore, move object onto target
                     *
                     *When the target is lost after being seen, status is LOST
@@ -149,9 +153,7 @@ cssObjectXneg.rotation.y = Math.PI / 2;
                         //Target has been found
                         console.log("Target Found");                        
                         
-                        var cssObjectXpos = new THREE.CSS3DSprite(divXpos);
-                        cssObjectXpos.scale.set(.5, .5, .5);
-                        cssObjectXpos.position.set(0, 0, 0);
+                
                         
                         ARProjectionObject.add(cssObjectXpos);
                       
@@ -160,7 +162,7 @@ cssObjectXneg.rotation.y = Math.PI / 2;
                         //Target is lost
                         console.log("Target Lost");
                         //cssObjectXpos.position.z = -0.5;
-                        //userLocation.add(cssObjectXpos);
+                        userLocation.add(cssObjectXpos);
                     } 
                 });
             }).catch(function(err) {
