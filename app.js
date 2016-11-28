@@ -269,7 +269,9 @@ app.renderEvent.addEventListener(function () {
     hud.setSize(viewport.width, viewport.height);
     // there is 1 subview in monocular mode, 2 in stereo mode    
     for (var _i = 0, _a = app.view.getSubviews(); _i < _a.length; _i++) {
-        var subview = _a[_i];
+        var subview = _a[_i];        
+        var frustum = subview.frustum;
+        
         // set the position and orientation of the camera for 
         // this subview
         camera.position.copy(subview.pose.position);
