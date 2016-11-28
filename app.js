@@ -227,6 +227,8 @@ app.vuforia.isAvailable().then(function (available) {
                     //Get local coordinates (pose) of our target
                     var targetPose = app.context.getEntityPose(targetEntity);
                     
+                    console.log(Argon.PoseStatus.known);
+                    
                     //If location is known, then the target is visible. Therefore we set the THREE object to the target's location and orientation
                     if(targetPose.poseStatus & Argon.PoseStatus.known) {
                         console.log("Target location found");
@@ -246,13 +248,12 @@ app.vuforia.isAvailable().then(function (available) {
                     if(targetPose.poseStatus & Argon.PoseStatus.FOUND) {
                         //Target has been found
                         console.log("Target Found");  
-                        console.log("Target location found");
-                        ARProjectionObject.position.copy(targetPose.position); //copy location 
-                        ARProjectionObject.quarternion.copy(targetPose.orientation);   //copy orientation
-
+                        console.log(targetPose.poseStatus + " " + Argon.PoseStatus.FOUND);
+                     
                         console.log(targetPose.position.x);
                         console.log(targetPose.position.y);
-
+                        console..log(targetPose.orientation);
+                        
                         ARProjectionObject.add(argonTextObject);
                         argonTextObject.position.z = 0;
                       
