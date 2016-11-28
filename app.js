@@ -135,6 +135,11 @@ var cssObjectCreator = new THREE.CSS3DObject(creatorInfo);
 
 // the width and height is used to align things.
 //cssObjectArt.position.z = -0.50;
+cssObjectArt.position.x = 200.0;
+cssObjectArt.position.y = 0.0;
+cssObjectArt.position.z = 0.0;
+cssObjectArt.rotation.y = -Math.PI / 2;
+
 userLocation.add(cssObjectArt); //add to user location
 
 
