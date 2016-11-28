@@ -131,9 +131,9 @@ cssObjectXneg.rotation.y = Math.PI / 2;
                         
                         ARProjectionObject.quarternion.copy(targetPose.orientation);   //copy orientation
                         
-                        var cssObjectXpos = new THREE.CSS3DSprite(divXpos);
-                        cssObjectXpos.scale.set(.5, .5, .5);
-                        cssObjectXpos.position.set(0, 0, 0);
+                        
+                        
+                        
                         
                     }
                     
@@ -148,16 +148,19 @@ cssObjectXneg.rotation.y = Math.PI / 2;
                     if(targetPose.poseStatus & Argon.PoseStatus.FOUND) {
                         //Target has been found
                         console.log("Target Found");                        
+                        
                         var cssObjectXpos = new THREE.CSS3DSprite(divXpos);
                         cssObjectXpos.scale.set(.5, .5, .5);
                         cssObjectXpos.position.set(0, 0, 0);
+                        
+                        ARProjectionObject.add(cssObjectXpos);
                       
                     
                     } else if(targetPose.poseStatus & Argon.PoseStatus.LOST) {  
                         //Target is lost
                         console.log("Target Lost");
                         //cssObjectXpos.position.z = -0.5;
-                        userLocation.add(cssObjectXpos);
+                        //userLocation.add(cssObjectXpos);
                     } 
                 });
             }).catch(function(err) {
