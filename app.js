@@ -116,7 +116,7 @@ var cssObjectCreator = new THREE.CSS3DSprite(creatorInfo);
 // the width and height is used to align things.
 
 
-userLocation.add(cssObjectArt); //add to user location
+//userLocation.add(cssObjectArt); //add to user location
 
 app.vuforia.isAvailable().then(function (available) {
     // vuforia not available on this platform
