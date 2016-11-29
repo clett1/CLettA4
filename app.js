@@ -106,9 +106,9 @@ creatorInfo.appendChild(creatorPara);
 
 var cssObjectArt = new THREE.CSS3DObject(artInfo);
 
-cssObjectArt.position.x = 100;
+cssObjectArt.position.x = 0;
 cssObjectArt.position.y = 0;
-cssObjectArt.position.z = 0;
+cssObjectArt.position.z = -.5;
 //cssObjectArt.rotation.y = -Math.PI / 2;
 //cssObjectArt.scale.set(1, 1, 1);
 var cssObjectCreator = new THREE.CSS3DSprite(creatorInfo);
