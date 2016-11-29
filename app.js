@@ -12,11 +12,11 @@ scene.add(userLocation);
 
 //CSS renderer
 var renderer = new THREE.CSS3DArgonRenderer();
+app.view.element.appendChild(renderer.domElement);
 
 
 // account for the pixel density of the device
 renderer.setPixelRatio(window.devicePixelRatio);
-app.view.element.appendChild(renderer.domElement);
 
 // to easily control stuff on the display
 var hud = new THREE.CSS3DArgonHUD();
@@ -29,8 +29,8 @@ var description = document.getElementById('description');
 hud.hudElements[0].appendChild(description);
 app.view.element.appendChild(hud.domElement);
 
-var stats = new Stats();
-hud.hudElements[0].appendChild(stats.dom);
+//var stats = new Stats();
+//hud.hudElements[0].appendChild(stats.dom);
 
 // Tell argon what local coordinate system you want.  The default coordinate
 // frame used by Argon is Cesium's FIXED frame, which is centered at the center
@@ -109,6 +109,7 @@ var cssObjectArt = new THREE.CSS3DObject(artInfo);
 cssObjectArt.position.x = 100;
 cssObjectArt.position.y = 0;
 cssObjectArt.position.z = 0;
+cssObjectXpos.rotation.y = -Math.PI / 2;
 //cssObjectArt.scale.set(1, 1, 1);
 var cssObjectCreator = new THREE.CSS3DSprite(creatorInfo);
 
