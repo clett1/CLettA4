@@ -104,7 +104,7 @@ var creatorParaText = document.createTextNode("Bio about artist. Short paragraph
 creatorInfo.appendChild(creatorHeader);
 creatorInfo.appendChild(creatorPara);
 
-var cssObjectArt = new THREE.CSS3DObject(artInfo);
+var cssObjectArt = new THREE.CSS3DSprite(artInfo);
 
 //cssObjectArt.position.x = 0;
 //cssObjectArt.position.y = 0;
