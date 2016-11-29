@@ -28,11 +28,15 @@ a {
 
 .cssContent {
     opacity: 0.75;
-    border-radius: 10px;        
+    border-radius: 10px;
+    width: 100px;
     padding: 2px;
     background-color: lightgray;
 }
 
+h3 {
+    font-size: .7em;
+}
 .ARDiv {
-    font-size: 1em;
+    font-size: .5em;
 }
