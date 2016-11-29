@@ -16,7 +16,7 @@ app.view.element.appendChild(renderer.domElement);
 
 
 // account for the pixel density of the device
-renderer.setPixelRatio(window.devicePixelRatio);
+//renderer.setPixelRatio(window.devicePixelRatio);
 
 // to easily control stuff on the display
 var hud = new THREE.CSS3DArgonHUD();
