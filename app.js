@@ -109,8 +109,11 @@ creatorInfo.appendChild(creatorHeader);
 creatorInfo.appendChild(creatorPara);
 
 var cssObjectArt = new THREE.CSS3DObject(artInfo);
-cssObjectArt.position.z = -.50;
-cssObjectArt.scale.set(1, 1, 1);
+
+cssObjectArt.position.x = 100;
+cssObjectArt.position.y = 0;
+cssObjectArt.position.z = 0;
+//cssObjectArt.scale.set(1, 1, 1);
 var cssObjectCreator = new THREE.CSS3DSprite(creatorInfo);
 
 // the width and height is used to align things.
