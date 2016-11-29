@@ -35,6 +35,7 @@ app.view.element.appendChild(hud.domElement);
 
 var stats = new Stats();
 hud.hudElements[0].appendChild(stats.dom);
+
 // Tell argon what local coordinate system you want.  The default coordinate
 // frame used by Argon is Cesium's FIXED frame, which is centered at the center
 // of the earth and oriented with the earth's axes.  
@@ -50,106 +51,72 @@ hud.hudElements[0].appendChild(stats.dom);
 // more similar to what is used in the geospatial industry
 app.context.setDefaultReferenceFrame(app.context.localOriginEastUpSouth);
 
+/** The next block of code creates the divs that will appear when the target is in sigh.
+*   Styles for both divs can be found in style.css
+*   Both divs belong to class "cssContent"
+*   Paragraphs belong to class "ARParagraphs"
+*
+*   artInfo: div with information about the art
+*       @artHeader: header for the artInfo div
+*       @artHeaderText: text for header
+*       @artPara: paragraph for artInfo div
+*       @artParaText: text for paragraph
 
-// creating 6 divs to indicate the x y z positioning
-var divXpos = document.createElement('div');
-var divXneg = document.createElement('div');
-
-// programatically create a stylesheet for our direction divs
-// and add it to the document
-var style = document.createElement("style");
-style.type = 'text/css';
-document.head.appendChild(style);
-var sheet = style.sheet;
-sheet.insertRule("\n    .somethingElse {\n        opacity: 0.5;\n        width: 100px;\n        height: 100px;\n        border-radius: 50%;\n        line-height: 100px;\n        fontSize: 20px;\n        text-align: center;\n         }\n", 0);
-// Put content in each one  (should do this as a couple of functions)
-// for X
-divXpos.className = "cssContent";
-divXpos.style.backgroundColor = "red";
-divXpos.innerText = "Pos X = East";
-
-
-var cssObjectXpos = new THREE.CSS3DObject(divXpos);
-cssObjectXpos.position.set(100, 0, 0);
-scene.add(cssObjectXpos);
-//var cssObjectXneg = new THREE.CSS3DSprite(divXneg);
-var argonTextObject = new THREE.Object3D();
-
-//argonTextObject.add(cssObjectXpos);
-argonTextObject.position.z = -0.50;
-userLocation.add(argonTextObject);
-
-/*
-label3DObject.position.z = -.5;
-userLocation.add(label3DObject);
-
-// creating 6 divs to indicate the x y z positioning
-var divXpos = document.createElement('div');
-var divXneg = document.createElement('div');
-
-// programatically create a stylesheet for our direction divs
-// and add it to the document
-var style = document.createElement("style");
-style.type = 'text/css';
-document.head.appendChild(style);
-var sheet = style.sheet;
-sheet.insertRule("\n    .cssContent {\n        opacity: 0.5;\n        width: 100px;\n        height: 100px;\n        border-radius: 50%;\n        line-height: 100px;\n        fontSize: 20px;\n        text-align: center;\n         }\n", 0);
-// Put content in each one  (should do this as a couple of functions)
-// for X
-divXpos.className = "cssContent";
-divXpos.style.backgroundColor = "red";
-divXpos.innerText = "Pos X = East";
-divXneg.className = "cssContent";
-divXneg.style.backgroundColor = "red";
-divXneg.innerText = "Neg X = West";
-
+*   creatorInfo: div with information about the creator
+*       @creatorHeader: header for the artInfo div
+*       @creatorHeaderText: text for header
+*       @creatorPara: paragraph for artInfo div
+*       @creatorParaText: text for paragraph
+*   
 */
 
-/*
+//artInfo div, header, and paragraph declarations
+var artInfo = document.createElement('div');
+artInfo.className = "cssContent";
 
-//cssObjectXpos.position.x = 0;
-//cssObjectXpos.position.y = 0;
-//cssObjectXpos.position.x = 0;
+//header
+var artHeader = document.createElement("h3");
+var artHeaderText = document.createTextNode("Title, 1900");
+    artHeader.appendChild(artHeaderText);
 
-cssObjectXpos.scale.set(0.2, 0.2, 0.2);
-//cssObjectXpos.position.set(0, 0, 0);
+//paragraph
+var artPara = document.createElement("p");
+artPara.className = "ARParagraphs";
+var artParaText = document.createTextNode("Description about art piece goes here. Short paragraph describing piece history/inspiration/etc.");
+    artPara.appendChild(artParaText);
 
-label3DObject.add(cssObjectXpos);
+artInfo.appendChild(artHeader);
+artInfo.appendChild(artPara);
 
+//*****************************************
 
-//userlocation.add(cssObjectXpos);
+//creatorInfo div, header, and paragraph declarations
+var creatorInfo = document.createElement('div');
+creatorInfo.className = "cssContent";
 
-// create 6 CSS3DObjects in the scene graph.  The CSS3DObject object 
-// is used by the CSS3DArgonRenderer. Because an HTML element can only
-// appear once in the DOM, we need two elements to create a stereo view.
-// The CSS3DArgonRenderer manages these for you, using the CSS3DObject.
-// You can pass a single DIV to the CSS3DObject, which
-// will be cloned to create a second matching DIV in stereo mode, or you
-// can pass in two DIVs in an array (one for the left and one for the 
-// right eyes).  If the content of the DIV does not change as the 
-// application runs, letting the CSS3DArgonRenderer clone them is 
-// simplest.  If it is changing, passing in two and updating both
-// yourself is simplest.
+//header
+var creatorHeader = document.createElement("h3");
+var creatorHeaderText = document.createTextNode("First Last");
+    creatorHeader.appendChild(creatorHeaderText);
 
+//paragraph
+var creatorPara = document.createElement("p");
+creatorPara.className = "ARParagraphs";
+var creatorParaText = document.createTextNode("Bio about artist. Short paragraph describing artist history/inspiration/etc.");
+    creatorPara.appendChild(creatorHeaderText);
 
+creatorInfo.appendChild(creatorHeader);
+creatorInfo.appendChild(creatorPara);
+
+var cssObjectArt = new THREE.CSS3DObject(artInfo);
+cssObjectArt.position.z = -.50;
+cssObjectArt.scale.set(1, 1, 1);
+var cssObjectCreator = new THREE.CSS3DSprite(creatorInfo);
 
 // the width and height is used to align things.
-//cssObjectXpos.position.x = 200.0;
-//cssObjectXpos.position.y = 0.0;
-/*
-cssObjectXpos.position.x = 200;
-cssObjectXpos.position.y = 0;
-cssObjectXpos.position.z = 0;
-cssObjectXpos.rotation.y = -Math.PI / 2;
 
-cssObjectXneg.position.x = -200.0;
-cssObjectXneg.position.y = 0.0;
-cssObjectXneg.position.z = 0.0;
-cssObjectXneg.rotation.y = Math.PI / 2;
-*/
-//no rotation need for this one
-//userLocation.add(cssObjectXpos);
-//userLocation.add(cssObjectXneg);
+
+userLocation.add(cssObjectArt); //add to user location
 
 app.vuforia.isAvailable().then(function (available) {
     // vuforia not available on this platform
@@ -220,16 +187,16 @@ app.vuforia.isAvailable().then(function (available) {
                         console.log(targetPose.position.y);
                         console.log(targetPose.orientation);
                         
-                        ARProjectionObject.add(argonTextObject);
-                        argonTextObject.position.z = 0;
+                        ARProjectionObject.add(cssObjectArt);
+                        cssObjectArt.position.z = 0;
                       
                     
                     } else if(targetPose.poseStatus & Argon.PoseStatus.LOST) {  
                         //Target is lost
                         console.log("Target Lost");
                         
-                        argonTextObject.position.z = -0.5;
-                        userLocation.add(argonTextObject);
+                        cssObjectArt.position.z = -0.5;
+                        userLocation.add(cssObjectArt);
                     } 
                 });
             }).catch(function(err) {
