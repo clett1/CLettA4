@@ -196,7 +196,6 @@ app.vuforia.isAvailable().then(function (available) {
                         //Target is lost
                         console.log("Target Lost");
                         
-                        cssObjectArt.position.z = -0.5;
                         ARProjectionObject.remove(cssObjectArt);
                     } 
                 });
