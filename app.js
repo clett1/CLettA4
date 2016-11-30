@@ -93,6 +93,8 @@ circle2.className = "circles";
 circleContainer.appendChild(circle1);
 circleContainer.appendChild(circle2);
 
+circleContainer.style.backgroundColor = white;
+
 artInfo.appendChild(artHeader);
 artInfo.appendChild(artPara);
 artInfo.appendChild(circleContainer);
