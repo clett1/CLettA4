@@ -71,7 +71,7 @@ app.context.setDefaultReferenceFrame(app.context.localOriginEastUpSouth);
 */
 
 var projectionDiv = document.createElement('div');
-projecionDiv.className = "infoDiv";
+projectionDiv.className = "infoDiv";
 
 //**************** circle container ****************
 //Circles at the bottom of the div to indicate screen state
