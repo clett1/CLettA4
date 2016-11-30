@@ -1,4 +1,3 @@
-
 /// <reference path="../../typings/index.d.ts"/>
 // set up Argon
 var app = Argon.init();
@@ -47,40 +46,34 @@ app.view.element.appendChild(hud.domElement);
 // more similar to what is used in the geospatial industry
 app.context.setDefaultReferenceFrame(app.context.localOriginEastUpSouth);
 
-/** The next block of code creates the divs that will appear when the target is in sigh.
+/** The next block of code creates the div element that will appear when the target is found.
 *   Styles for both divs can be found in style.css
-*   Both divs belong to class "cssContent"
+*   Both divs belong to class "contentContainer"
 *   Paragraphs belong to class "ARParagraphs"
 *
-*   artInfo: div with information about the art
-*       @artHeader: header for the artInfo div
-*       @artHeaderText: text for header
-*       @artPara: paragraph for artInfo div
-*       @artParaText: text for paragraph
-
-*   creatorInfo: div with information about the creator
-*       @creatorHeader: header for the artInfo div
-*       @creatorHeaderText: text for header
-*       @creatorPara: paragraph for artInfo div
-*       @creatorParaText: text for paragraph
+*   projectionDiv: div to hold artInfo, creatorInfo, and circleContainer
+*
+*       artInfo: div with information about the art
+*           @artHeader: header for the artInfo div
+*           @artHeaderText: text for header
+*           @artPara: paragraph for artInfo div
+*           @artParaText: text for paragraph
+*       creatorInfo: div with information about the creator
+*           @creatorHeader: header for the artInfo div
+*           @creatorHeaderText: text for header
+*           @creatorPara: paragraph for artInfo div
+*           @creatorParaText: text for paragraph
+*
+*       circleContainer: div with circles for screen state
+*           @circle1: indicator for left side
+*           @circle2: indicator for right side
 *   
 */
 
-//artInfo div, header, and paragraph declarations
-var artInfo = document.createElement('div');
-artInfo.className = "cssContent";
+var projectionDiv = document.createElement('div');
+projecionDiv.className = "infoDiv";
 
-//header
-var artHeader = document.createElement("h3");
-var artHeaderText = document.createTextNode("Title, 1900");
-    artHeader.appendChild(artHeaderText);
-
-//paragraph
-var artPara = document.createElement("p");
-artPara.className = "ARParagraphs";
-var artParaText = document.createTextNode("Description about art piece goes here. Short paragraph describing piece history/inspiration/etc.");
-    artPara.appendChild(artParaText);
-
+//**************** circle container ****************
 //Circles at the bottom of the div to indicate screen state
 var circleContainer = document.createElement("div");
 var circle1 = document.createElement("div");
@@ -95,20 +88,35 @@ circleContainer.appendChild(circle2);
 
 circle1.style.backgroundColor = "white";
 
+//**************** artInfo ****************
+//artInfo div, header, and paragraph declarations
+var artInfo = document.createElement('div');
+artInfo.className = "contentContainer";
+
+//header
+var artHeader = document.createElement("h3");
+var artHeaderText = document.createTextNode("Title, 1900");
+artHeader.appendChild(artHeaderText);
+
+//paragraph
+var artPara = document.createElement("p");
+artPara.className = "ARParagraphs";
+var artParaText = document.createTextNode("Description about art piece goes here. Short paragraph describing piece history/inspiration/etc.");
+artPara.appendChild(artParaText);
+
 artInfo.appendChild(artHeader);
 artInfo.appendChild(artPara);
-artInfo.appendChild(circleContainer);
 
-//*****************************************
-
+//**************** creatorInfo ****************
 //creatorInfo div, header, and paragraph declarations
+
 var creatorInfo = document.createElement('div');
-creatorInfo.className = "cssContent";
+creatorInfo.className = "contentContainer";
 
 //header
 var creatorHeader = document.createElement("h3");
 var creatorHeaderText = document.createTextNode("First Last");
-    creatorHeader.appendChild(creatorHeaderText);
+creatorHeader.appendChild(creatorHeaderText);
 
 //paragraph
 var creatorPara = document.createElement("p");
@@ -119,20 +127,15 @@ var creatorParaText = document.createTextNode("Bio about artist. Short paragraph
 creatorInfo.appendChild(creatorHeader);
 creatorInfo.appendChild(creatorPara);
 
-var cssObjectArt = new THREE.CSS3DSprite(artInfo);
+projectionDiv.appendChild(artInfo);
+projectionDiv.appendChild(circleContainer);
 
-//cssObjectArt.position.x = 0;
-//cssObjectArt.position.y = 0;
-//cssObjectArt.position.z = -.5;
+
+//Create 
+var cssObjectArt = new THREE.CSS3DSprite(artInfo);
 cssObjectArt.scale.set(.8, .8, .8);
-//cssObjectArt.rotation.y = -Math.PI / 2;
-//cssObjectArt.scale.set(1, 1, 1);
-var cssObjectCreator = new THREE.CSS3DSprite(creatorInfo);
 
 // the width and height is used to align things.
-
-
-//userLocation.add(cssObjectArt); //add to user location
 
 app.vuforia.isAvailable().then(function (available) {
     // vuforia not available on this platform
