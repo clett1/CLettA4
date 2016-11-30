@@ -197,7 +197,7 @@ app.vuforia.isAvailable().then(function (available) {
                         console.log("Target Lost");
                         
                         cssObjectArt.position.z = -0.5;
-                        userLocation.add(cssObjectArt);
+                        ARProjectObject.remove(cssObjectArt);
                     } 
                 });
             }).catch(function(err) {
