@@ -132,7 +132,7 @@ projectionDiv.appendChild(circleContainer);
 
 
 //Create 
-var cssObjectArt = new THREE.CSS3DSprite(artInfo);
+var cssObjectArt = new THREE.CSS3DSprite(projectionDiv);
 cssObjectArt.scale.set(.8, .8, .8);
 
 // the width and height is used to align things.
