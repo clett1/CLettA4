@@ -26,19 +26,27 @@ a {
   opacity: 0;
 }
 
-.cssContent {
-    pointer-events: auto;
-	visibility: visible;
-    opacity: 0.90;
-    border-radius: 10px;
-    width: 100px;
-    padding: 2px;
+.infoDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    opacity: 0.75;
+    border-radius: 10px;        
+    width: 120px; 
+    padding: 5px;
     background-color: lightgray;
+    
+}
+
+.contentContainer {
+    width: 100%; 
+    padding: 5px;
 }
 
 h3 {
     font-size: .7em;
 }
+
 .ARParagraphs {
     font-size: .2em;
 }
@@ -55,6 +63,5 @@ h3 {
     height: 5px;
     margin: 2.5px;
     border-radius: 50%;
-    background-color: darkgray;
-    
+    background-color: darkgray;   
 }
