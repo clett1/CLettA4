@@ -81,8 +81,21 @@ artPara.className = "ARParagraphs";
 var artParaText = document.createTextNode("Description about art piece goes here. Short paragraph describing piece history/inspiration/etc.");
     artPara.appendChild(artParaText);
 
+//Circles at the bottom of the div to indicate screen state
+var circleContainer = document.createElement("div");
+var circle1 = document.createElement("div");
+var circle2 = document.createElement("div");
+
+circleContainer.className = "circleContainer";
+circle1.className = "circles";
+circle2.className = "circles";
+
+circleContainer.appendChild(circle1);
+circleContainer.appendChild(circle2);
+
 artInfo.appendChild(artHeader);
 artInfo.appendChild(artPara);
+artInfo.appendChild(circleContainer);
 
 //*****************************************
 
