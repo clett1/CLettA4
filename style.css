@@ -42,3 +42,20 @@ h3 {
 .ARParagraphs {
     font-size: .2em;
 }
+
+.circleContainer {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: red;
+    width: 100%;
+}
+
+.circles {
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+    border-radius: 50%;
+    background-color: darkgray;
+    
+}
