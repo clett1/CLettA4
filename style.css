@@ -27,6 +27,8 @@ a {
 }
 
 .cssContent {
+    pointer-events: auto;
+	visibility: hidden;
     opacity: 0.75;
     border-radius: 10px;
     width: 100px;
