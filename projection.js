@@ -151,7 +151,7 @@ function rightSwipe(swipeLength){
         //this means right content is visible
         
         //move right content and replace with left content
-        changingDiv.style.left = "0px":
+        changingDiv.style.left = "0px";
         
         visibleScreen = "left";
         //right circle switch with left circle
@@ -170,7 +170,7 @@ function leftSwipe(swipeLength){
         //this means left content is visible
         
         //move left content and replace with 
-        changingDiv.style.left = "-100%":
+        changingDiv.style.left = "-100%";
 
         visibleScreen = "right";
         //left circle switch with right circle        
