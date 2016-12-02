@@ -28,17 +28,27 @@ a {
   opacity: 0;
 }
 
+.projectionContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    opacity: 0.75;
+    border-radius: 10px;        
+    width: 120px;
+    padding-left: 5px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    background-color: lightgray;
+}
+
 .infoDiv {
     pointer-events: auto;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     overflow: scroll;
-    opacity: 0.75;
-    border-radius: 10px;        
-    width: 120px; 
+    justify-content: flex-start;
+    width: 100%;
     padding: 5px;
-    background-color: lightgray;
 }
 
 .swipeDiv {
@@ -46,7 +56,6 @@ a {
     display: flex;
     flex-direction: row;
     width: 200%;
-    padding: 2px;
 }
 
 .contentContainer {
@@ -55,11 +64,11 @@ a {
 }
 
 h3 {
-    font-size: .7em;
+    font-size: 15px;
 }
 
 .ARParagraphs {
-    font-size: .2em;
+    font-size: 10px;
 }
 
 .circleContainer {
