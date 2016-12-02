@@ -15,11 +15,13 @@ a {
   position:absolute;
   bottom: 0px;
 }
+
 .argon-focus #description {
   transition: opacity 0.8s;
   visibility: visible;
   opacity: 1; 
 }
+
 .argon-no-focus #description {
   transition: visibility 0s linear 0.8s, opacity 0.8s;
   visibility: visible;
@@ -28,18 +30,25 @@ a {
 
 .infoDiv {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
     opacity: 0.75;
     border-radius: 10px;        
     width: 120px; 
     padding: 5px;
     background-color: lightgray;
-    
+}
+
+.swipeDiv {
+    display: flex;
+    flex-direction: row;
+    width: 200%;
+    padding: 2px;
 }
 
 .contentContainer {
-    width: 100%; 
+    width: 50%; 
     padding: 5px;
 }
 
