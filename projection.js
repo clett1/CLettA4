@@ -112,7 +112,7 @@ projectionDiv.addEventListener('touchmove', handleTouchMove, false);
 projectionDiv.addEventListener('touchend', handleTouchEnd, false);
 
 var startX;
-var movingX;
+var movingX
 var endX;
 
 
@@ -128,10 +128,6 @@ function handleTouchMove(event) {
 }
 
 function handleTouchEnd(event) {
-    
-    if (movingX == undefined) {
-        
-    } else {
     endX = movingX;
     var xDifference = endX - startX;
     
@@ -148,7 +144,6 @@ function handleTouchEnd(event) {
     } else {
         //xDifference = 0
     }
-    }    
 }
 
 function rightSwipe(swipeLength){
@@ -156,14 +151,22 @@ function rightSwipe(swipeLength){
     if (visibleScreen == "right") {
         //this means right content is visible
         
+        //add rightSwipeTranslate to the div for transition animation
+        changingDiv.classList.add('rightSwipeTranslate');
+        
+        
         //move right content and replace with left content
         changingDiv.style.left = "0px";
         
         visibleScreen = "left";
-        //right circle switch with left circle
         
+        //right circle switch with left circle
         circle1.style.backgroundColor = "darkgray";
-        circle2.style.backgroundColor = "white";
+        circle2.style.backgroundColor = "white";    
+        
+        //remove transiton
+        changingDiv.classList.remove('rightSwipeTranslate');
+
         
     } else {
         //bounce content to the right
@@ -175,6 +178,9 @@ function leftSwipe(swipeLength){
     if (visibleScreen == "left") {
         //this means left content is visible
         
+        //add rightSwipeTranslate to the div for transition animation
+        changingDiv.classList.add('leftSwipeTranslate');
+        
         //move left content and replace with 
         changingDiv.style.left = "-100%";
 
@@ -183,6 +189,9 @@ function leftSwipe(swipeLength){
         
         circle2.style.backgroundColor = "darkgray";
         circle1.style.backgroundColor = "white";
+
+        //remove transiton
+        changingDiv.classList.remove('leftSwipeTranslate');
 
         
     } else {
