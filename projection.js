@@ -23,7 +23,7 @@
 */
 
 var projectionDiv = document.createElement('div');
-projecionDiv.className = "infoDiv";
+projectionDiv.className = "infoDiv";
 
 var changingDiv = document.createElement("div");
 changingDiv.className = "swipeDiv";
