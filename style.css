@@ -57,6 +57,17 @@ a {
     position: relative;
     left: 0px;
     width: 200%;
+    transition: 1s;
+}
+
+.swipeDiv.rightSwipeTranslate {
+    transition: 1s;
+    left: 0px;
+}
+
+.swipeDiv.leftSwipeTranslate {
+    transition: 1s;
+    left: -100%;
 }
 
 .contentContainer {
