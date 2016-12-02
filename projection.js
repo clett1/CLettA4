@@ -71,13 +71,13 @@ creatorInfo.className = "contentContainer";
 //header
 var creatorHeader = document.createElement("h3");
 var creatorHeaderText = document.createTextNode("First Last");
-creatorHeader.appendChild(creatorHeaderText);
+    creatorHeader.appendChild(creatorHeaderText);
 
 //paragraph
 var creatorPara = document.createElement("p");
 creatorPara.className = "ARParagraphs";
 var creatorParaText = document.createTextNode("Bio about artist. Short paragraph describing artist history/inspiration/etc.");
-    creatorPara.appendChild(creatorHeaderText);
+    creatorPara.appendChild(creatorParaText);
 
 creatorInfo.appendChild(creatorHeader);
 creatorInfo.appendChild(creatorPara);
