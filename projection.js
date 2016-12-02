@@ -161,8 +161,8 @@ function rightSwipe(swipeLength){
         visibleScreen = "left";
         
         //right circle switch with left circle
-        circle1.style.backgroundColor = "darkgray";
-        circle2.style.backgroundColor = "white";    
+        circle1.style.backgroundColor = "white";
+        circle2.style.backgroundColor = "darkgray";    
         
         //remove transiton
         changingDiv.classList.remove('rightSwipeTranslate');
@@ -187,8 +187,8 @@ function leftSwipe(swipeLength){
         visibleScreen = "right";
         //left circle switch with right circle        
         
-        circle2.style.backgroundColor = "darkgray";
-        circle1.style.backgroundColor = "white";
+        circle1.style.backgroundColor = "darkgray";
+        circle2.style.backgroundColor = "white";
 
         //remove transiton
         changingDiv.classList.remove('leftSwipeTranslate');
