@@ -30,7 +30,7 @@ var projectionDiv = document.createElement('div');
 projectionDiv.className = "projectionContainer";
 
 var staticDiv = document.createElement('div');
-projectionDiv.className = "infoDiv";
+staticDiv.className = "infoDiv";
 
 var changingDiv = document.createElement("div");
 changingDiv.className = "swipeDiv";
