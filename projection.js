@@ -109,9 +109,10 @@ cssObjectArt.scale.set(.8, .8, .8);
 
 projectionDiv.addEventListener('touchstart', handleTouchStart, false);
 projectionDiv.addEventListener('touchmove', handleTouchMove, false);
+projectionDiv.addEventListener('touchend', handleTouchEnd, false);
 
 var startX;
-
+var endX;
 
 
 function handleTouchStart(event) {
@@ -122,7 +123,65 @@ function handleTouchStart(event) {
 
 function handleTouchMove(event) {
     var movingX = event.touches[0].clientX;
-    console.log(movingX);
+    //console.log(movingX);
+}
+
+function handleTouchEnd(event) {
+    endX = event.touches[0].clientX;
+    var xDifference = endX - startX;
+    
+    console.log(xDifference);
+    
+    if(xDifference > 0) {
+        //right swipe
+        rightSwipe(xDifference);
+        
+    } else if(xDifference < 0){
+        //left swipe
+        leftSwipe(xDifference);
+        
+    } else {
+        //xDifference = 0
+    }
+}
+
+function rightSwipe(swipeLength){
+    
+    if (visibleScreen == "right") {
+        //this means right content is visible
+        
+        //move right content and replace with left content
+        changingDiv.style.left = 0px:
+        
+        visibleScreen = "left";
+        //right circle switch with left circle
+        
+        circle1.style.backgroundColor = "darkgray";
+        circle2.style.backgroundColor = "white";
+        
+    } else {
+        //bounce content to the right
+    }
+}
+
+function leftSwipe(swipeLength){
+    
+    if (visibleScreen == "left") {
+        //this means left content is visible
+        
+        //move left content and replace with 
+        changingDiv.style.left = -100%:
+
+        visibleScreen = "right";
+        //left circle switch with right circle        
+        
+        circle2.style.backgroundColor = "darkgray";
+        circle1.style.backgroundColor = "white";
+
+        
+    } else {
+        //bounce content to the left
+    }
 }
 
 /*  This block of code contains the code for the Finite State Machine. This FSM controls AR Projections 
@@ -184,43 +243,5 @@ change its position as finger moves
 
 
 
-var rightSwipe = function(){
-    
-    if (visibleScreen == "right") {
-        //this means right content is visible
-        
-        //move right content and replace with left content
-        changingDiv.removeChild(artInfo);
-        changingDiv.appendChild(creatorInfo);
-        
-        visibleScreen = "left";
-        //right circle switch with left circle
-        
-        circle1.style.backgroundColor = "darkgray";
-        circle2.style.backgroundColor = "white";
-    } else {
-        //bounce content to the right
-    }
-}
 
-var leftSwipe = function(){
-    
-    if (visibleScreen == "left") {
-        //this means left content is visible
-        
-        //move left content and replace with right content
-        changingDiv.removeChild(creatorInfo);
-        changingDiv.appendChild(artInfo);
-        
-        visibleScreen = "right";
-        //left circle switch with right circle        
-        
-        circle2.style.backgroundColor = "darkgray";
-        circle1.style.backgroundColor = "white";
-
-        
-    } else {
-        //bounce content to the left
-    }
-}
 */
