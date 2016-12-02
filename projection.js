@@ -5,6 +5,10 @@
 *
     projectionDiv: div to hold artInfo, creatorInfo, and circleContainer
 *
+*       staticDiv: static div held in projection div (swipable region)
+*       
+*       hangingDiv: div to hold artInfo and creatorInfo
+*
 *       artInfo: div with information about the art
 *           @artHeader: header for the artInfo div
 *           @artHeaderText: text for header
@@ -23,6 +27,9 @@
 */
 
 var projectionDiv = document.createElement('div');
+projectionDiv.className = "projectionContainer";
+
+var staticDiv = document.createElement('div');
 projectionDiv.className = "infoDiv";
 
 var changingDiv = document.createElement("div");
@@ -87,7 +94,9 @@ creatorInfo.appendChild(creatorPara);
 changingDiv.appendChild(artInfo);
 changingDiv.appendChild(creatorInfo);
 
-projectionDiv.appendChild(changingDiv);
+
+staticDiv.appendChild(changingDiv); 
+projectionDiv.appendChild(staticDiv);
 projectionDiv.appendChild(circleContainer);
 
 //Create 
