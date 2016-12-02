@@ -30,7 +30,7 @@ var projectionDiv = document.createElement('div');
 projectionDiv.className = "projectionContainer";
 
 var staticDiv = document.createElement('div');
-staticDiv.className = "infoDiv";
+projectionDiv.className = "infoDiv";
 
 var changingDiv = document.createElement("div");
 changingDiv.className = "swipeDiv";
@@ -115,13 +115,14 @@ var startX;
 
 
 function handleTouchStart(event) {
-    startX = event.clientX;
+    startX = event.touches[0].clientX;
     console.log(startX) 
     //makeTransition(event.type);
 }
 
 function handleTouchMove(event) {
-    console.log(event.clientX);
+    var movingX = event.touches[0].clientX;
+    console.log(movingX);
 }
 
 /*  This block of code contains the code for the Finite State Machine. This FSM controls AR Projections 
