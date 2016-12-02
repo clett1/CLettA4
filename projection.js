@@ -112,6 +112,7 @@ projectionDiv.addEventListener('touchmove', handleTouchMove, false);
 projectionDiv.addEventListener('touchend', handleTouchEnd, false);
 
 var startX;
+var movingX;
 var endX;
 
 
@@ -122,12 +123,16 @@ function handleTouchStart(event) {
 }
 
 function handleTouchMove(event) {
-    var movingX = event.touches[0].clientX;
+    movingX = event.touches[0].clientX;
     //console.log(movingX);
 }
 
 function handleTouchEnd(event) {
-    endX = event.touches[0].clientX;
+    
+    if (movingX == undefined) {
+        
+    } else {
+    endX = movingX;
     var xDifference = endX - startX;
     
     console.log(xDifference);
@@ -143,6 +148,7 @@ function handleTouchEnd(event) {
     } else {
         //xDifference = 0
     }
+    }    
 }
 
 function rightSwipe(swipeLength){
