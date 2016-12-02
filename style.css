@@ -33,7 +33,7 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    overflow: scroll;
+    overflow: hidden;
     opacity: 0.75;
     border-radius: 10px;        
     width: 120px; 
@@ -42,8 +42,8 @@ a {
 }
 
 .swipeDiv {
-    display: flex;
     pointer-events: auto;
+    display: flex;
     flex-direction: row;
     width: 200%;
     padding: 2px;
