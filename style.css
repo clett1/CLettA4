@@ -29,6 +29,7 @@ a {
 }
 
 .infoDiv {
+    pointer-events: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -42,6 +43,7 @@ a {
 
 .swipeDiv {
     display: flex;
+    pointer-events: auto;
     flex-direction: row;
     width: 200%;
     padding: 2px;
