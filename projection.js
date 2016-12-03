@@ -67,7 +67,7 @@ var artParaText = document.createTextNode("Description about art piece goes here
 artPara.appendChild(artParaText);
 
 artInfo.appendChild(artHeader);
-artInfo.appendChild(artParaText);
+artInfo.appendChild(artPara);
 
 
 //**************** creatorInfo ****************
