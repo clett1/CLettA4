@@ -67,7 +67,15 @@ var artParaText = document.createTextNode("Description about art piece goes here
 artPara.appendChild(artParaText);
 
 artInfo.appendChild(artHeader);
-artInfo.appendChild(artPara);
+
+var ifrm = document.createElement("iframe");
+ifrm.setAttribute("src", "https://www.youtube.com/embed/QoRBFNOgeHw");
+ifrm.style.width = "120px";
+ifrm.style.height = "90px";
+
+artInfo.appendChild(ifrm);
+
+
 
 //**************** creatorInfo ****************
 //creatorInfo div, header, and paragraph declarations
