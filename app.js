@@ -56,9 +56,59 @@ loader.load("lemonade.png", function(texture) {
     var material = new THREE.MeshBasicMaterial({map: texture});
     var mesh = new THREE.Mesh(geometry, material);
     box.add(mesh);
-    box.scale.set(70, 70, 70);
+    box.scale.set(20, 20, 20);
 });
 console.log(box);
+
+box.addEventListener('touchstart', handleTouchStart, false);
+
+box.addEventListener('touchmove', handleTouchMove, false);
+
+box.addEventListener('touchend', handleTouchEnd, false);
+
+var startX;
+var movingX
+var endX;
+
+
+function handleTouchStart(event) {
+    startX = event.touches[0].clientX;
+    console.log(startX) 
+    //makeTransition(event.type);
+}
+
+function handleTouchMove(event) {
+    movingX = event.touches[0].clientX;
+    //console.log(movingX);
+}
+
+function handleTouchEnd(event) {
+    endX = movingX;
+    var xDifference = endX - startX;
+    
+    console.log(xDifference);
+    
+    if(xDifference > 0) {
+        //right swipe
+        rightSwipe(xDifference);
+        
+    } else if(xDifference < 0){
+        //left swipe
+        leftSwipe(xDifference);
+        
+    } else {
+        //xDifference = 0
+    }
+}
+
+function rightSwipe(swipeLength){
+     box.rotateY(-90);   
+}
+
+function leftSwipe(swipeLength){
+     box.rotateY(90);   
+
+}
     
 
 app.vuforia.isAvailable().then(function (available) {
