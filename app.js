@@ -101,6 +101,7 @@ app.vuforia.isAvailable().then(function (available) {
                     // if the pose is known the target is visible, so set the
                     // THREE object to the location and orientation
                     if (gvuBrochurePose.poseStatus & Argon.PoseStatus.KNOWN) {
+                        console.log("target known");
                         gvuBrochureObject.position.copy(gvuBrochurePose.position);
                         gvuBrochureObject.quaternion.copy(gvuBrochurePose.orientation);
                     }
@@ -111,9 +112,9 @@ app.vuforia.isAvailable().then(function (available) {
                     // is LOST.  Here, we move the 3D text object back to the world
                     if (gvuBrochurePose.poseStatus & Argon.PoseStatus.FOUND) {
                        //Target Found
-                       console.log("target found"); gvuBrochureObject.add(box);
-                        
-                        box.position.z = 10;
+                       console.log("target found"); 
+                        gvuBrochureObject.add(box);
+                                      
                     }
                     else if (gvuBrochurePose.poseStatus & Argon.PoseStatus.LOST) {
                         //Target Lost
