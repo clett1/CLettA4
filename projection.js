@@ -148,6 +148,8 @@ function playAudio() {
  track1.play();   
 }
 //Create 
+var cssCubeObject = new THREE.CSS3DObject();
+
 cssCubeObject.add(side1);
 
 //this is a property of projectionDiv
