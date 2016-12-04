@@ -39,11 +39,11 @@ ARProjection.prototype.handleTouchEnd = function(event) {
     
     if(this.xDifference > 20) {
         //right swipe
-        rightSwipe(this.xDifference);
+        this.rightSwipe(this.xDifference);
         
     } else if(this.xDifference < -20){
         //left swipe
-        leftSwipe(this.xDifference);
+        this.leftSwipe(this.xDifference);
         
     } else {
         //xDifference = 0
