@@ -94,7 +94,7 @@ lemonadeAlbum.className = "imageProps";
 lemonadeAlbum.setAttribute("src", "lemonade.png");
 
 lemonadeAlbum.onload = function() {
-    creatorInfo.appendChild("lemonade.png");
+    creatorInfo.appendChild(lemonadeAlbum);
 }
 if (lemonade != undefined) {
       console.log("lemonade has loaded");
