@@ -166,7 +166,7 @@ projection.addView(fourthView);
 
 var startState = 'hidden';
 var currentState = ARProjectionFSM[startState];
-
+/*
 var ARProjectionFSM = {
     'hidden': {
         'targetseen': {
@@ -213,7 +213,7 @@ var ARProjectionFSM = {
             }
         }    
     }
-};
+};*/
         
         
         
