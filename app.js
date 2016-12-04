@@ -119,7 +119,7 @@ app.vuforia.isAvailable().then(function (available) {
                         console.log(targetPose.orientation);
                         
                         ARProjectionObject.add(cssObjectArt);
-                        cssObjectArt.position.z = 0;
+                        //cssObjectArt.position.z = 0;
                       
                     
                     } else if(targetPose.poseStatus & Argon.PoseStatus.LOST) {  
