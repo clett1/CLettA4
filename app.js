@@ -56,15 +56,16 @@ loader.load("lemonade.png", function(texture) {
     var material = new THREE.MeshBasicMaterial({map: texture});
     var cube = new THREE.Mesh(geometry, material);
     cube.scale.set(70, 70, 70);
+    box.add(cube);
+
 });
 
-box.add(cube);
 
-cube.addEventListener('touchstart', handleTouchStart, false);
+box.addEventListener('touchstart', handleTouchStart, false);
 
-cube.addEventListener('touchmove', handleTouchMove, false);
+box.addEventListener('touchmove', handleTouchMove, false);
 
-cube.addEventListener('touchend', handleTouchEnd, false);
+box.addEventListener('touchend', handleTouchEnd, false);
 
 var startX;
 var movingX
@@ -102,11 +103,11 @@ function handleTouchEnd(event) {
 }
 
 function rightSwipe(swipeLength){
-     cube.rotate.x -= 90;   
+     box.rotate.x -= 90;   
 }
 
 function leftSwipe(swipeLength){
-     cube.rotate.x += 90;   
+     box.rotate.x += 90;   
 
 }
     
