@@ -75,7 +75,7 @@ var holdUpTrack = new Audio('audio/holdup.mp3');
 var secondView = new View ({
     image: holdUp,
     track: holdUpTrack,
-    playState: "paused";
+    playState: "paused"
 }); 
 
 
@@ -94,10 +94,10 @@ var KMagicTrack = new Audio('audio/24KMagic.mp3');
 var thirdView = new View ({
     image: KMagic,
     track: KMagicTrack,
-    playState: "paused";
+    playState: "paused"
 }); 
 
-//**************** third view ****************
+//**************** fourth view ****************
 var page4 = document.createElement("div");
 page4.className = "contentContainer";
 var calvinHarris = document.createElement("img");
@@ -112,7 +112,7 @@ var calvinHarrisTrack = new Audio('audio/24KMagic.mp3');
 var fourthView = new View ({
     image: calvinHarris,
     track: calvinHarris,
-    playState: "paused";
+    playState: "paused"
 });
 
 changingDiv.appendChild(titleDiv);
