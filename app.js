@@ -113,15 +113,21 @@ app.vuforia.isAvailable().then(function (available) {
                     if(targetPose.poseStatus & Argon.PoseStatus.FOUND) {
                         //Target has been found
                         console.log("Target Found");  
-                                             
-                        ARProjectionObject.add(side1);
+                        console.log(targetPose.poseStatus + " " + Argon.PoseStatus.FOUND);
+                     
+                        console.log(targetPose.position.x);
+                        console.log(targetPose.position.y);
+                        console.log(targetPose.orientation);
+                        
+                        ARProjectionObject.add(cssObjectArt);
+                        cssObjectArt.position.z = 0;
                       
                     
                     } else if(targetPose.poseStatus & Argon.PoseStatus.LOST) {  
                         //Target is lost
                         console.log("Target Lost");
                         
-                        ARProjectionObject.remove(side1);
+                        ARProjectionObject.remove(cssObjectArt);
                     } 
                 });
             }).catch(function(err) {
