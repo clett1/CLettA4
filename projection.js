@@ -158,6 +158,7 @@ projection.addView(secondView);
 projection.addView(thirdView);
 projection.addView(fourthView);
 
+projection.currentView = projection.views[0];
 //set view to the first page
 
 
