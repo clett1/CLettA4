@@ -41,7 +41,6 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    opacity: 0.75;
     border-radius: 10px;        
     width: 120px;
     padding-left: 5px;
