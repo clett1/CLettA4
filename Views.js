@@ -28,7 +28,9 @@ View.prototype.makeTransition = function() {
 }
 
 View.prototype.handleAudio = function() {
-    if(this.playState == "paused") {
+    if (this.track == null) {
+        console.log("This element has no audio file");   
+    }else if(this.playState == "paused") {
         //play track
         console.log(this.track);
         this.track.play();
