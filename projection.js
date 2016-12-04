@@ -96,7 +96,7 @@ lemonadeAlbum.setAttribute("src", "lemonade.png");
 lemonade.onload = function() {
     creatorInfo.appendChild("lemonade.png");
 }
-if (lemonade != undefined)
+if (lemonade != undefined) {
       console.log("lemonade has loaded");
     else
       setTimeout(function() { lemonade.onload }, 200);
