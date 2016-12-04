@@ -97,9 +97,9 @@ lemonade.onload = function() {
     creatorInfo.appendChild("lemonade.png");
 }
 if (lemonade != undefined)
-      creatorInfo.appendChild("lemonade.png");
+      console.log("lemonade has loaded");
     else
-      setTimeout(function() { runGame() }, 200);
+      setTimeout(function() { lemonade.onload }, 200);
   }
 
 
