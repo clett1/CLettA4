@@ -83,6 +83,10 @@ h3 {
     font-size: 10px;
 }
 
+.imageProps {
+    width: 100%;    
+}
+
 .circleContainer {
     display:flex;
     flex-direction: row;
