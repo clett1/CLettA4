@@ -107,7 +107,6 @@ creatorPara.appendChild(creatorParaText);
 var linkNode = "https://twitter.com/TwitterDev";
 var twitterData = document.createElement("a");
 twitterData.setAttribute('href', desiredLink);
-twitterData.innerHTML = linkNode;
 twitterData.className = "twitter-timeline";
 
 /*
