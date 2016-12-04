@@ -56,10 +56,8 @@ loader.load("lemonade.png", function(texture) {
     var material = new THREE.MeshBasicMaterial({map: texture});
     var mesh = new THREE.Mesh(geometry, material);
     box.add(mesh);
-    box.scale.set(0.001, 0.001, 0.001);
-
 });
-
+console.log(box);
     
 
 app.vuforia.isAvailable().then(function (available) {
@@ -112,13 +110,12 @@ app.vuforia.isAvailable().then(function (available) {
                        //Target Found
                        console.log("target found"); 
                         gvuBrochureObject.add(box);
-                                      
+                        box.position.set(0, 0, 0);              
                     }
                     else if (gvuBrochurePose.poseStatus & Argon.PoseStatus.LOST) {
                         //Target Lost
                         console.log("target lost");
-                        box.position.z = -0.50;
-                        userLocation.add(box);
+                        gvuBrochureObject.remove(box);
                     }
                 });
             }).catch(function (err) {
