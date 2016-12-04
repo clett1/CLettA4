@@ -104,28 +104,17 @@ creatorPara.className = "ARParagraphs";
 var creatorParaText = document.createTextNode("Bio about artist. Short paragraph describing artist history/inspiration/etc.");
 creatorPara.appendChild(creatorParaText);
 
+creatorInfo.appendChild(creatorHeader);
+
+
 var twitterData = document.createElement("a");
 twitterData.setAttribute('href', "https://twitter.com/TwitterDev");
 twitterData.className = "twitter-timeline";
 console.log(twitterData);
 
-
-function whenAvailable(twitterData, callback) {
-    var interval = 10; // ms
-    window.setTimeout(function() {
-        if (window[twitterData]) {
-            callback(window[twitterData]);
-        } else {
-            window.setTimeout(arguments.callee, interval);
-        }
-    }, interval);
+twitterData.onload = function() {
+  creatorInfo.appendChild(twitterData);
 }
-
-
-whenAvailable(twitterData, function(t) {
-  
-    console.log("Twitter Data " + twitterData);
- });
 
 
 
@@ -145,8 +134,6 @@ Tweets by @TwitterDev
 */
 
 
-creatorInfo.appendChild(creatorHeader);
-creatorInfo.appendChild(twitterData);
 
 //*********************************************
 
