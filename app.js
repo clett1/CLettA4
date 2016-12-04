@@ -12,7 +12,8 @@ function whenAvailable(twitterData, callback) {
 whenAvailable("twitterData", function(t) {
                             // do something
     var app = Argon.init();                        
-    console.log("Twitter Data" + twitterData);
+    console.log("Twitter Data " + twitterData);
+    console.log("Argon is ready");
  });
                         
 // <reference path="../../typings/index.d.ts"/>
