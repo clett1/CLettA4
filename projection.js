@@ -104,10 +104,11 @@ creatorPara.className = "ARParagraphs";
 var creatorParaText = document.createTextNode("Bio about artist. Short paragraph describing artist history/inspiration/etc.");
 creatorPara.appendChild(creatorParaText);
 
-var linkNode = "https://twitter.com/TwitterDev";
 var twitterData = document.createElement("a");
-twitterData.setAttribute('href', linkNode);
+twitterData.setAttribute('href', "https://twitter.com/TwitterDev");
 twitterData.className = "twitter-timeline";
+console.log(twitterData);
+
 
 /*
 var twitterData = document.createElement('a');
@@ -126,7 +127,7 @@ Tweets by @TwitterDev
 
 
 creatorInfo.appendChild(creatorHeader);
-creatorInfo.appendChild(twitterData);
+//creatorInfo.appendChild(twitterData);
 
 //*********************************************
 
