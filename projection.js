@@ -1,29 +1,30 @@
 /** The next block of code creates the div element that will appear when the target is found.
-*   Styles for both divs can be found in style.css
-*   Both divs belong to class "contentContainer"
-*   Paragraphs belong to class "ARParagraphs"
-*
+   Styles for both divs can be found in style.css
+   Both divs belong to class "contentContainer"
+   Paragraphs belong to class "ARParagraphs"
+
     projectionDiv: div to hold artInfo, creatorInfo, and circleContainer
-*
-*       staticDiv: static div held in projection div (swipable region)
-*       
-*       hangingDiv: div to hold artInfo and creatorInfo
-*
-*       artInfo: div with information about the art
-*           @artHeader: header for the artInfo div
-*           @artHeaderText: text for header
-*           @artPara: paragraph for artInfo div
-*           @artParaText: text for paragraph
-*       creatorInfo: div with information about the creator
-*           @creatorHeader: header for the artInfo div
-*           @creatorHeaderText: text for header
-*           @creatorPara: paragraph for artInfo div
-*           @creatorParaText: text for paragraph
-*
-*       circleContainer: div with circles for screen state
-*           @circle1: indicator for left side
-*           @circle2: indicator for right side
-*   
+
+    staticDiv: static div held in projection div (swipable region)
+       
+    changingDiv: div to hold all screens
+    
+
+    titleView: div to hold title and description
+        @titleHeader: header for the titleView div
+        @titleHeaderText: text for header
+        @titlePara: paragraph for titleView div
+        @titleParaText: text for paragraph
+    
+    creatorInfo: div with information about the creator
+           @creatorHeader: header for the artInfo div
+           @creatorHeaderText: text for header
+           @creatorPara: paragraph for artInfo div
+           @creatorParaText: text for paragraph
+
+       circleContainer: div with circles for screen state
+           @circle1: indicator for left side
+           @circle2: indicator for right side
 */
 
 var projectionDiv = document.createElement('div');
@@ -36,94 +37,149 @@ var changingDiv = document.createElement("div");
 changingDiv.className = "swipeDiv";
 
 //**************** circle container ****************
+var titleDiv = document.createElement('div');
+titleView.className = "contentContainer";
+
+    var titleHeader = document.createElement("h3");
+    var titleHeaderText = document.createTextNode("My Playist");
+    titleHeader.appendChild(titleHeaderText);
+
+    var titlePara = document.createElement("p");
+    titlePara.className("ARParagraphs");
+    var titleParaText = document.createTextNode("Welcome to my playlist. This is a complitation of some of my favorite songs of 2016");
+    titlePara.appendChild(titleParaText);
+
+titleDiv.appendChild(titleHeader);
+titleDiv.appendChild(titlePara);
+        
+var titleView = new View({
+    image: null,
+    track: null,
+    playState: null
+});
+
+
+//**************** second view ****************
+var page2 = document.createElement("div");
+page2.className = "contentContainer";
+var holdUp = document.createElement("img");
+holdUp.setAttribute("src", "holdup.png");
+
+holdUp.onload = function() {
+    page2.appendChild(holdUp);
+}
+
+var holdUpTrack = new Audio('audio/holdup.mp3');
+
+
+var secondView = new View ({
+    image: holdUp,
+    track: holdUpTrack,
+    playState: "paused";
+}); 
+
+
+//**************** third view ****************
+var page3 = document.createElement("div");
+page3.className = "contentContainer";
+var KMagic = document.createElement("img");
+holdUp.setAttribute("src", "24KMagic.png");
+
+KMagic.onload = function() {
+    page2.appendChild(KMagic);
+}
+
+var KMagicTrack = new Audio('audio/24KMagic.mp3');
+
+var thirdView = new View ({
+    image: KMagic,
+    track: KMagicTrack,
+    playState: "paused";
+}); 
+
+//**************** third view ****************
+var page4 = document.createElement("div");
+page4.className = "contentContainer";
+var calvinHarris = document.createElement("img");
+calvinHarris.setAttribute("src", "calvinharris.png");
+
+calvinHarris.onload = function() {
+    page4.appendChild(calvinHarris);
+}
+
+var calvinHarrisTrack = new Audio('audio/24KMagic.mp3');
+
+var fourthView = new View ({
+    image: calvinHarris,
+    track: calvinHarris,
+    playState: "paused";
+});
+
+changingDiv.appendChild(titleDiv);
+changingDiv.appendChild(page2);
+changingDiv.appendChild(page3);
+changingDiv.appendChild(page4);
+
+
+//**************** circle container ****************
 //Circles at the bottom of the div to indicate screen state
 var circleContainer = document.createElement("div");
 var circle1 = document.createElement("div");
 var circle2 = document.createElement("div");
+var circle3 = document.createElement("div");
+var circle4 = document.createElement("div");
 
 circleContainer.className = "circleContainer";
 circle1.className = "circles";
 circle2.className = "circles";
+circle3.className = "circles";
+circle4.className = "circles";
 
 circleContainer.appendChild(circle1);
 circleContainer.appendChild(circle2);
+circleContainer.appendChild(circle3);
+circleContainer.appendChild(circle4);
 
 circle1.style.backgroundColor = "white";
 
-//**************** artInfo ****************
-//artInfo div, header, and paragraph declarations
-var artInfo = document.createElement('div');
-artInfo.className = "contentContainer";
-
-//header
-var artHeader = document.createElement("h3");
-var artHeaderText = document.createTextNode("Title, 1900");
-artHeader.appendChild(artHeaderText);
-
-//paragraph
-var artPara = document.createElement("p");
-artPara.className = "ARParagraphs";
-var artParaText = document.createTextNode("Description about art piece goes here. Short paragraph describing piece history/inspiration/etc.");
-artPara.appendChild(artParaText);
-
-artInfo.appendChild(artHeader);
-artInfo.appendChild(artPara);
-
-
-//**************** creatorInfo ****************
-//creatorInfo div, header, and paragraph declarations
-
-var creatorInfo = document.createElement('div');
-creatorInfo.className = "contentContainer";
-
-var lemonadeAlbum = document.createElement("img");
-lemonadeAlbum.setAttribute("src", "lemonade.png");
-lemonadeAlbum.onload = function() {
-    creatorInfo.appendChild(lemonadeAlbum);
-
-}
-
-
-//*********************************************
-
-changingDiv.appendChild(artInfo);
-changingDiv.appendChild(creatorInfo);
-
-
+//Append all divs to projection Div
 staticDiv.appendChild(changingDiv); 
 projectionDiv.appendChild(staticDiv);
 projectionDiv.appendChild(circleContainer);
 
-//Create 
-var cssObjectArt = new THREE.CSS3DSprite(projectionDiv);
+//Create new cssObject Div
+var cssObjectPlaylist = new THREE.CSS3DSprite(projectionDiv);
 
-//this is a property of projectionDiv
-var visibleScreen = "left";
-
-cssObjectArt.scale.set(.8, .8, .8);
-
-var track1 = new Audio('Beyonce-Audio/01 Pray You Catch Me.mp3');
-
-
-function playAudio(){
-    track1.play();
-}
-
+//Create new AR Projection
 var projection = new ARProjection(projectionDiv);
 
+projection.addView(titleView);
+projection.addView(secondView);
+projection.addView(thirdView);
+projection.addView(fourthView);
+
+//set view to the first page
 
 
 /*  This block of code contains the code for the Finite State Machine. This FSM controls AR Projections 
 */
-/*
-var startState;
+
+var startState = 'hidden';
 var currentState = ARProjectionFSM[startState];
 
 var ARProjectionFSM = {
+    'hidden': {
+        'targetseen': {
+            actions: [{func: function(){
+                //set current view
+                projection.currentView = projection.views[0];
+            }}],
+            endState: 'visible'
+        }
+    },
     
     'visible': {
         'touchstart':{
-            
             actions: [{func: function(){
                 console.log("Div has been pressed");
             }}],
@@ -141,7 +197,7 @@ var ARProjectionFSM = {
         
         "touchend": {
             "swipedRight": {
-                predicate: function(xDifference) {
+                predicate: function(projection.xDifference) {
                     return xDifference > 20
                 },
                 actions: [{func: swipedRight}],
@@ -158,6 +214,6 @@ var ARProjectionFSM = {
         }    
     }
 };
-    */    
+        
         
         
