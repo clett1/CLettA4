@@ -63,11 +63,11 @@ ARProjection.prototype.handleTouchEnd = function(event) {
     this.xDifference = this.endX - this.startX;
     
     
-    if(this.xDifference > 40) {
+    if(this.xDifference > 60) {
         //right swipe
         this.swipedRight(this.xDifference);
         
-    } else if(this.xDifference < -40){
+    } else if(this.xDifference < -60){
         //left swipe
         this.swipedLeft(this.xDifference);
         
@@ -93,7 +93,7 @@ ARProjection.addView(view) {
 ARProjection.prototype.swipedRight = function() {
         
     var currentScreen = this.currentView;
-    
+    this.currentView.track.pause();
     console.log("currentScreen "+ this.currentView);
     var viewPos = this.views.indexOf(this.currentView);
     
@@ -146,7 +146,9 @@ ARProjection.prototype.swipedRight = function() {
 ARProjection.prototype.swipedLeft = function() {
         
     var currentScreen = this.currentView;
+    this.currentView.track.pause();
     var viewPos = this.views.indexOf(currentScreen);
+    
     console.log("view position "+ viewPos);
     if(currentScreen == this.views[3]) {
         //nothing can happen
