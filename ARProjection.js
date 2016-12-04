@@ -38,8 +38,7 @@ ARProjection.prototype.handleTouchStart = function(event) {
             if(this.currentView.track == null){
                 //there is no track for this view. do nothing
             } else {
-                var track = this.currentView.track;
-                track.handleAudio();
+                this.currentView.handleAudio();
             }
         }   
     }
