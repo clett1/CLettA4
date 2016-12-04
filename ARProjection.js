@@ -93,7 +93,7 @@ ARProjection.addView(view) {
 ARProjection.prototype.swipedRight = function() {
         
     var currentScreen = this.currentView;
-    this.currentView.track.pause();
+    this.currentView.handleAudio();
     console.log("currentScreen "+ this.currentView);
     var viewPos = this.views.indexOf(this.currentView);
     
@@ -105,7 +105,7 @@ ARProjection.prototype.swipedRight = function() {
         viewPos--;
         newPos = viewPos;
         this.currentView = this.views[newPos];
-        this.currentView.track.play();
+        this.currentView.handleAudio();
         console.log("new position "+ newPos);
         
         changingDiv.classList.add('rightSwipeTranslate');
@@ -146,7 +146,7 @@ ARProjection.prototype.swipedRight = function() {
 ARProjection.prototype.swipedLeft = function() {
         
     var currentScreen = this.currentView;
-    this.currentView.track.pause();
+    this.currentView.handleAudio();
     var viewPos = this.views.indexOf(currentScreen);
     
     console.log("view position "+ viewPos);
@@ -157,7 +157,7 @@ ARProjection.prototype.swipedLeft = function() {
         viewPos++;
         var newPos = viewPos;
         this.currentView = this.views[newPos];
-        this.currentView.track.play();
+         this.currentView.handleAudio();
         
         changingDiv.classList.add('leftSwipeTranslate');
         console.log("new position "+newPos);
