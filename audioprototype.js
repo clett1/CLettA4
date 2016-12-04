@@ -116,7 +116,7 @@ WebAudioAPISound.prototype = {
         var source = this.manager.context.createBufferSource();
         var gainNode = this.manager.context.createGain();
 
-        gainNode.gain.value = this.volume : 0.5;
+        gainNode.gain.value = 0.5;
         source.buffer = buffer;
         source.connect(gainNode);
         gainNode.connect(this.manager.context.destination);
