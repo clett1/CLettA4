@@ -110,6 +110,17 @@ twitterData.className = "twitter-timeline";
 console.log(twitterData);
 
 
+function whenAvailable(twitterData, callback) {
+    var interval = 10; // ms
+    window.setTimeout(function() {
+        if (window[twitterData]) {
+            callback(window[twitterData]);
+        } else {
+            window.setTimeout(arguments.callee, interval);
+        }
+    }, interval);
+}
+
 
 whenAvailable(twitterData, function(t) {
   
