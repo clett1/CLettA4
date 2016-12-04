@@ -93,14 +93,14 @@ var lemonadeAlbum = document.createElement("img");
 lemonadeAlbum.className = "imageProps";
 lemonadeAlbum.setAttribute("src", "lemonade.png");
 
-lemonade.onload = function() {
+lemonadeAlbum.onload = function() {
     creatorInfo.appendChild("lemonade.png");
 }
 if (lemonade != undefined) {
       console.log("lemonade has loaded");
 }
     else {
-      setTimeout(function() { lemonade.onload }, 200);
+      setTimeout(function() { lemonadeAlbum.onload }, 200);
   }
 
 
