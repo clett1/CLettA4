@@ -38,7 +38,7 @@ changingDiv.className = "swipeDiv";
 
 //**************** circle container ****************
 var titleDiv = document.createElement('div');
-titleView.className = "contentContainer";
+titleDiv.className = "contentContainer";
 
     var titleHeader = document.createElement("h3");
     var titleHeaderText = document.createTextNode("My Playist");
