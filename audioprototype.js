@@ -92,7 +92,7 @@ WebAudioAPISound.prototype = {
         if (typeof buffer !== "undefined") {
             var source = this.makeSource(buffer);
             source.loop = this.settings.loop;
-            source.noteOn(0);
+            source.start(0);
 
             if(!this.manager.playingSounds.hasOwnProperty(this.url))
                 this.manager.playingSounds[this.url] = [];
@@ -114,8 +114,9 @@ WebAudioAPISound.prototype = {
     },
     makeSource: function (buffer) {
         var source = this.manager.context.createBufferSource();
-        var gainNode = this.manager.context.createGainNode();
-        gainNode.gain.value = this.volume;
+        var gainNode = this.manager.context.createGain();
+
+        gainNode.gain.value = this.volume : 0.5;
         source.buffer = buffer;
         source.connect(gainNode);
         gainNode.connect(this.manager.context.destination);
