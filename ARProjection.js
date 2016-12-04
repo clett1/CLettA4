@@ -1,6 +1,3 @@
-var Projection = new ARProjection(projectionDiv) 
-
-
 function ARProjection(projectionDiv) {
     
     this.numViews = 0;
