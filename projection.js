@@ -1,5 +1,3 @@
-//projection prototype and methods 
-
 /** The next block of code creates the div element that will appear when the target is found.
 *   Styles for both divs can be found in style.css
 *   Both divs belong to class "contentContainer"
@@ -27,7 +25,7 @@
 *           @circle2: indicator for right side
 *   
 */
-/*
+
 var projectionDiv = document.createElement('div');
 projectionDiv.className = "projectionContainer";
 
@@ -91,8 +89,15 @@ creatorPara.appendChild(creatorParaText);
 
 creatorInfo.appendChild(creatorHeader);
 
+var lemonadeAlbum = document.createElement("img");
+lemonadeAlbum.setAttribute("src", "lemonade.png");
+lemonadeAlbum.onload = function() {
+    creatorInfo.appendChild(lemonadeAlbum);
+
+}
 
 
+//*********************************************
 
 changingDiv.appendChild(artInfo);
 changingDiv.appendChild(creatorInfo);
@@ -101,75 +106,27 @@ changingDiv.appendChild(creatorInfo);
 staticDiv.appendChild(changingDiv); 
 projectionDiv.appendChild(staticDiv);
 projectionDiv.appendChild(circleContainer);
-*/
 
-
-
-//*********************************************
-
-var side1Div = document.createElement('div');
-side1Div.className = "cube";
-
-var side2Div = document.createElement('div');
-side2Div.className = "cube";
-
-var side3Div = document.createElement('div');
-side3Div.className = "cube";
-
-var side4Div = document.createElement('div');
-side4Div.className = "cube";
-
-var side5Div = document.createElement('div');
-side5Div.className = "cube";
-
-var side6Div = document.createElement('div');
-side6Div.className = "cube";
-
-var lemonadeAlbum = document.createElement("img");
-lemonadeAlbum.setAttribute("src", "lemonade.png");
-lemonadeAlbum.onload = function() {
-    side1Div.appendChild(lemonadeAlbum);    
-    side2Div.appendChild(lemonadeAlbum);
-    side3Div.appendChild(lemonadeAlbum);
-    side4Div.appendChild(lemonadeAlbum);
-    side5Div.appendChild(lemonadeAlbum);
-    side6Div.appendChild(lemonadeAlbum);
-
-}
-
-var side1 = new THREE.CSS3DObject(side1Div);
-side1.position.set(0, 0, 0);
-
-
-side1.addEventListener('touchstart', playAudio, false);
-
-var track1 = new Audio('Beyonce-Audio/01 Pray You Catch Me.mp3');
-
-function playAudio() { 
- track1.play();   
-}
 //Create 
-var cssObjectCube = new THREE.Object3D;
+var cssObjectArt = new THREE.CSS3DSprite(projectionDiv);
 
-cssObjectCube.add(side1);
-cssObjectCube.scale.set(50, 50, 50);
 //this is a property of projectionDiv
 var visibleScreen = "left";
 
-/*
+cssObjectArt.scale.set(.8, .8, .8);
+
+var track1 = new Audio('Beyonce-Audio/01 Pray You Catch Me.mp3');
+
 projectionDiv.addEventListener('touchstart', handleTouchStart, false);
 projectionDiv.addEventListener('touchmove', handleTouchMove, false);
 projectionDiv.addEventListener('touchend', handleTouchEnd, false);
 
-var track1 = new Audio('Beyonce-Audio/01 Pray You Catch Me.mp3');
-
 lemonadeAlbum.addEventListener('touchstart', playAudio, false);
 
-function playAudio() { 
- track1.play();   
+function playAudio(){
+    track1.play();
 }
 
-console.log(track1);
 var startX;
 var movingX
 var endX;
@@ -209,7 +166,7 @@ function rightSwipe(swipeLength){
     
     if (visibleScreen == "right") {
         //this means right content is visible
-        //track1.pause();
+        
         //add rightSwipeTranslate to the div for transition animation
         changingDiv.classList.add('rightSwipeTranslate');
         
@@ -242,8 +199,7 @@ function leftSwipe(swipeLength){
         
         //move left content and replace with 
         changingDiv.style.left = "-100%";
-        
-        track1.play();
+
         visibleScreen = "right";
         //left circle switch with right circle        
         
@@ -260,8 +216,11 @@ function leftSwipe(swipeLength){
 }
 
 /*  This block of code contains the code for the Finite State Machine. This FSM controls AR Projections 
+
+
 var startState;
 var currentState = ARProjectionFSM[startState];
+
 var ARProjectionFSM = {
     
     'visible': {
@@ -306,7 +265,14 @@ var ARProjectionFSM = {
     }
              
 };
+
+
 /*
+
 make changing div 200% the container div, put both inside.
 change its position as finger moves
+
+
+
+
 */
