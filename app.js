@@ -48,23 +48,23 @@ app.context.setDefaultReferenceFrame(app.context.localOriginEastUpSouth);
 // create a bit of animated 3D text that says "argon.js" to display 
 
 var box = new THREE.Object3D();
-userLocation.add(box);
+//userLocation.add(box);
 
 var loader = new THREE.TextureLoader();
 loader.load("lemonade.png", function(texture) {
     var geometry = new THREE.BoxGeometry(1, 1, 1);
     var material = new THREE.MeshBasicMaterial({map: texture});
-    var mesh = new THREE.Mesh(geometry, material);
-    box.add(mesh);
-    box.scale.set(20, 20, 20);
+    var cube = new THREE.Mesh(geometry, material);
+    cube.scale.set(70, 70, 70);
 });
-console.log(box);
 
-box.addEventListener('touchstart', handleTouchStart, false);
+box.add(cube);
 
-box.addEventListener('touchmove', handleTouchMove, false);
+cube.addEventListener('touchstart', handleTouchStart, false);
 
-box.addEventListener('touchend', handleTouchEnd, false);
+cube.addEventListener('touchmove', handleTouchMove, false);
+
+cube.addEventListener('touchend', handleTouchEnd, false);
 
 var startX;
 var movingX
@@ -102,11 +102,11 @@ function handleTouchEnd(event) {
 }
 
 function rightSwipe(swipeLength){
-     box.rotateY(-90);   
+     cube.rotate.x -= 90;   
 }
 
 function leftSwipe(swipeLength){
-     box.rotateY(90);   
+     cube.rotate.x += 90;   
 
 }
     
