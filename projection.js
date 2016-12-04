@@ -127,7 +127,7 @@ Tweets by @TwitterDev
 
 
 creatorInfo.appendChild(creatorHeader);
-//creatorInfo.appendChild(twitterData);
+creatorInfo.appendChild(twitterData);
 
 //*********************************************
 
