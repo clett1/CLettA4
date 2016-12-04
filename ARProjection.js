@@ -67,7 +67,7 @@ ARProjection.addView(view) {
     }
 }*/
 
-ARProjection.prototype.swipedRight() {
+ARProjection.prototype.swipedRight = function() {
         
     if (visibleScreen == "right") {
         //this means right content is visible
@@ -94,7 +94,7 @@ ARProjection.prototype.swipedRight() {
     }
 }
 
-ARProjection.prototype.swipedLeft() {
+ARProjection.prototype.swipedLeft = function() {
         
     if (visibleScreen == "left") {
         //this means left content is visible
@@ -120,7 +120,7 @@ ARProjection.prototype.swipedLeft() {
     }
 }
 
-ARProjection.prototype.makeTransition() {
+ARProjection.prototype.makeTransition = function() {
     //
 }
 
