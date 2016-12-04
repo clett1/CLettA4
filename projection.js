@@ -105,8 +105,8 @@ var creatorParaText = document.createTextNode("Bio about artist. Short paragraph
 creatorPara.appendChild(creatorParaText);
 
 var twitterData = document.createElement('a');
-a.className = "twitter-timeline";
-a.href = "https://twitter.com/TwitterDev";
+twitterData.className = "twitter-timeline";
+twitterData.href = "https://twitter.com/TwitterDev";
 
 
 /*
