@@ -95,13 +95,15 @@ ARProjection.prototype.swipedRight = function() {
         
     var currentScreen = this.currentView;
     var viewPos = this.views.indexOf(currentScreen);
-    
+    console.log("view positon " + viewPos);
     if(currentScreen == this.views[0]) {
         //nothing can happen
     } else {
         //switch current views
         var newPos = viewPos--;
         this.currentView = this.views[newPos];
+        
+        console.log("new position "+ newPos);
         
         changingDiv.classList.add('rightSwipeTranslate');
         
