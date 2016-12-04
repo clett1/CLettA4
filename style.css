@@ -22,15 +22,6 @@ a {
   opacity: 1; 
 }
 
-.cube {
-    width: 100px;
-    height: 100px;
-}
-
-.imageProps {
-    width: 100%;
-}
-
 .argon-no-focus #description {
   transition: visibility 0s linear 0.8s, opacity 0.8s;
   visibility: visible;
@@ -41,55 +32,71 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    opacity: 0.75;
     border-radius: 10px;        
     width: 120px;
-    padding-left: 5px;
-    padding-right: 15px;
-    padding-bottom: 5px;
-    background-color: lightgray;
+    height: 130px;
+
+    
 }
 
 .infoDiv {
     pointer-events: auto;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     overflow: hidden;
     width: 100%;
-    padding: 5px;
 }
 
 .swipeDiv {
     display: flex;
     flex-direction: row;
     position: relative;
+    justify-content: space-between;
     left: 0px;
-    width: 400%;
-    transition: 1s;
+    width: 200%;
+    transition: .5s;
 }
 
 .swipeDiv.rightSwipeTranslate {
-    transition: 1s;
-    left: 0px;
+    transition: .5s;
+    left: 0;  
+}
+
+.swipeDiv.partialRightSwipe {
+    transition: .5s;
+    left: 20px;
+    
 }
 
 .swipeDiv.leftSwipeTranslate {
-    transition: 1s;
+    transition: .5s;
     left: -100%;
 }
-
 .contentContainer {
-    width: 25%; 
-    padding: 5px;
+    display: flex;    
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    background-color: lightgray;
+    width: 50%; 
+
 }
 
 h3 {
     font-size: 15px;
+    margin: 5px 0px 0px 5px;
+
 }
 
 .ARParagraphs {
     font-size: 10px;
+    padding: 5px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
 }
 
 .circleContainer {
