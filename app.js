@@ -1,4 +1,16 @@
-/// <reference path="../../typings/index.d.ts"/>
+function whenAvailable(twitterData, callback) {
+    var interval = 10; // ms
+    window.setTimeout(function() {
+        if (window[twitterData]) {
+            callback(window[twitterData]);
+        } else {
+            window.setTimeout(arguments.callee, interval);
+        }
+    }, interval);
+}
+
+
+// <reference path="../../typings/index.d.ts"/>
 // set up Argon
 var app = Argon.init();
 // set up THREE.  Create a scene, a perspective camera and an object
@@ -118,7 +130,12 @@ app.vuforia.isAvailable().then(function (available) {
                         console.log(targetPose.position.y);
                         console.log(targetPose.orientation);
                         
-                        ARProjectionObject.add(cssObjectArt);
+                        whenAvailable("twitterData", function(t) {
+                            // do something
+                            ARProjectionObject.add(cssObjectArt);
+                          });
+                        
+                        
                         //cssObjectArt.position.z = 0;
                       
                     
