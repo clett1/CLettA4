@@ -9,7 +9,12 @@ function whenAvailable(twitterData, callback) {
     }, interval);
 }
 
-
+whenAvailable("twitterData", function(t) {
+                            // do something
+    var app = Argon.init();                        
+    console.log("Twitter Data" + twitterData);
+ });
+                        
 // <reference path="../../typings/index.d.ts"/>
 // set up Argon
 var app = Argon.init();
@@ -130,13 +135,8 @@ app.vuforia.isAvailable().then(function (available) {
                         console.log(targetPose.position.y);
                         console.log(targetPose.orientation);
                         
-                        whenAvailable("twitterData", function(t) {
-                            // do something
-                            ARProjectionObject.add(cssObjectArt);
-                            console.log("Twitter Data" + twitterData);
-                          });
                         
-                        
+                        ARProjectionObject.add(cssObjectArt);
                         //cssObjectArt.position.z = 0;
                       
                     
