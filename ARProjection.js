@@ -57,7 +57,7 @@ ARProjection.prototype.setFSM = function(startState, fsm) {
     this.states = fsm;
     this.currentState = fsm[startState];
 }
-
+/*
 ARProjection.addView(view) {
     this.views.push(view);    
     this.numViews++;
@@ -65,7 +65,7 @@ ARProjection.addView(view) {
     if(numViews == 1){
         this.currentView = view;
     }
-}
+}*/
 
 ARProjection.prototype.swipedRight(){
         
