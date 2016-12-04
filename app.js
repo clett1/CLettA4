@@ -56,7 +56,7 @@ loader.load("lemonade.png", function(texture) {
     var material = new THREE.MeshBasicMaterial({map: texture});
     var mesh = new THREE.Mesh(geometry, material);
     box.add(mesh);
-    box.scale.set(20, 20, 20);
+    box.scale.set(70, 70, 70);
 });
 console.log(box);
     
