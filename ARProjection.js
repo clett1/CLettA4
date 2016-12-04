@@ -103,7 +103,8 @@ ARProjection.prototype.swipedRight = function() {
         //nothing can happen
     } else {
         //switch current views
-        var newPos = viewPos--;
+        viewPos--;
+        newPos = viewPos;
         this.currentView = this.views[newPos];
         
         console.log("new position "+ newPos);
@@ -152,7 +153,8 @@ ARProjection.prototype.swipedLeft = function() {
         //nothing can happen
     } else {
         //switch current views
-        var newPos = viewPos++;
+        viewPos++;
+        var newPos = viewPos;
         this.currentView = this.views[newPos];
         
         changingDiv.classList.add('leftSwipeTranslate');
