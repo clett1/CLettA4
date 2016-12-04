@@ -140,6 +140,7 @@ projectionDiv.addEventListener('touchend', handleTouchEnd, false);
 
 var track1 = new Audio('Beyonce-Audio/01 Pray You Catch Me.mp3');
 track1.play();
+console.log(track1);
 var startX;
 var movingX
 var endX;
