@@ -71,13 +71,13 @@ holdUp.onload = function() {
 
 var holdUpTrack = new Audio('audio/holdup.mp3');
 
-
+holdUpTrack.onloadeddata = function() {
 var secondView = new View ({
     image: holdUp,
     track: holdUpTrack,
     playState: "paused"
 }); 
-
+};
 
 //**************** third view ****************
 var page3 = document.createElement("div");
@@ -91,12 +91,13 @@ KMagic.onload = function() {
 
 var KMagicTrack = new Audio('audio/24KMagic.mp3');
 
+KMagicTrack.onloadeddata = function() {
 var thirdView = new View ({
     image: KMagic,
     track: KMagicTrack,
     playState: "paused"
 }); 
-
+};
 //**************** fourth view ****************
 var page4 = document.createElement("div");
 page4.className = "contentContainer";
@@ -109,12 +110,13 @@ calvinHarris.onload = function() {
 
 var calvinHarrisTrack = new Audio('audio/thisiswhatyoucamefor.mp3');
 
+calvinHarrisTrack.onloadeddata = function() {
 var fourthView = new View ({
     image: calvinHarris,
     track: calvinHarrisTrack,
     playState: "paused"
 });
-
+};
 changingDiv.appendChild(titleDiv);
 changingDiv.appendChild(page2);
 changingDiv.appendChild(page3);
