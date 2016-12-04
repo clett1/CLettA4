@@ -54,7 +54,7 @@ a {
     position: relative;
     justify-content: space-between;
     left: 0px;
-    width: 200%;
+    width: 400%;
     transition: .5s;
 }
 
@@ -79,7 +79,7 @@ a {
     justify-content: center;
     align-content: center;
     background-color: lightgray;
-    width: 50%; 
+    width: 25%; 
 
 }
 
