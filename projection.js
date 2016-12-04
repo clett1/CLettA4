@@ -98,7 +98,8 @@ lemonade.onload = function() {
 }
 if (lemonade != undefined) {
       console.log("lemonade has loaded");
-    else
+}
+    else {
       setTimeout(function() { lemonade.onload }, 200);
   }
 
