@@ -30,10 +30,12 @@ View.prototype.makeTransition = function() {
 View.prototype.handleAudio = function() {
     if(this.playState == "paused") {
         //play track
+        console.log(this.track);
         this.track.play();
         this.playState = "playing";
     } else {
         this.track.pause();
+        console.log(this.track);
         this.playState = "paused";
     }
 }
