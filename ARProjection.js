@@ -63,11 +63,11 @@ ARProjection.prototype.handleTouchEnd = function(event) {
     this.xDifference = this.endX - this.startX;
     
     
-    if(this.xDifference > 20) {
+    if(this.xDifference > 40) {
         //right swipe
         this.swipedRight(this.xDifference);
         
-    } else if(this.xDifference < -20){
+    } else if(this.xDifference < -40){
         //left swipe
         this.swipedLeft(this.xDifference);
         
@@ -105,7 +105,7 @@ ARProjection.prototype.swipedRight = function() {
         viewPos--;
         newPos = viewPos;
         this.currentView = this.views[newPos];
-        
+        this.currentView.track.play();
         console.log("new position "+ newPos);
         
         changingDiv.classList.add('rightSwipeTranslate');
@@ -155,6 +155,7 @@ ARProjection.prototype.swipedLeft = function() {
         viewPos++;
         var newPos = viewPos;
         this.currentView = this.views[newPos];
+        this.currentView.track.play();
         
         changingDiv.classList.add('leftSwipeTranslate');
         console.log("new position "+newPos);
