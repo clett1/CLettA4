@@ -113,7 +113,7 @@ var cssObjectArt = new THREE.CSS3DSprite(projectionDiv);
 //this is a property of projectionDiv
 var visibleScreen = "left";
 
-cssObjectArt.scale.set(.8, .8, .8);
+//cssObjectArt.scale.set(.8, .8, .8);
 
 var track1 = new Audio('Beyonce-Audio/01 Pray You Catch Me.mp3');
 
