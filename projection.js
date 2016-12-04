@@ -1,3 +1,20 @@
+window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+   
 /** The next block of code creates the div element that will appear when the target is found.
 *   Styles for both divs can be found in style.css
 *   Both divs belong to class "contentContainer"
@@ -85,10 +102,25 @@ var creatorHeaderText = document.createTextNode("First Last");
 var creatorPara = document.createElement("p");
 creatorPara.className = "ARParagraphs";
 var creatorParaText = document.createTextNode("Bio about artist. Short paragraph describing artist history/inspiration/etc.");
-    creatorPara.appendChild(creatorParaText);
+creatorPara.appendChild(creatorParaText);
+
+var twitterData = document.createElement('a');
+a.className = "twitter-timeline";
+a.href = "https://twitter.com/TwitterDev";
+
+
+/*
+<a class="twitter-timeline"
+  href=
+  data-width="300"
+  data-height="300">
+Tweets by @TwitterDev
+</a>
+*/
+
 
 creatorInfo.appendChild(creatorHeader);
-creatorInfo.appendChild(creatorPara);
+creatorInfo.appendChild(twitterData);
 
 //*********************************************
 
