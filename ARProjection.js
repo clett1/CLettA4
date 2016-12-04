@@ -17,16 +17,43 @@ function ARProjection(projectionDiv) {
 
 }
 
+ARProjection.prototype.addView = function(view) {
+    this.views.push(view);
+    view.parent = this;
+}
+
 ARProjection.prototype.handleTouchStart = function(event) {
     
-    this.startX = event.touches[0].clientX;
-    
-    //makeTransition(event.type);
+    if(event.targetTouches.length == 1){
+        //trigger swipe event
+        this.startX = event.touches[0].clientX;
+        
+    } else if (event.targetTouches.length == 2) {
+        //trigger audio
+        console.log("play/pause track");
+        if(this.currentView == null){
+            //no current view do nothing
+        } else {
+            //there is a current view
+            if(this.currentView.track == null){
+                //there is no track for this view. do nothing
+            } else {
+                var track = this.currentView.track;
+                track.handleAudio();
+            }
+        }   
+    }
 }
 
 ARProjection.prototype.handleTouchMove = function(event) {
     
-    this.movingX = event.touches[0].clientX;
+    if(event.targetTouches.length == 1){
+        //trigger target touches
+        this.movingX = event.touches[0].clientX;
+
+    } else if(event.targetTouches == 2){
+        //may skip audio
+    }
     
     //makeTransition
 }
@@ -66,54 +93,93 @@ ARProjection.addView(view) {
 
 ARProjection.prototype.swipedRight = function() {
         
-    if (visibleScreen == "right") {
-        //this means right content is visible
+    var currentScreen = this.currentView;
+    var viewPos = this.views.indexOf(currentScreen);
+    
+    if(currentScreen == this.views[0]) {
+        //nothing can happen
+    } else {
+        //switch current views
+        var newPos = viewPos--;
+        this.currentView = this.views[newPos];
         
-        //add rightSwipeTranslate to the div for transition animation
         changingDiv.classList.add('rightSwipeTranslate');
         
-        
-        //move right content and replace with left content
-        changingDiv.style.left = "0px";
-        
-        visibleScreen = "left";
-        
-        //right circle switch with left circle
-        circle1.style.backgroundColor = "white";
-        circle2.style.backgroundColor = "darkgray";    
+        switch(newPos) {
+            case 0:
+                changingDiv.style.left = "0px";
+                circle1.style.backgroundColor = "white";          
+                circle2.style.backgroundColor = "darkgray";
+                circle3.style.backgroundColor = "darkgray";
+                circle4.style.backgroundColor = "darkgray";
+                break;
+            case 1:
+                changingDiv.style.left = "-100%";
+                circle1.style.backgroundColor = "darkgray";
+                circle2.style.backgroundColor = "white";
+                circle3.style.backgroundColor = "darkgray";
+                circle4.style.backgroundColor = "darkgray";
+                break;
+            case 2:
+                changingDiv.style.left = "-200%";
+                circle1.style.backgroundColor = "darkgray";  
+                circle2.style.backgroundColor = "darkgray";
+                circle3.style.backgroundColor = "white";
+                circle4.style.backgroundColor = "darkgray";
+                break;
+            default:
+                console.log("No change");
+        }
         
         //remove transiton
-        changingDiv.classList.remove('rightSwipeTranslate');
-
-        
-    } else {
-        //bounce content to the right
+        changingDiv.classList.remove('rightSwipeTranslate');      
     }
+ 
+   
 }
 
 ARProjection.prototype.swipedLeft = function() {
         
-    if (visibleScreen == "left") {
-        //this means left content is visible
+    var currentScreen = this.currentView;
+    var viewPos = this.views.indexOf(currentScreen);
+    
+    if(currentScreen == this.views[3]) {
+        //nothing can happen
+    } else {
+        //switch current views
+        var newPos = viewPos++;
+        this.currentView = this.views[newPos];
         
-        //add rightSwipeTranslate to the div for transition animation
         changingDiv.classList.add('leftSwipeTranslate');
         
-        //move left content and replace with 
-        changingDiv.style.left = "-100%";
-
-        visibleScreen = "right";
-        //left circle switch with right circle        
+        switch(newPos) {
+            case 1:
+                changingDiv.style.left = "-100%";
+                circle1.style.backgroundColor = "darkgray";
+                circle2.style.backgroundColor = "white";
+                circle3.style.backgroundColor = "darkgray";
+                circle4.style.backgroundColor = "darkgray";
+                break;
+            case 2:
+                changingDiv.style.left = "-200%";
+                circle1.style.backgroundColor = "darkgray";  
+                circle2.style.backgroundColor = "darkgray";
+                circle3.style.backgroundColor = "white";
+                circle4.style.backgroundColor = "darkgray";
+                break;
+            case 3:
+                changingDiv.style.left = "-300%";
+                circle1.style.backgroundColor = "darkgray";  
+                circle2.style.backgroundColor = "darkgray";
+                circle3.style.backgroundColor = "darkgray";
+                circle4.style.backgroundColor = "white";
+                break;
+            default:
+                console.log("No change");
+        }
         
-        circle1.style.backgroundColor = "darkgray";
-        circle2.style.backgroundColor = "white";
-
         //remove transiton
-        changingDiv.classList.remove('leftSwipeTranslate');
-
-        
-    } else {
-        //bounce content to the left
+        changingDiv.classList.remove('leftSwipeTranslate');      
     }
 }
 
@@ -121,9 +187,4 @@ ARProjection.prototype.makeTransition = function() {
     //
 }
 
-/*
-function View(params){
-    this.image = params.image;
-    this.track = params.track;
-    this.playState = params.playState;
-}*/
+
