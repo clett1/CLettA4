@@ -107,7 +107,7 @@ calvinHarris.onload = function() {
     page4.appendChild(calvinHarris);
 }
 
-var calvinHarrisTrack = new Audio('audio/24KMagic.mp3');
+var calvinHarrisTrack = new Audio('audio/thisiswhatyoucamefor.mp3');
 
 var fourthView = new View ({
     image: calvinHarris,
