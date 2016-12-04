@@ -58,7 +58,7 @@ loader.load("lemonade.png", function(texture) {
     var mesh = new THREE.Mesh(geometry, material);
     box.add(mesh);
 });
-box.scale.set(1, 1, 1);
+box.scale.set(.5, .5, .5);
 
     
 
@@ -110,13 +110,14 @@ app.vuforia.isAvailable().then(function (available) {
                     // is LOST.  Here, we move the 3D text object back to the world
                     if (gvuBrochurePose.poseStatus & Argon.PoseStatus.FOUND) {
                        //Target Found
+                        console.log("target found");
                         gvuBrochureObject.add(box);
                         
                         box.position.z = 0;
                     }
                     else if (gvuBrochurePose.poseStatus & Argon.PoseStatus.LOST) {
                         //Target Lost
-                        
+                        console.log("target lost");
                         box.position.z = -0.50;
                         userLocation.add(box);
                     }
