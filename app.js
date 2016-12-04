@@ -48,7 +48,6 @@ app.context.setDefaultReferenceFrame(app.context.localOriginEastUpSouth);
 // create a bit of animated 3D text that says "argon.js" to display 
 
 var box = new THREE.Object3D();
-box.position.z = -1;
 userLocation.add(box);
 
 var loader = new THREE.TextureLoader();
@@ -101,7 +100,6 @@ app.vuforia.isAvailable().then(function (available) {
                     // if the pose is known the target is visible, so set the
                     // THREE object to the location and orientation
                     if (gvuBrochurePose.poseStatus & Argon.PoseStatus.KNOWN) {
-                        console.log("target known");
                         gvuBrochureObject.position.copy(gvuBrochurePose.position);
                         gvuBrochureObject.quaternion.copy(gvuBrochurePose.orientation);
                     }
