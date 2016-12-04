@@ -148,9 +148,9 @@ function playAudio() {
  track1.play();   
 }
 //Create 
-var cssCubeObject = new THREE.Object3D;
+var cssObjectCube = new THREE.Object3D;
 
-cssCubeObject.add(side1);
+cssObjectCube.add(side1);
 
 //this is a property of projectionDiv
 var visibleScreen = "left";
