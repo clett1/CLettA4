@@ -113,7 +113,7 @@ function playAudio(){
 
 /*  This block of code contains the code for the Finite State Machine. This FSM controls AR Projections 
 */
-
+/*
 var startState;
 var currentState = ARProjectionFSM[startState];
 
