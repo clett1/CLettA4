@@ -36,7 +36,7 @@ staticDiv.className = "infoDiv";
 var changingDiv = document.createElement("div");
 changingDiv.className = "swipeDiv";
 
-//**************** circle container ****************
+//**************** first view ****************
 var titleDiv = document.createElement('div');
 titleDiv.className = "contentContainer";
 
@@ -83,10 +83,10 @@ var secondView = new View ({
 var page3 = document.createElement("div");
 page3.className = "contentContainer";
 var KMagic = document.createElement("img");
-holdUp.setAttribute("src", "24KMagic.png");
+KMagic.setAttribute("src", "24KMagic.png");
 
 KMagic.onload = function() {
-    page2.appendChild(KMagic);
+    page3.appendChild(KMagic);
 }
 
 var KMagicTrack = new Audio('audio/24KMagic.mp3');
