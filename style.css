@@ -22,12 +22,6 @@ a {
   opacity: 1; 
 }
 
-
-.imageProps {
-    width: 100px;
-    height: 100px;
-}
-
 .argon-no-focus #description {
   transition: visibility 0s linear 0.8s, opacity 0.8s;
   visibility: visible;
@@ -39,53 +33,69 @@ a {
     flex-direction: column;
     justify-content: flex-start;
     border-radius: 10px;        
-    width: 120px;
-    padding-left: 5px;
-    padding-right: 15px;
-    padding-bottom: 5px;
-    background-color: lightgray;
+    width: 200px;
+    
 }
 
 .infoDiv {
     pointer-events: auto;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     overflow: hidden;
     width: 100%;
-    padding: 5px;
 }
 
 .swipeDiv {
     display: flex;
     flex-direction: row;
     position: relative;
+    justify-content: space-between;
     left: 0px;
     width: 200%;
-    transition: 1s;
+        padding: 5px;
+    transition: .5s;
 }
 
 .swipeDiv.rightSwipeTranslate {
-    transition: 1s;
-    left: 0px;
+    transition: .5s;
+    left: 0;  
+}
+
+.swipeDiv.partialRightSwipe {
+    transition: .5s;
+    left: 20px;
+    
 }
 
 .swipeDiv.leftSwipeTranslate {
-    transition: 1s;
+    transition: .5s;
     left: -100%;
 }
-
 .contentContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    flex-direction: column;
+    padding: 10px;
+    padding-right: 15px;
+    background-color: lightgray;
     width: 50%; 
-    padding: 5px;
+
 }
 
 h3 {
     font-size: 15px;
+
 }
 
 .ARParagraphs {
     font-size: 10px;
+}
+
+.imageProps {
+    pointer-events: none;
+    width: 100%;    
 }
 
 .circleContainer {
