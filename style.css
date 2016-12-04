@@ -35,6 +35,7 @@ a {
     border-radius: 10px;        
     width: 120px;
     height: 130px;
+
     
 }
 
@@ -45,7 +46,6 @@ a {
     justify-content: space-between;
     overflow: hidden;
     width: 100%;
-    height: 100%;
 }
 
 .swipeDiv {
@@ -74,18 +74,18 @@ a {
     left: -100%;
 }
 .contentContainer {
-    display: flex;
-    justify-content: flex-start;
-    align-content: center;
+    display: flex;    
     flex-direction: column;
+    justify-content: center;
+    align-content: center;
     background-color: lightgray;
     width: 50%; 
 
 }
 
 h3 {
-    font-size: 13px;
-    padding-left: 5px;
+    font-size: 15px;
+    margin: 5px 0px 0px 5px;
 
 }
 
@@ -94,9 +94,8 @@ h3 {
     padding: 5px;
 }
 
-.imageProps {
-    pointer-events: none;
-    width: 100%; 
+img {
+    width: 100%;
     height: 100%;
 }
 
@@ -105,7 +104,6 @@ h3 {
     flex-direction: row;
     justify-content: center;
     width: 100%;
-	height: 100%;
 }
 
 .circles {
