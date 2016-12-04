@@ -111,7 +111,7 @@ var calvinHarrisTrack = new Audio('audio/24KMagic.mp3');
 
 var fourthView = new View ({
     image: calvinHarris,
-    track: calvinHarris,
+    track: calvinHarrisTrack,
     playState: "paused"
 });
 
