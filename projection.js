@@ -69,15 +69,16 @@ holdUp.onload = function() {
     page2.appendChild(holdUp);
 }
 
-var holdUpTrack = new Audio('audio/holdup.mp3');
+//var holdUpTrack = new Audio('audio/holdup.mp3');
+holdUpTrack = new WebAudioAPISound("audio/holdup.mp3", {loop: true});
 
-holdUpTrack.onloadeddata = function() {
+//holdUpTrack.onloadeddata = function() {
 var secondView = new View ({
     image: holdUp,
     track: holdUpTrack,
     playState: "paused"
 }); 
-};
+//};
 
 //**************** third view ****************
 var page3 = document.createElement("div");
@@ -89,15 +90,16 @@ KMagic.onload = function() {
     page3.appendChild(KMagic);
 }
 
-var KMagicTrack = new Audio('audio/24KMagic.mp3');
+//var KMagicTrack = new Audio('audio/24KMagic.mp3');
+KMagicTrack = new WebAudioAPISound("audio/24KMagic.mp3", {loop: true});
 
-KMagicTrack.onloadeddata = function() {
+//KMagicTrack.onloadeddata = function() {
 var thirdView = new View ({
     image: KMagic,
     track: KMagicTrack,
     playState: "paused"
 }); 
-};
+//};
 //**************** fourth view ****************
 var page4 = document.createElement("div");
 page4.className = "contentContainer";
@@ -108,15 +110,16 @@ calvinHarris.onload = function() {
     page4.appendChild(calvinHarris);
 }
 
-var calvinHarrisTrack = new Audio('audio/thisiswhatyoucamefor.mp3');
+//var calvinHarrisTrack = new Audio('audio/thisiswhatyoucamefor.mp3');
+calvinHarrisTrack = new WebAudioAPISound("audio/thisiswhatyoucamefor.mp3", {loop: true});
 
-calvinHarrisTrack.onloadeddata = function() {
+//calvinHarrisTrack.onloadeddata = function() {
 var fourthView = new View ({
     image: calvinHarris,
     track: calvinHarrisTrack,
     playState: "paused"
 });
-};
+//};
 changingDiv.appendChild(titleDiv);
 changingDiv.appendChild(page2);
 changingDiv.appendChild(page3);
