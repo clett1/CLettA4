@@ -128,7 +128,8 @@ side6Div.className = "cube";
 var lemonadeAlbum = document.createElement("img");
 lemonadeAlbum.setAttribute("src", "lemonade.png");
 lemonadeAlbum.onload = function() {
-    side1Div.appendChild(lemonadeAlbum);    side2Div.appendChild(lemonadeAlbum);
+    side1Div.appendChild(lemonadeAlbum);    
+    side2Div.appendChild(lemonadeAlbum);
     side3Div.appendChild(lemonadeAlbum);
     side4Div.appendChild(lemonadeAlbum);
     side5Div.appendChild(lemonadeAlbum);
@@ -137,8 +138,7 @@ lemonadeAlbum.onload = function() {
 }
 
 var side1 = new THREE.CSS3DObject(side1Div);
-side1.position.set(0, 0, 100);
-side1.scale.set(.8, .8, .8);
+side1.position.set(0, 0, 0);
 
 
 side1.addEventListener('touchstart', playAudio, false);
@@ -152,7 +152,7 @@ function playAudio() {
 var cssObjectCube = new THREE.Object3D;
 
 cssObjectCube.add(side1);
-
+cssObjectCube.scale.set(50, 50, 50);
 //this is a property of projectionDiv
 var visibleScreen = "left";
 
