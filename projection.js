@@ -138,6 +138,7 @@ lemonadeAlbum.onload = function() {
 
 var side1 = new THREE.CSS3DObject(side1Div);
 side1.position.set(0, 0, 100);
+side1.scale.set(.8, .8, .8);
 
 
 side1.addEventListener('touchstart', playAudio, false);
@@ -155,7 +156,6 @@ cssObjectCube.add(side1);
 //this is a property of projectionDiv
 var visibleScreen = "left";
 
-//cssObjectArt.scale.set(.8, .8, .8);
 /*
 projectionDiv.addEventListener('touchstart', handleTouchStart, false);
 projectionDiv.addEventListener('touchmove', handleTouchMove, false);
