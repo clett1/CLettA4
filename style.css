@@ -22,13 +22,10 @@ a {
   opacity: 1; 
 }
 
-.cube {
-    width: 100px;
-    height: 100px;
-}
 
 .imageProps {
-    width: 100%;
+    width: 100px;
+    height: 100px;
 }
 
 .argon-no-focus #description {
