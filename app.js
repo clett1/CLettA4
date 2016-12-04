@@ -31,7 +31,6 @@ hud.hudElements[0].appendChild(description);
 
 app.view.element.appendChild(hud.domElement);
 
-hud.hudElements[0].appendChild(stats.dom);
 // Tell argon what local coordinate system you want.  The default coordinate
 // frame used by Argon is Cesium's FIXED frame, which is centered at the center
 // of the earth and oriented with the earth's axes.  
