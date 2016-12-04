@@ -119,7 +119,7 @@ app.vuforia.isAvailable().then(function (available) {
                         console.log(targetPose.position.y);
                         console.log(targetPose.orientation);
                         
-                        ARProjectionObject.add(cssObjectArt);
+                        ARProjectionObject.add(cssObjectPlaylist);
                         cssObjectArt.position.z = 0;
                       
                     
@@ -127,7 +127,7 @@ app.vuforia.isAvailable().then(function (available) {
                         //Target is lost
                         console.log("Target Lost");
                         
-                        ARProjectionObject.remove(cssObjectArt);
+                        ARProjectionObject.remove(cssObjectPlaylist);
                     } 
                 });
             }).catch(function(err) {
