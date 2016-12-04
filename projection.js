@@ -156,6 +156,6 @@ var ARProjectionFSM = {
         }    
     }
 };
-        
+    */    
         
         
