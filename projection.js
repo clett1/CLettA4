@@ -45,7 +45,7 @@ titleDiv.className = "contentContainer";
     titleHeader.appendChild(titleHeaderText);
 
     var titlePara = document.createElement("p");
-    titlePara.className("ARParagraphs");
+    titlePara.className= "ARParagraphs";
     var titleParaText = document.createTextNode("Welcome to my playlist. This is a complitation of some of my favorite songs of 2016");
     titlePara.appendChild(titleParaText);
 
