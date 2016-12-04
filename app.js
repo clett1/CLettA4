@@ -133,7 +133,7 @@ app.vuforia.isAvailable().then(function (available) {
                         whenAvailable("twitterData", function(t) {
                             // do something
                             ARProjectionObject.add(cssObjectArt);
-                            console.log(twitterData);
+                            console.log("Twitter Data" + twitterData);
                           });
                         
                         
