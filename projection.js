@@ -76,19 +76,6 @@ artInfo.appendChild(artPara);
 var creatorInfo = document.createElement('div');
 creatorInfo.className = "contentContainer";
 
-//header
-var creatorHeader = document.createElement("h3");
-var creatorHeaderText = document.createTextNode("First Last");
-    creatorHeader.appendChild(creatorHeaderText);
-
-//paragraph
-var creatorPara = document.createElement("p");
-creatorPara.className = "ARParagraphs";
-var creatorParaText = document.createTextNode("Bio about artist. Short paragraph describing artist history/inspiration/etc.");
-creatorPara.appendChild(creatorParaText);
-
-creatorInfo.appendChild(creatorHeader);
-
 var lemonadeAlbum = document.createElement("img");
 lemonadeAlbum.setAttribute("src", "lemonade.png");
 lemonadeAlbum.onload = function() {
@@ -113,110 +100,19 @@ var cssObjectArt = new THREE.CSS3DSprite(projectionDiv);
 //this is a property of projectionDiv
 var visibleScreen = "left";
 
-//cssObjectArt.scale.set(.8, .8, .8);
+cssObjectArt.scale.set(.8, .8, .8);
 
 var track1 = new Audio('Beyonce-Audio/01 Pray You Catch Me.mp3');
 
-projectionDiv.addEventListener('touchstart', handleTouchStart, false);
-projectionDiv.addEventListener('touchmove', handleTouchMove, false);
-projectionDiv.addEventListener('touchend', handleTouchEnd, false);
-
-lemonadeAlbum.addEventListener('touchstart', playAudio, false);
 
 function playAudio(){
     track1.play();
 }
 
-var startX;
-var movingX
-var endX;
 
-
-function handleTouchStart(event) {
-    startX = event.touches[0].clientX;
-    console.log(startX) 
-    //makeTransition(event.type);
-}
-
-function handleTouchMove(event) {
-    movingX = event.touches[0].clientX;
-    //console.log(movingX);
-}
-
-function handleTouchEnd(event) {
-    endX = movingX;
-    var xDifference = endX - startX;
-    
-    console.log(xDifference);
-    
-    if(xDifference > 0) {
-        //right swipe
-        rightSwipe(xDifference);
-        
-    } else if(xDifference < 0){
-        //left swipe
-        leftSwipe(xDifference);
-        
-    } else {
-        //xDifference = 0
-    }
-}
-
-function rightSwipe(swipeLength){
-    
-    if (visibleScreen == "right") {
-        //this means right content is visible
-        
-        //add rightSwipeTranslate to the div for transition animation
-        changingDiv.classList.add('rightSwipeTranslate');
-        
-        
-        //move right content and replace with left content
-        changingDiv.style.left = "0px";
-        
-        visibleScreen = "left";
-        
-        //right circle switch with left circle
-        circle1.style.backgroundColor = "white";
-        circle2.style.backgroundColor = "darkgray";    
-        
-        //remove transiton
-        changingDiv.classList.remove('rightSwipeTranslate');
-
-        
-    } else {
-        //bounce content to the right
-    }
-}
-
-function leftSwipe(swipeLength){
-    
-    if (visibleScreen == "left") {
-        //this means left content is visible
-        
-        //add rightSwipeTranslate to the div for transition animation
-        changingDiv.classList.add('leftSwipeTranslate');
-        
-        //move left content and replace with 
-        changingDiv.style.left = "-100%";
-
-        visibleScreen = "right";
-        //left circle switch with right circle        
-        
-        circle1.style.backgroundColor = "darkgray";
-        circle2.style.backgroundColor = "white";
-
-        //remove transiton
-        changingDiv.classList.remove('leftSwipeTranslate');
-
-        
-    } else {
-        //bounce content to the left
-    }
-}
 
 /*  This block of code contains the code for the Finite State Machine. This FSM controls AR Projections 
-
+*/
 
 var startState;
 var currentState = ARProjectionFSM[startState];
@@ -230,49 +126,36 @@ var ARProjectionFSM = {
                 console.log("Div has been pressed");
             }}],
             
-            endState: 'touched'
+            endState: 'beingTouched'
         }, 
     },
             
-    'touched': {
-        'touchmove': {
-            
-            'swipedRight': {
-            
-                predicate: {
-                    //is finger moving to the right?
-                },
-            
-                actions: [{func: rightSwipe}],
-            
-                endState: 'visible'
+    'touchedDown': {
         
+        "touchmove": {
+            actions: [{func: logMovement}],
+            endState: "touchedDown"
+        },
+        
+        "touchend": {
+            "swipedRight": {
+                predicate: function(xDifference) {
+                    return xDifference > 20
+                },
+                actions: [{func: swipedRight}],
+                endState: "visible",
             },
             
-            'swipedLeft': {
-                
-                predicate: {
-                //is finger moving to the left?
+            "swipedLeft": {
+                predicate: function(xDifference){
+                    return xDifference < -30
                 },
-            
-                actions: [{func: leftSwipe}],
-            
-                endState: 'visible'
-            
+                actions: [{func: swipedLeft}],
+                endState: "visible"
             }
-        }  
-    
+        }    
     }
-             
 };
-
-
-/*
-
-make changing div 200% the container div, put both inside.
-change its position as finger moves
-
-
-
-
-*/
+        
+        
+        
