@@ -144,7 +144,7 @@ ARProjection.prototype.swipedLeft = function() {
         
     var currentScreen = this.currentView;
     var viewPos = this.views.indexOf(currentScreen);
-    
+    console.log("view position "+ viewPos);
     if(currentScreen == this.views[3]) {
         //nothing can happen
     } else {
@@ -153,7 +153,7 @@ ARProjection.prototype.swipedLeft = function() {
         this.currentView = this.views[newPos];
         
         changingDiv.classList.add('leftSwipeTranslate');
-        
+        console.log("new position "+newPos);
         switch(newPos) {
             case 1:
                 changingDiv.style.left = "-100%";
