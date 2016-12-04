@@ -1,20 +1,3 @@
-window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  fjs.parentNode.insertBefore(js, fjs);
-
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
-
-  return t;
-}(document, "script", "twitter-wjs"));
-   
 /** The next block of code creates the div element that will appear when the target is found.
 *   Styles for both divs can be found in style.css
 *   Both divs belong to class "contentContainer"
@@ -106,16 +89,18 @@ creatorPara.appendChild(creatorParaText);
 
 creatorInfo.appendChild(creatorHeader);
 
+var lemonadeAlbum = document.createElement("img");
+lemonadeAlbum.className = "imageProps";
+lemonadeAlbum.setAttribute("src", "lemonade.png");
 
-var twitterData = document.createElement("a");
-twitterData.setAttribute('href', "https://twitter.com/TwitterDev");
-twitterData.className = "twitter-timeline";
-console.log(twitterData);
-
-twitterData.onload = function() {
-  creatorInfo.appendChild(twitterData);
+lemonade.onload = function() {
+    creatorInfo.appendChild("lemonade.png");
 }
-
+if (lemonade != undefined)
+      creatorInfo.appendChild("lemonade.png");
+    else
+      setTimeout(function() { runGame() }, 200);
+  }
 
 
 /*
