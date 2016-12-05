@@ -12,22 +12,9 @@ function ARProjection(leftArrow, rightArrow) {
     leftArrow.addEventListener('touchstart', this.leftArrowClicked.bind(this));
     
     rightArrow.addEventListener('touchstart', this.rightArrowClicked.bind(this));
-    
-    document.addEventListener('touchstart', this.logTouchStart.bind(this));
-    document.addEventListener('touchmove', this.logTouchMove.bind(this));
-    document.addEventListener('touchend', this.logTouchEnd.bind(this));
+
 }
-ARProjection.prototype.logTouchStart = function(event) {
-    this.startX = event.touches[0].clientX;   
-}
-ARProjection.prototype.logTouchMove = function(event) {
-    this.movingX = event.touches[0].clientX;   
-}
-ARProjection.prototype.logTouchEnd = function(event) {
-    this.endX = this.movingX;
-    this.xDifference = this.endX - this.startX;
-    console.log("move amount "+ this.xDifference);  
-}
+
 ARProjection.prototype.addView = function(view) {
     this.views.push(view);
     view.parent = this;
