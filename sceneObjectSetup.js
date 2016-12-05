@@ -23,12 +23,6 @@ calvinHarrisTrack.onloadeddata = function() {
   console.log("Calvin Harris track load complete"); 
 };
 
-var holdUp = document.createElement("img");
-holdUp.setAttribute("src", "holdup.png");
-
-holdUp.onload = function() {
-    page2.appendChild(holdUp);
-}
 
 var playImg = document.createElement("img");
 playImg.setAttribute("src", "play.png");
