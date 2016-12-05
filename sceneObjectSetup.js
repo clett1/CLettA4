@@ -188,8 +188,7 @@ projectionDiv.appendChild(circleContainer);
 projectionDiv.appendChild(staticDiv);
 
 allElements.appendChild(projectionDiv);
-allElements.appendChild(leftArrow);
-allElements.appendChild(rightArrow);
+allElements.appendChild(arrowContainer);
 
 //Create new cssObject Div
 var cssObjectPlaylist = new THREE.CSS3DSprite(allElements);
