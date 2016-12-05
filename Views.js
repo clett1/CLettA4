@@ -12,7 +12,7 @@ function View(params) {
     //add event listener to image
     if(this.image != null) {
         this.image.addEventListener("touchstart", this.handleAudio.bind(this));
-    
+        console.log("image event listener is getting added")
     }
 };
 
