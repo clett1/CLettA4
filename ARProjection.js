@@ -85,7 +85,7 @@ ARProjection.prototype.swipedRight = function() {
         viewPos--;
         newPos = viewPos;
         this.currentView = this.views[newPos];
-        this.currentView.transitionAnimation(newPos, swipeDirection);    
+        this.currentView.transitionAnimation(newPos, this.swipeDirection);    
     }
 }
 
@@ -103,7 +103,7 @@ ARProjection.prototype.swipedLeft = function() {
         viewPos++;
         var newPos = viewPos;
         this.currentView = this.views[newPos];
-        this.currentView.transitionAnimation(newPos, swipeDirection);     
+        this.currentView.transitionAnimation(newPos, this.swipeDirection);     
     }
 }
 
