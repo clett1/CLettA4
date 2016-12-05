@@ -97,7 +97,7 @@ var titleDiv = document.createElement('div');
 titleDiv.className = "contentContainer";
 
 var titleHeader = document.createElement("h3");
-var titleHeaderText = document.createTextNode("My Playist");
+var titleHeaderText = document.createTextNode("Courtney's Mix");
 titleHeader.appendChild(titleHeaderText);
 
 var titlePara = document.createElement("p");
