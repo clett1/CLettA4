@@ -78,7 +78,7 @@ ARProjection.prototype.swipedRight = function() {
     //current view position
     var viewPos = this.views.indexOf(this.currentView);
         
-    if(currentScreen == this.views[0]) {
+    if(this.currentView == this.views[0]) {
         //nothing can happen
     } else {
         //switch current views
@@ -96,7 +96,7 @@ ARProjection.prototype.swipedLeft = function() {
     //current view position
     var viewPos = this.views.indexOf(this.currentView);
     
-    if(currentScreen == this.views[3]) {
+    if(this.currentView == this.views[3]) {
         //nothing can happen
     } else {
         //switch current views
