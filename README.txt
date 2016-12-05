@@ -1,4 +1,4 @@
-My AR Playlist is a webapp made with the Argon.js browser. The site is hosted at https://clett1.io/argontesting/
+My AR Playlist is a webapp made with the Argon.js browser. The site is hosted at https://clett1.github.io/CLettA4/
 
 In order to access the site, the user must download Argon4 from the App Store or Google Play, then type in the URL. Once the site has loaded, the projection will appear whenever the target is in sight. The target object is included in this folder. Clicking on the arrows allows the user to skip between songs. 
 
