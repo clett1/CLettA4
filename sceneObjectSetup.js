@@ -180,10 +180,10 @@ var fourthView = new View ({
     controlButton: circle4
 });
 
-circle1.addEventListener("touchstart", titleView.controlButtonPress, false);
-circle2.addEventListener("touchstart", secondView.controlButtonPress, false);
-circle3.addEventListener("touchstart", thirdView.controlButtonPress, false);
-circle4.addEventListener("touchstart", fourthView.controlButtonPress, false);
+circle1.addEventListener("touchstart", titleView.controlButtonPress.bind(this), false);
+circle2.addEventListener("touchstart", secondView.controlButtonPress.bind(this), false);
+circle3.addEventListener("touchstart", thirdView.controlButtonPress.bind(this), false);
+circle4.addEventListener("touchstart", fourthView.controlButtonPress.bind(this), false);
 
 
 changingDiv.appendChild(titleDiv);
