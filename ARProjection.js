@@ -82,13 +82,13 @@ ARProjection.prototype.swipedRight = function() {
         //nothing can happen
     } else {
         //switch current views
-        this.views[viewPos].isVisible = false;
+        this.views[viewPos].isVisible = "false";
         
         viewPos--;
         var newPos = viewPos;
         this.currentView = this.views[newPos];
         
-        this.views[newPos].isVisible = true;
+        this.views[newPos].isVisible = "true";
         this.views[newPos].handleAudio();
         this.currentView.transitionAnimation(newPos, this.swipeDirection);    
     }
@@ -105,12 +105,12 @@ ARProjection.prototype.swipedLeft = function() {
         //nothing can happen
     } else {
         //switch current views
-        this.views[viewPos].isVisible = false;
+        this.views[viewPos].isVisible = "false";
 
         viewPos++;
         var newPos = viewPos;
         this.currentView = this.views[newPos];        
-        this.views[newPos].isVisible = true;
+        this.views[newPos].isVisible = "true";
         this.views[newPos].handleAudio();
         this.currentView.transitionAnimation(newPos, this.swipeDirection);     
     }
