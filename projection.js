@@ -120,6 +120,7 @@ var titleView = new View({
     image: null,
     track: null,
     playState: null,
+    visibility: "false",
     controlButton: circle1
 });
 
@@ -138,6 +139,7 @@ var secondView = new View ({
     image: holdUp,
     track: holdUpTrack,
     playState: "paused",
+    visibility: "false",
     controlButton: circle2
 }); 
 
@@ -156,6 +158,7 @@ var thirdView = new View ({
     image: KMagic,
     track: KMagicTrack,
     playState: "paused",
+    visibility: "false",
     controlButton: circle3
 }); 
 
@@ -173,6 +176,7 @@ var fourthView = new View ({
     image: calvinHarris,
     track: calvinHarrisTrack,
     playState: "paused",
+    visibility: "false",
     controlButton: circle4
 });
 
@@ -204,7 +208,7 @@ projection.addView(thirdView);
 projection.addView(fourthView);
 
 projection.currentView = projection.views[0];
-projection.views[0].isVisible = true;
+projection.views[0].isVisible = "true";
 //set view to the first page
 
 
