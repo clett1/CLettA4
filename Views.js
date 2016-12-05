@@ -50,10 +50,10 @@ View.prototype.transitionAnimation = function(newPosition, direction) {
                 break;
             case 3:
                 changingDiv.style.left = "-300%";
-                circle1.style.backgroundColor = "#FFD259";  
-                circle2.style.backgroundColor = "#FFD259";
-                circle3.style.backgroundColor = "#FFD259";
-                circle4.style.backgroundColor = "white";
+                bar1.style.backgroundColor = "#FFD259";  
+                bar2.style.backgroundColor = "#FFD259";
+                bar3.style.backgroundColor = "#FFD259";
+                bar4.style.backgroundColor = "white";
                 break;
             default:
                 console.log("No change");
