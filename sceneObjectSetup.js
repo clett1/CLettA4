@@ -93,6 +93,13 @@ circleContainer.appendChild(circle3);
 circleContainer.appendChild(circle4);
 
 circle1.style.backgroundColor = "white";
+
+var leftArrow = document.createElement('div');
+var rightArrow = document.createElement('div');
+
+leftArrow.className = "leftArrow";
+rightArrow.className = "rightArrow";
+
    
 //**************** first view ****************
 var titleDiv = document.createElement('div');
@@ -190,7 +197,9 @@ changingDiv.appendChild(page4);
 //Append all divs to projection Div
 staticDiv.appendChild(changingDiv); 
 staticDiv.appendChild(circleContainer);
+projectionDiv.appendChild(leftArrow);
 projectionDiv.appendChild(staticDiv);
+projectionDiv.appendChild(rightArrow);
 
 //Create new cssObject Div
 var cssObjectPlaylist = new THREE.CSS3DSprite(projectionDiv);
