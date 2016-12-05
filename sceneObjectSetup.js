@@ -63,6 +63,8 @@ pauseImg.onload = function() {
            @circle1: indicator for left side
            @circle2: indicator for right side
 */
+var allElements = document.createElement('div');
+allElements.className = "allElementsContainer;
 
 var projectionDiv = document.createElement('div');
 projectionDiv.className = "projectionContainer";
@@ -196,10 +198,12 @@ changingDiv.appendChild(page4);
 
 //Append all divs to projection Div
 staticDiv.appendChild(changingDiv); 
-staticDiv.appendChild(circleContainer);
-projectionDiv.appendChild(leftArrow);
 projectionDiv.appendChild(staticDiv);
-projectionDiv.appendChild(rightArrow);
+projectionDiv.appendChild(circleContainer);
+
+allElements.appendChild(leftArrow);
+allElements.appendChild(projectionDiv);
+allElements.appendChild(rightArrow);
 
 //Create new cssObject Div
 var cssObjectPlaylist = new THREE.CSS3DSprite(projectionDiv);
