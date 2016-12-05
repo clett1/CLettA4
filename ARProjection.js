@@ -94,7 +94,7 @@ ARProjection.prototype.swipedLeft = function() {
     this.swipeDirection = "left";
     
     //current view position
-    var viewPos = this.views.indexOf(currentScreen);
+    var viewPos = this.views.indexOf(this.currentView);
     
     if(currentScreen == this.views[3]) {
         //nothing can happen
