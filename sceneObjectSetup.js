@@ -78,7 +78,7 @@ statusContainer.appendChild(bar2);
 statusContainer.appendChild(bar3);
 statusContainer.appendChild(bar4);
 
-bar.style.backgroundColor = "white";
+bar1.style.backgroundColor = "white";
 
 var arrowContainer = document.createElement('div');
 arrowContainer.className = "arrowDiv";
