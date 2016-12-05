@@ -14,8 +14,6 @@ var renderer = new THREE.CSS3DArgonRenderer();
 app.view.element.appendChild(renderer.domElement);
 
 var hud = new THREE.CSS3DArgonHUD();
-var description = document.getElementById('description');
-hud.hudElements[0].appendChild(description);
 app.view.element.appendChild(hud.domElement);
 // Tell argon what local coordinate system you want.  The default coordinate
 // frame used by Argon is Cesium's FIXED frame, which is centered at the center
