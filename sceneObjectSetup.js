@@ -61,11 +61,11 @@ changingDiv.className = "swipeDiv";
 
 //****************circle cointainer****************
 //Circles at the bottom of the div to indicate screen state
-var circleContainer = document.createElement("div");
-var circle1 = document.createElement("div");
-var circle2 = document.createElement("div");
-var circle3 = document.createElement("div");
-var circle4 = document.createElement("div");
+var statusContainer = document.createElement("div");
+var bar1 = document.createElement("div");
+var bar2 = document.createElement("div");
+var bar3 = document.createElement("div");
+var bar4 = document.createElement("div");
 
 statusContainer.className = "statusContainer";
 bar1.className = "statuDivs";
