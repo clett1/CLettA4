@@ -76,11 +76,11 @@ View.prototype.transitionAnimation = function(newPosition, swipeValue) {
           
 }
 
-View.prototype.controlButtonPress = function() {
+View.prototype.controlButtonPress = function(view) {
     //handles audio when control button is pressed
-    if(this.isVisble) {
+    if(view.isVisble) {
         //this button can be pressed
-        this.handleAudio();
+        view.handleAudio();
     }
 }
 
