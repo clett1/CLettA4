@@ -7,7 +7,7 @@ function ARProjection(leftArrow, rightArrow) {
     this.movingX = null;
     this.endX = null;
     this.xDifference = null;
-    this.swipeDirection = null;
+    this.moveDirection = null;
     
     leftArrow.addEventListener('touchstart', this.leftArrowClicked.bind(this));
     
@@ -62,49 +62,54 @@ ARProjection.prototype.setFSM = function(startState, fsm) {
 
 ARProjection.prototype.rightArrowClicked = function(event) {
     
-    this.swipeDirection = "right"; 
+    this.moveDirection = "right"; 
     
     //current view position
     var viewPos = this.views.indexOf(this.currentView);
         
+    if(this.currentView == this.views[3]) {
+        //nothing can happen
+    } else {
+        //switch current views
+        this.views[viewPos].isVisible = "false";
+        
+        if(this.views[viewPos].track != null) {
+            this.views[viewPos].track.pause();   
+        }
+        
+        viewPos++;
+        var newPos = viewPos;
+        this.currentView = this.views[newPos];
+        
+        this.views[newPos].isVisible = "true";
+        this.views[newPos].track.play();
+        this.currentView.transitionAnimation(newPos, this.moveDirection);    
+    }
+}
+
+ARProjection.prototype.leftArrowClicked = function(event) {
+    
+    this.moveDirection = "left";
+    
+    //current view position
+    var viewPos = this.views.indexOf(this.currentView);
+    
     if(this.currentView == this.views[0]) {
         //nothing can happen
     } else {
         //switch current views
         this.views[viewPos].isVisible = "false";
         
-        viewPos--;
-        var newPos = viewPos;
-        this.currentView = this.views[newPos];
+        if(this.views[viewPos].track != null) {
+            this.views[viewPos].track.pause();   
+        }
         
-        this.views[newPos].isVisible = "true";
-        this.views[newPos].track.play();
-        this.currentView.transitionAnimation(newPos, this.swipeDirection);    
-    }
-}
-
-ARProjection.prototype.leftArrowClicked = function(event) {
-    
-    this.swipeDirection = "left";
-    
-    //current view position
-    var viewPos = this.views.indexOf(this.currentView);
-    
-    if(this.currentView == this.views[3]) {
-        //nothing can happen
-    } else {
-        //switch current views
-        this.views[viewPos].isVisible = "false";
-
-        viewPos++;
+        viewPos--;
         var newPos = viewPos;
         this.currentView = this.views[newPos];        
         this.views[newPos].isVisible = "true";
         this.views[newPos].track.play();
-        this.currentView.transitionAnimation(newPos, this.swipeDirection);     
+        this.currentView.transitionAnimation(newPos, this.moveDirection);     
     }
 }
 
-ARProjection.prototype.makeTransition = function() {
-    //
-}
