@@ -99,7 +99,7 @@ var secondView = new View ({
     track: holdUpTrack,
     playState: "paused"
 }); 
-};
+
 
 //**************** third view ****************
 var page3 = document.createElement("div");
