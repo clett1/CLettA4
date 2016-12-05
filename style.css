@@ -34,7 +34,7 @@ a {
     justify-content: flex-start;
     border-radius: 10px;        
     width: 120px;
-    height: 130px;
+    height: 140px;
     pointer-events: auto;
 }
 
@@ -44,7 +44,6 @@ a {
     flex-direction: column;
     justify-content: space-between;
     overflow: hidden;
-    border-radius: 10px;        
     width: 100%;
 }
 
@@ -79,6 +78,7 @@ a {
     flex-direction: column;
     justify-content: center;
     align-content: center;
+    border-radius: 10px;        
     background-color: lightgray;
     width: 25%;
 
@@ -110,6 +110,7 @@ img {
 }
 
 .circles {
+    margin-top: 10px;
     width: 5px;
     height: 5px;
     border-radius: 50%;
