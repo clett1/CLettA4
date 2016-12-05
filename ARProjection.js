@@ -78,7 +78,7 @@ ARProjection.prototype.rightArrowClicked = function(event) {
         this.currentView = this.views[newPos];
         
         this.views[newPos].isVisible = "true";
-        this.views[newPos].play();
+        this.views[newPos].track.play();
         this.currentView.transitionAnimation(newPos, this.swipeDirection);    
     }
 }
@@ -100,7 +100,7 @@ ARProjection.prototype.leftArrowClicked = function(event) {
         var newPos = viewPos;
         this.currentView = this.views[newPos];        
         this.views[newPos].isVisible = "true";
-        this.views[newPos].play();
+        this.views[newPos].track.play();
         this.currentView.transitionAnimation(newPos, this.swipeDirection);     
     }
 }
