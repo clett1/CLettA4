@@ -6,34 +6,12 @@ a {
 	color: #ffffff;
 }
 
-#description {
-  pointer-events:auto;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  padding: 10px;
-  background-color:rgba(255,255,255,0.7);
-  -webkit-backdrop-filter: blur(5px);
-  position:absolute;
-  bottom: 0px;
-}
-
-.argon-focus #description {
-  transition: opacity 0.8s;
-  visibility: visible;
-  opacity: 1; 
-}
-
-.argon-no-focus #description {
-  transition: visibility 0s linear 0.8s, opacity 0.8s;
-  visibility: visible;
-  opacity: 0;
-}
 
 .allElementsContainer {
-    display: inline;
+    display: flex;
+    flex-direction: column;
+	justify-content: center;
     width: 140px;
-    pointer-events: auto;
-	background-color: purple;
-
 }
 
 .projectionContainer {
@@ -43,7 +21,7 @@ a {
     width: 120px;
     height: 130px;
     pointer-events: auto;
-    margin: 10px;
+        margin: 10px;
 }
 
 .infoDiv {
@@ -79,27 +57,34 @@ a {
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    border-radius: 5px;        
     background-color: lightgray;
     width: 25%;
 
 }
 
+.arrowDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+
 .leftArrow {
   width: 0; 
   height: 0; 
-  border-top: 30px solid transparent;
-  border-bottom: 30px solid transparent; 
-  border-right:10px solid lightgray;  
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent; 
+  border-right:20px solid lightgray;  
   pointer-events: auto;
 }
 
 .rightArrow {
   width: 0; 
   height: 0; 
-  border-top: 30px solid transparent;
-  border-bottom: 30px solid transparent; 
-  border-left:10px solid lightgray;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent; 
+  border-left:20px solid lightgray;
   pointer-events: auto;
 }
 
@@ -116,7 +101,6 @@ h3 {
 img {
     width: 100%;
     height: 100%;
-    pointer-events: auto;
 }
 
 .circleContainer {
@@ -124,13 +108,11 @@ img {
     flex-direction: row;
     justify-content: center;
     width: 100%;
-    margin-top: 5px;
+    margin-bottom: 7px;
 }
 
 .circles {
-    margin: 7px;
-    width: 7px;
+    width: 25%;
     height: 7px;
-    border-radius: 50%;
     background-color: darkgray; 
 }
