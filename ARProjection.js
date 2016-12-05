@@ -18,47 +18,6 @@ ARProjection.prototype.addView = function(view) {
     this.views.push(view);
     view.parent = this;
 }
-/*
-ARProjection.prototype.handleTouchStart = function(event) {
-    
-}
-
-ARProjection.prototype.handleTouchMove = function(event) {
-    
-    if(event.targetTouches.length == 1){
-        //trigger target touches
-        this.movingX = event.touches[0].clientX;
-
-    } else if(event.targetTouches.length == 2){
-        //Potentially add two-finger swipe event to skip through music  
-    }
-    
-    //makeTransition
-}
-
-ARProjection.prototype.handleTouchEnd = function(event) {
-    
-    this.endX = this.movingX;
-    this.xDifference = this.endX - this.startX;
-    
-    
-    if(this.xDifference > 100) {
-        //right swipe
-        this.swipedRight(this.xDifference);
-        
-    } else if(this.xDifference < -100){
-        //left swipe
-        this.swipedLeft(this.xDifference);
-        
-    } else {
-        //xDifference = 0
-    }
-}
-*/
-ARProjection.prototype.setFSM = function(startState, fsm) {
-    this.states = fsm;
-    this.currentState = fsm[startState];
-}
 
 ARProjection.prototype.rightArrowClicked = function(event) {
     
@@ -82,6 +41,7 @@ ARProjection.prototype.rightArrowClicked = function(event) {
         this.currentView = this.views[newPos];
         
         this.views[newPos].isVisible = "true";
+        //must start initial play here because audio events in mobile need user click event to load
         this.views[newPos].track.play();
         this.currentView.transitionAnimation(newPos, this.moveDirection);    
     }
