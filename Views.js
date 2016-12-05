@@ -3,12 +3,15 @@ Page View constructor
 */
 function View(params) {
     this.parent = null;
+    this.isVisible = false;
+
     
     this.image = params.image;
     this.track = params.track;
     this.playState = params.playState;
     this.controlButton = params.controlButton;
-        
+    
+    this.controlButton.addEventListener("touchstart", this.controlButtonPress.bind(this));
     
    //Listen for touch start event
   
@@ -73,7 +76,12 @@ View.prototype.transitionAnimation = function(newPosition, swipeValue) {
           
 }
 
-View.prototype.controlButtonChange = function() {
+View.prototype.controlButtonPress = function() {
+    //handles audio when control button is pressed
+    if(this.isVisble) {
+        //this button can be pressed
+        this.handleAudio();
+    }
 }
 
 View.prototype.makeTransition = function() {
@@ -81,16 +89,18 @@ View.prototype.makeTransition = function() {
 }
 
 View.prototype.handleAudio = function() {
-    
+    //handles audio from swipe to swipe
     if (this.track == null) {
         console.log("This element has no audio file");   
     }else if(this.playState == "paused") {
         //play track
         this.track.play();
         this.playState = "playing";
+        //change button state
         
     } else {
         this.track.pause();
         this.playState = "paused";
+        //change button state
     }
 }
