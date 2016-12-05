@@ -8,12 +8,7 @@ function View(params) {
     this.track = params.track;
     this.playState = params.playState;
     this.isVisible = params.visibility;
-    
-    if(this.image != null)
-        divImg = this.image;
-    else {
-     divImg.addEventListener("touchstart", this.handleAudio.bind(this));
-    }   
+      
 };
 
 
