@@ -123,7 +123,7 @@ var titleView = new View({
     image: null,
     track: null,
     playState: null,
-    visibility: "false",
+    visibility: "false"
 });
 
 
@@ -141,7 +141,7 @@ var secondView = new View ({
     image: holdUp,
     track: holdUpTrack,
     playState: "paused",
-    visibility: "false",
+    visibility: "false"
 }); 
 
 
@@ -159,7 +159,7 @@ var thirdView = new View ({
     image: KMagic,
     track: KMagicTrack,
     playState: "paused",
-    visibility: "false",
+    visibility: "false"
 }); 
 
 //**************** fourth view ****************
@@ -176,7 +176,7 @@ var fourthView = new View ({
     image: calvinHarris,
     track: calvinHarrisTrack,
     playState: "paused",
-    visibility: "false",
+    visibility: "false"
 });
 
 
