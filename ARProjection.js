@@ -37,12 +37,12 @@ ARProjection.prototype.rightArrowClicked = function(event) {
     } else {
         //switch current views
         this.views[viewPos].isVisible = "false";
-        this.views[viewPos].handleAudio();
-        /*
-        if(this.views[viewPos].track != null) {
-            this.views[viewPos].track.pause(); 
-            this.views[viewPos].playState = "paused";
-        }*/
+        
+        if(this.views[viewPos].playState == "paused") {
+            //Let track stay paused as div shifts
+        } else {
+            this.views[viewPos].handleAudio();
+        }
         
         viewPos++;
         var newPos = viewPos;
@@ -67,12 +67,12 @@ ARProjection.prototype.leftArrowClicked = function(event) {
         //nothing can happen
     } else {
         //switch current views
-        /*this.views[viewPos].isVisible = "false";
-        
-        if(this.views[viewPos].track != null) {
-            this.views[viewPos].track.pause();   
-        }*/
-        this.views[viewPos].handleAudio();
+        this.views[viewPos].isVisible = "false";
+        if(this.views[viewPos].playState == "paused") {
+            //Let track stay paused as div shifts
+        } else {
+            this.views[viewPos].handleAudio();
+        }
 
         viewPos--;
         var newPos = viewPos;
