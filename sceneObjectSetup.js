@@ -64,7 +64,7 @@ pauseImg.onload = function() {
            @circle2: indicator for right side
 */
 var allElements = document.createElement('div');
-allElements.className = "allElementsContainer;
+allElements.className = "allElementsContainer";
 
 var projectionDiv = document.createElement('div');
 projectionDiv.className = "projectionContainer";
