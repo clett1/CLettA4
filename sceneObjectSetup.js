@@ -96,12 +96,17 @@ circleContainer.appendChild(circle4);
 
 circle1.style.backgroundColor = "white";
 
+var arrowContainer = document.createElement('div');
+arrowContainer.className = "arrowDiv";
+
 var leftArrow = document.createElement('div');
 var rightArrow = document.createElement('div');
 
 leftArrow.className = "leftArrow";
 rightArrow.className = "rightArrow";
 
+arrowContainer.appendChild(leftArrow);
+arrowContainer.appendChild(rightArrow);
    
 //**************** first view ****************
 var titleDiv = document.createElement('div');
