@@ -159,21 +159,6 @@ changingDiv.appendChild(page2);
 changingDiv.appendChild(page3);
 changingDiv.appendChild(page4);
 
-circle2.addEventListener("touchstart", function(event){
-   console.log("play track 1");
-   holdUpTrack.play();
-}, false);
-
-circle3.addEventListener("touchstart", function(event){
-   console.log("play track 1");
-   KMagicTrack.play();
-}, false);
-
-circle4.addEventListener("touchstart", function(event){
-    calvinHarrisTrack.play();
-}, false);
-
-
 //Append all divs to projection Div
 staticDiv.appendChild(changingDiv); 
 projectionDiv.appendChild(staticDiv);
@@ -183,7 +168,7 @@ projectionDiv.appendChild(circleContainer);
 var cssObjectPlaylist = new THREE.CSS3DSprite(projectionDiv);
 
 //Create new AR Projection
-var projection = new ARProjection(projectionDiv);
+var projection = new ARProjection(changingDiv);
 
 projection.addView(titleView);
 projection.addView(secondView);
