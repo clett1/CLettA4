@@ -67,8 +67,14 @@ View.prototype.transitionAnimation = function(newPosition, direction) {
           
 }
 
-View.prototype.makeTransition = function() {
-    //handle transition 
+View.prototype.updatePauseState = function() {
+    this.playState = "paused";
+    this.image.style.opacity = ".50";
+}
+
+View.prototype.updatePlayState = function() {
+    this.playState = "playing";
+    this.image.style.opacity = "1";
 }
 
 View.prototype.handleAudio = function() {
@@ -78,12 +84,12 @@ View.prototype.handleAudio = function() {
     }else if(this.playState == "paused") {
         //play track
         this.track.play();
-        this.playState = "playing";
+        this.updatePlayState();
         //change button state
     } else {
         console.log("pause track");
         this.track.pause();
-        this.playState = "paused";
+        this.updatePauseState();
         //change button state
     }
 }
