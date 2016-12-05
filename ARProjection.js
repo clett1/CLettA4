@@ -31,11 +31,12 @@ ARProjection.prototype.rightArrowClicked = function(event) {
     } else {
         //switch current views
         this.views[viewPos].isVisible = "false";
-        
+        this.views[viewPos].handleAudio();
+        /*
         if(this.views[viewPos].track != null) {
             this.views[viewPos].track.pause(); 
             this.views[viewPos].playState = "paused";
-        }
+        }*/
         
         viewPos++;
         var newPos = viewPos;
@@ -43,8 +44,8 @@ ARProjection.prototype.rightArrowClicked = function(event) {
         
         this.views[newPos].isVisible = "true";
         //must start initial play here because audio events in mobile need user click event to load
-        this.views[newPos].track.play();
-        this.views[newPos].playState = "playing";
+        this.views[newPos].handleAudio();
+        //this.views[newPos].playState = "playing";
         this.currentView.transitionAnimation(newPos, this.moveDirection);    
     }
 }
@@ -60,17 +61,20 @@ ARProjection.prototype.leftArrowClicked = function(event) {
         //nothing can happen
     } else {
         //switch current views
-        this.views[viewPos].isVisible = "false";
+        /*this.views[viewPos].isVisible = "false";
         
         if(this.views[viewPos].track != null) {
             this.views[viewPos].track.pause();   
-        }
-        
+        }*/
+        this.views[viewPos].handleAudio();
+
         viewPos--;
         var newPos = viewPos;
         this.currentView = this.views[newPos];        
         this.views[newPos].isVisible = "true";
-        this.views[newPos].track.play();
+        //this.views[newPos].track.play();
+        this.views[newPos].handleAudio();
+
         this.currentView.transitionAnimation(newPos, this.moveDirection);     
     }
 }
