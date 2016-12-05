@@ -16,7 +16,7 @@ function View(params) {
     }
 };
 
-View.prototype.handTouch = function(event) {
+View.prototype.handleTouch = function(event) {
         if(this.playState == "paused") {
             this.track.pause();
             this.playState = "paused";
