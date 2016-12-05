@@ -26,12 +26,8 @@
   </body>
     <script>
 		function hideMe(elem) {
-		    //elem.style.display = 'none';
-            		if(projection.currentView.track != null) {
-				if(projection.currentView.playState == "paused") {
-					projection.currentView.track.play();	
-				} else projection.currentView.track.pause();
-			}
+		    elem.style.display = 'none';
+            		
 		}	
 	</script> 
    <script src="app.js"></script>
