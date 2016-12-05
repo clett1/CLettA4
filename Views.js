@@ -12,7 +12,7 @@ function View(params) {
     this.controlButton = params.controlButton;
     
     this.controlButton.addEventListener("touchstart", this.controlButtonPress.bind(this));
-    
+    console.log(this.controlButton);
    //Listen for touch start event
   
 };
