@@ -27,14 +27,11 @@ calvinHarrisTrack.onloadeddata = function() {
    Styles for both divs can be found in style.css
    Both divs belong to class "contentContainer"
    Paragraphs belong to class "ARParagraphs"
-
     projectionDiv: div to hold artInfo, creatorInfo, and circleContainer
-
     staticDiv: static div held in projection div (swipable region)
        
     changingDiv: div to hold all screens
     
-
     titleView: div to hold title and description
         @titleHeader: header for the titleView div
         @titleHeaderText: text for header
@@ -46,7 +43,6 @@ calvinHarrisTrack.onloadeddata = function() {
            @creatorHeaderText: text for header
            @creatorPara: paragraph for artInfo div
            @creatorParaText: text for paragraph
-
        circleContainer: div with circles for screen state
            @circle1: indicator for left side
            @circle2: indicator for right side
@@ -61,87 +57,7 @@ staticDiv.className = "infoDiv";
 var changingDiv = document.createElement("div");
 changingDiv.className = "swipeDiv";
 
-//**************** first view ****************
-var titleDiv = document.createElement('div');
-titleDiv.className = "contentContainer";
-
-    var titleHeader = document.createElement("h3");
-    var titleHeaderText = document.createTextNode("My Playist");
-    titleHeader.appendChild(titleHeaderText);
-
-    var titlePara = document.createElement("p");
-    titlePara.className= "ARParagraphs";
-    var titleParaText = document.createTextNode("Welcome to my playlist. This is a complitation of some of my favorite songs of 2016");
-    titlePara.appendChild(titleParaText);
-
-titleDiv.appendChild(titleHeader);
-titleDiv.appendChild(titlePara);
-        
-var titleView = new View({
-    image: null,
-    track: null,
-    playState: null
-});
-
-
-//**************** second view ****************
-var page2 = document.createElement("div");
-page2.className = "contentContainer";
-var holdUp = document.createElement("img");
-holdUp.setAttribute("src", "holdup.png");
-
-holdUp.onload = function() {
-    page2.appendChild(holdUp);
-}
-
-var secondView = new View ({
-    image: holdUp,
-    track: holdUpTrack,
-    playState: "paused"
-}); 
-
-
-//**************** third view ****************
-var page3 = document.createElement("div");
-page3.className = "contentContainer";
-var KMagic = document.createElement("img");
-KMagic.setAttribute("src", "24KMagic.png");
-
-KMagic.onload = function() {
-    page3.appendChild(KMagic);
-}
-
-var thirdView = new View ({
-    image: KMagic,
-    track: KMagicTrack,
-    playState: "paused"
-}); 
-
-//**************** fourth view ****************
-var page4 = document.createElement("div");
-page4.className = "contentContainer";
-var calvinHarris = document.createElement("img");
-calvinHarris.setAttribute("src", "calvinharris.png");
-
-calvinHarris.onload = function() {
-    page4.appendChild(calvinHarris);
-}
-
-//calvinHarrisTrack = new WebAudioAPISound("audio/thisiswhatyoucamefor.mp3", {loop: true});
-
-var fourthView = new View ({
-    image: calvinHarris,
-    track: calvinHarrisTrack,
-    playState: "paused"
-});
-
-changingDiv.appendChild(titleDiv);
-changingDiv.appendChild(page2);
-changingDiv.appendChild(page3);
-changingDiv.appendChild(page4);
-
-
-//**************** circle container ****************
+//****************circle cointainer****************
 //Circles at the bottom of the div to indicate screen state
 var circleContainer = document.createElement("div");
 var circle1 = document.createElement("div");
@@ -161,6 +77,88 @@ circleContainer.appendChild(circle3);
 circleContainer.appendChild(circle4);
 
 circle1.style.backgroundColor = "white";
+
+//**************** first view ****************
+var titleDiv = document.createElement('div');
+titleDiv.className = "contentContainer";
+
+var titleHeader = document.createElement("h3");
+var titleHeaderText = document.createTextNode("My Playist");
+titleHeader.appendChild(titleHeaderText);
+
+var titlePara = document.createElement("p");
+titlePara.className= "ARParagraphs";
+var titleParaText = document.createTextNode("Welcome to my playlist. This is a complitation of some of my favorite songs of 2016");
+titlePara.appendChild(titleParaText);
+
+titleDiv.appendChild(titleHeader);
+titleDiv.appendChild(titlePara);
+        
+var titleView = new View({
+    image: null,
+    track: null,
+    playState: null,
+    controlButton: circle1
+});
+
+
+//**************** second view ****************
+var page2 = document.createElement("div");
+page2.className = "contentContainer";
+var holdUp = document.createElement("img");
+holdUp.setAttribute("src", "holdup.png");
+
+holdUp.onload = function() {
+    page2.appendChild(holdUp);
+}
+
+var secondView = new View ({
+    image: holdUp,
+    track: holdUpTrack,
+    playState: "paused",
+    controlButton: circle2
+}); 
+
+
+//**************** third view ****************
+var page3 = document.createElement("div");
+page3.className = "contentContainer";
+var KMagic = document.createElement("img");
+KMagic.setAttribute("src", "24KMagic.png");
+
+KMagic.onload = function() {
+    page3.appendChild(KMagic);
+}
+
+var thirdView = new View ({
+    image: KMagic,
+    track: KMagicTrack,
+    playState: "paused",
+    controlButton: circle3
+}); 
+
+//**************** fourth view ****************
+var page4 = document.createElement("div");
+page4.className = "contentContainer";
+var calvinHarris = document.createElement("img");
+calvinHarris.setAttribute("src", "calvinharris.png");
+
+calvinHarris.onload = function() {
+    page4.appendChild(calvinHarris);
+}
+
+var fourthView = new View ({
+    image: calvinHarris,
+    track: calvinHarrisTrack,
+    playState: "paused",
+    controlButton: circle4
+});
+
+changingDiv.appendChild(titleDiv);
+changingDiv.appendChild(page2);
+changingDiv.appendChild(page3);
+changingDiv.appendChild(page4);
+
 
 //Append all divs to projection Div
 staticDiv.appendChild(changingDiv); 
@@ -187,7 +185,6 @@ projection.currentView = projection.views[0];
 /*
 var startState = 'hidden';
 var currentState = ARProjectionFSM[startState];
-
 var ARProjectionFSM = {
     'hidden': {
         'targetseen': {
@@ -235,6 +232,3 @@ var ARProjectionFSM = {
         }    
     }
 };*/
-        
-        
-        
