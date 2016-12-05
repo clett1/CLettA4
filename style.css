@@ -30,8 +30,9 @@ a {
 
 .allElementsContainer {
    dislay: flex;
-	flex-direction: column;
+	flex-direction: row;
 	justify-content: center;
+	background-color: blue;
 }
 
 .projectionContainer {
@@ -85,9 +86,9 @@ a {
 .leftArrow {
   width: 0; 
   height: 0; 
-  border-top: 20px solid transparent;
-  border-bottom: 20px solid transparent; 
-  border-right:10px solid gray;  
+  border-top: 40px solid transparent;
+  border-bottom: 40px solid transparent; 
+  border-right:20px solid gray;  
   pointer-events: auto;
 
 }
@@ -95,9 +96,9 @@ a {
 .rightArrow {
   width: 0; 
   height: 0; 
-  border-top: 20px solid transparent;
-  border-bottom: 20px solid transparent; 
-  border-left:10px solid gray;
+  border-top: 40px solid transparent;
+  border-bottom: 40px solid transparent; 
+  border-left:20px solid gray;
   pointer-events: auto;
 
 }
