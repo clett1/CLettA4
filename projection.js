@@ -176,6 +176,7 @@ projection.addView(thirdView);
 projection.addView(fourthView);
 
 projection.currentView = projection.views[0];
+projection.views[0].isVisible = true;
 //set view to the first page
 
 
