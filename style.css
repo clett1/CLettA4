@@ -28,12 +28,18 @@ a {
   opacity: 0;
 }
 
+.allElementsContainer {
+   dislay: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
 .projectionContainer {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
-    width: 190px;
-    height: 140px;
+    width: 120px;
+    height: 130px;
     pointer-events: auto;
 }
 
@@ -61,13 +67,6 @@ a {
     transition: .5s;
     left: 0;  
 }
-
-.swipeDiv.partialRightSwipe {
-    transition: .5s;
-    left: 20px;
-    
-}
-
 .swipeDiv.leftSwipeTranslate {
     transition: .5s;
     left: -100%;
@@ -88,7 +87,9 @@ a {
   height: 0; 
   border-top: 40px solid transparent;
   border-bottom: 40px solid transparent; 
-  border-right:30px solid gray;     
+  border-right:30px solid gray;  
+  pointer-events: auto;
+
 }
 
 .rightArrow {
@@ -96,7 +97,9 @@ a {
   height: 0; 
   border-top: 40px solid transparent;
   border-bottom: 40px solid transparent; 
-  border-left:30px solid gray;     
+  border-left:30px solid gray;
+  pointer-events: auto;
+
 }
 
 h3 {
@@ -118,16 +121,15 @@ img {
 .circleContainer {
     display:flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     width: 100%;
     margin-top: 5px;
-    pointer-events: auto;
 }
 
 .circles {
-    margin-top: 10px;
-    width: 5px;
-    height: 5px;
+    margin: 5px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background-color: darkgray; 
 }
