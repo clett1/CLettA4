@@ -17,7 +17,7 @@ function View(params) {
     }
 };
 
-View.prototype.handleDoubleTouch = function() {
+View.prototype.handleDoubleTouch = function(event) {
     if(targetTouches.length == 2) {
         if(this.playState == "paused") {
             this.track.pause();
