@@ -33,15 +33,11 @@ View.prototype.handleDoubleTouch = function(event) {
 Methods for View
 */
 
-View.prototype.setFSM = function(startState, fsm) { 
-    this.states = fsm;
-    this.currentState = fsm[startState];
-}
 
-View.prototype.transitionAnimation = function(newPosition, swipeValue) {
+View.prototype.transitionAnimation = function(newPosition, direction) {
     //handle transition animation
     
-    if(swipeValue == "right") {                      
+    if(direction == "right") {                      
         changingDiv.classList.add('rightSwipeTranslate');   
     } else {
         changingDiv.classList.add('leftSwipeTranslate');
@@ -80,23 +76,12 @@ View.prototype.transitionAnimation = function(newPosition, swipeValue) {
                 console.log("No change");
         }
     
-    if(swipeValue == "right") {                      
+    if(direction == "left") {                      
         changingDiv.classList.remove('rightSwipeTranslate');   
     } else {
         changingDiv.classList.remove('leftSwipeTranslate');
     }
           
-}
-
-View.prototype.controlButtonPress = function(event) {
-    //handles audio when control button is pressed
-    console.log(this);
-    console.log(this.isVisible);
-    console.log("Button pressed");
-    if(this.isVisble == "true") {
-        console.log("this button can be pressed");
-        this.handleAudio();
-    }
 }
 
 View.prototype.makeTransition = function() {
