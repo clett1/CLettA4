@@ -124,7 +124,6 @@ var titleView = new View({
     track: null,
     playState: null,
     visibility: "false",
-    controlButton: circle1
 });
 
 
@@ -143,7 +142,6 @@ var secondView = new View ({
     track: holdUpTrack,
     playState: "paused",
     visibility: "false",
-    controlButton: circle2
 }); 
 
 
@@ -162,7 +160,6 @@ var thirdView = new View ({
     track: KMagicTrack,
     playState: "paused",
     visibility: "false",
-    controlButton: circle3
 }); 
 
 //**************** fourth view ****************
@@ -180,7 +177,6 @@ var fourthView = new View ({
     track: calvinHarrisTrack,
     playState: "paused",
     visibility: "false",
-    controlButton: circle4
 });
 
 
