@@ -1,4 +1,4 @@
-function ARProjection(leftArrow, rightArrow) {
+function ARProjection(leftArrow, rightArrow, projectionDiv) {
     
     this.numViews = 0;
     this.currentView = null;
@@ -12,6 +12,8 @@ function ARProjection(leftArrow, rightArrow) {
     leftArrow.addEventListener('touchstart', this.leftArrowClicked.bind(this));
     
     rightArrow.addEventListener('touchstart', this.rightArrowClicked.bind(this));
+    
+    projectionDiv.addEventListener('touchstart', this.projectionDivClicked.bind(this));
 
 }
 
@@ -19,7 +21,10 @@ ARProjection.prototype.addView = function(view) {
     this.views.push(view);
     view.parent = this;
 }
-
+ARProjection.prototype.projectionDivClicked = function(event) {
+    //pause/play whichever element is visible
+        this.currentView.handleAudio();
+}
 ARProjection.prototype.rightArrowClicked = function(event) {
     
     this.moveDirection = "right"; 
