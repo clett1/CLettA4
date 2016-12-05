@@ -48,6 +48,7 @@ a {
 }
 
 .swipeDiv {
+    pointer-events: auto;
     display: flex;
     flex-direction: row;
     position: relative;
