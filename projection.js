@@ -165,7 +165,7 @@ projectionDiv.appendChild(staticDiv);
 projectionDiv.appendChild(circleContainer);
 
 //Create new cssObject Div
-var cssObjectPlaylist = new THREE.CSS3DSprite(changingDiv);
+var cssObjectPlaylist = new THREE.CSS3DSprite(projectionDiv);
 
 //Create new AR Projection
 var projection = new ARProjection(changingDiv);
