@@ -81,7 +81,7 @@ View.prototype.controlButtonPress = function(event) {
     console.log(this.isVisible);
     console.log("Button pressed");
     if(this.isVisble == "true") {
-        //this button can be pressed
+        console.log(this button can be pressed);
         this.handleAudio();
     }
 }
@@ -96,12 +96,15 @@ View.prototype.handleAudio = function() {
         console.log("This element has no audio file");   
     }else if(this.playState == "paused") {
         //play track
+        console.log("play track");
         this.track.play();
+        console.log(track);
         this.playState = "playing";
         //change button state
-        
     } else {
+        console.log("pause track");
         this.track.pause();
+        console.log(track);
         this.playState = "paused";
         //change button state
     }
