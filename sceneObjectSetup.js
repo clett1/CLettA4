@@ -68,7 +68,7 @@ var bar3 = document.createElement("div");
 var bar4 = document.createElement("div");
 
 statusContainer.className = "statusContainer";
-bar1.className = "statuDivs";
+bar1.className = "statusDivs";
 bar2.className = "statusDivs";
 bar3.className = "statusDivs";
 bar4.className = "statusDivs";
