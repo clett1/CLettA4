@@ -1,4 +1,4 @@
-function ARProjection(changingDiv) {
+function ARProjection(leftArrow, rightArrow) {
     
     this.numViews = 0;
     this.currentView = null;
@@ -9,29 +9,18 @@ function ARProjection(changingDiv) {
     this.xDifference = null;
     this.swipeDirection = null;
     
-    changingDiv.addEventListener('touchstart', this.handleTouchStart.bind(this));
+    leftArrow.addEventListener('touchstart', this.leftArrowClicked.bind(this));
     
-    changingDiv.addEventListener('touchmove', this.handleTouchMove.bind(this));
-    
-    changingDiv.addEventListener('touchend', this.handleTouchEnd.bind(this));
-    
-
+    rightArrow.addEventListener('touchstart', this.rightArrowClicked.bind(this));
 }
 
 ARProjection.prototype.addView = function(view) {
     this.views.push(view);
     view.parent = this;
 }
-
+/*
 ARProjection.prototype.handleTouchStart = function(event) {
     
-    if(event.targetTouches.length == 1){
-        //trigger swipe event
-        this.startX = event.touches[0].clientX;
-        
-    } else if (event.targetTouches.length == 2) {
-        //Potentially add two-finger swipe event to skip through music  
-    }
 }
 
 ARProjection.prototype.handleTouchMove = function(event) {
@@ -65,13 +54,13 @@ ARProjection.prototype.handleTouchEnd = function(event) {
         //xDifference = 0
     }
 }
-
+*/
 ARProjection.prototype.setFSM = function(startState, fsm) {
     this.states = fsm;
     this.currentState = fsm[startState];
 }
 
-ARProjection.prototype.swipedRight = function() {
+ARProjection.prototype.rightArrowClicked = function() {
     
     this.swipeDirection = "right"; 
     
@@ -89,7 +78,7 @@ ARProjection.prototype.swipedRight = function() {
         this.currentView = this.views[newPos];
         
         this.views[newPos].isVisible = "true";
-        this.views[newPos].handleAudio();
+        this.views[newPos].play();
         this.currentView.transitionAnimation(newPos, this.swipeDirection);    
     }
 }
@@ -111,7 +100,7 @@ ARProjection.prototype.swipedLeft = function() {
         var newPos = viewPos;
         this.currentView = this.views[newPos];        
         this.views[newPos].isVisible = "true";
-        this.views[newPos].handleAudio();
+        this.views[newPos].play();
         this.currentView.transitionAnimation(newPos, this.swipeDirection);     
     }
 }
