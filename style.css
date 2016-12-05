@@ -1,5 +1,5 @@
 body {
-	font-family: Arial;
+	font-family: "Arial", Helvetica, sans-serif;
 }
 
 a {
@@ -29,10 +29,10 @@ a {
 }
 
 .allElementsContainer {
-   dislay: flex;
+    display: flex;
 	flex-direction: row;
 	justify-content: center;
-	width: 200px;
+    align-items: center;
 }
 
 .projectionContainer {
@@ -42,6 +42,7 @@ a {
     width: 120px;
     height: 130px;
     pointer-events: auto;
+        margin: 10px;
 }
 
 .infoDiv {
@@ -77,7 +78,7 @@ a {
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    border-radius: 10px;        
+    border-radius: 5px;        
     background-color: lightgray;
     width: 25%;
 
@@ -86,27 +87,24 @@ a {
 .leftArrow {
   width: 0; 
   height: 0; 
-  border-top: 40px solid transparent;
-  border-bottom: 40px solid transparent; 
-  border-right:20px solid gray;  
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent; 
+  border-right:10px solid lightgray;  
   pointer-events: auto;
-
 }
 
 .rightArrow {
   width: 0; 
   height: 0; 
-  border-top: 40px solid transparent;
-  border-bottom: 40px solid transparent; 
-  border-left:20px solid gray;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent; 
+  border-left:10px solid lightgray;
   pointer-events: auto;
-
 }
 
 h3 {
     font-size: 15px;
     margin: 5px 0px 0px 5px;
-
 }
 
 .ARParagraphs {
@@ -128,9 +126,9 @@ img {
 }
 
 .circles {
-    margin: 5px;
-    width: 10px;
-    height: 10px;
+    margin: 7px;
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
     background-color: darkgray; 
 }
