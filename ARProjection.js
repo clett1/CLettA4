@@ -1,4 +1,4 @@
-function ARProjection(projectionDiv) {
+function ARProjection(changingDiv) {
     
     this.numViews = 0;
     this.currentView = null;
@@ -9,11 +9,11 @@ function ARProjection(projectionDiv) {
     this.xDifference = null;
     this.swipeDirection = null;
     
-    projectionDiv.addEventListener('touchstart', this.handleTouchStart.bind(this));
+    changingDiv.addEventListener('touchstart', this.handleTouchStart.bind(this));
     
-    projectionDiv.addEventListener('touchmove', this.handleTouchMove.bind(this));
+    changingDiv.addEventListener('touchmove', this.handleTouchMove.bind(this));
     
-    projectionDiv.addEventListener('touchend', this.handleTouchEnd.bind(this));
+    changingDiv.addEventListener('touchend', this.handleTouchEnd.bind(this));
     
 
 }
