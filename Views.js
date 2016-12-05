@@ -98,13 +98,13 @@ View.prototype.handleAudio = function() {
         //play track
         console.log("play track");
         this.track.play();
-        console.log(track);
+        console.log(this.track);
         this.playState = "playing";
         //change button state
     } else {
         console.log("pause track");
         this.track.pause();
-        console.log(track);
+        console.log(this.track);
         this.playState = "paused";
         //change button state
     }
