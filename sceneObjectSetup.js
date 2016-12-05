@@ -23,22 +23,6 @@ calvinHarrisTrack.onloadeddata = function() {
   console.log("Calvin Harris track load complete"); 
 };
 
-
-var playImg = document.createElement("img");
-playImg.setAttribute("src", "play.png");
-
-playImg.onload = function() {
-   console.log("playImg loaded");
-}
-
-var pauseImg = document.createElement("img");
-pauseImg.setAttribute("src", "pause.png");
-
-pauseImg.onload = function() {
-   console.log("pauseImg loaded");
-}
-
-
 /** The next block of code creates the div element that will appear when the target is found.
    Styles for both divs can be found in style.css
    Both divs belong to class "contentContainer"
