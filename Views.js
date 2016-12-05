@@ -11,7 +11,10 @@ function View(params) {
         
     
    //Listen for touch start event
-   this.controlButton.addEventListener("touchstart", this.handleAudio.bind(this));
+    this.controlButton.addEventListener("touchstart", (function(event){      
+        console.log("Button Pressed");
+        this.track.play();
+    }).bind(this));
 };
 
 /*
