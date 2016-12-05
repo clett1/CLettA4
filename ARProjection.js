@@ -83,7 +83,7 @@ ARProjection.prototype.rightArrowClicked = function(event) {
     }
 }
 
-ARProjection.prototype.swipedLeft = function(event) {
+ARProjection.prototype.leftArrowClicked = function(event) {
     
     this.swipeDirection = "left";
     
