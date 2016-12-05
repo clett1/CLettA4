@@ -30,10 +30,9 @@ a {
 
 .projectionContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: flex-start;
-    border-radius: 10px;        
-    width: 120px;
+    width: 150px;
     height: 140px;
     pointer-events: auto;
 }
