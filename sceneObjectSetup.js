@@ -67,18 +67,18 @@ var circle2 = document.createElement("div");
 var circle3 = document.createElement("div");
 var circle4 = document.createElement("div");
 
-circleContainer.className = "circleContainer";
-circle1.className = "circles";
-circle2.className = "circles";
-circle3.className = "circles";
-circle4.className = "circles";
+statusContainer.className = "statusContainer";
+bar1.className = "statuDivs";
+bar2.className = "statusDivs";
+bar3.className = "statusDivs";
+bar4.className = "statusDivs";
 
-circleContainer.appendChild(circle1);
-circleContainer.appendChild(circle2);
-circleContainer.appendChild(circle3);
-circleContainer.appendChild(circle4);
+statusContainer.appendChild(bar1);
+statusContainer.appendChild(bar2);
+statusContainer.appendChild(bar3);
+statusContainer.appendChild(bar4);
 
-circle1.style.backgroundColor = "white";
+bar.style.backgroundColor = "white";
 
 var arrowContainer = document.createElement('div');
 arrowContainer.className = "arrowDiv";
@@ -184,7 +184,7 @@ changingDiv.appendChild(page4);
 //Append all divs to projection Div
 staticDiv.appendChild(changingDiv);
 
-projectionDiv.appendChild(circleContainer);
+projectionDiv.appendChild(statusContainer);
 projectionDiv.appendChild(staticDiv);
 
 allElements.appendChild(projectionDiv);
