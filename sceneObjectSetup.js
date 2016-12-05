@@ -193,12 +193,13 @@ changingDiv.appendChild(page3);
 changingDiv.appendChild(page4);
 
 //Append all divs to projection Div
-staticDiv.appendChild(changingDiv); 
-projectionDiv.appendChild(staticDiv);
-projectionDiv.appendChild(circleContainer);
+staticDiv.appendChild(changingDiv);
 
-allElements.appendChild(leftArrow);
+projectionDiv.appendChild(circleContainer);
+projectionDiv.appendChild(staticDiv);
+
 allElements.appendChild(projectionDiv);
+allElements.appendChild(leftArrow);
 allElements.appendChild(rightArrow);
 
 //Create new cssObject Div
