@@ -35,7 +35,7 @@ a {
     border-radius: 10px;        
     width: 120px;
     height: 130px;
-	pointer-events: auto;
+    pointer-events: auto;
 }
 
 .infoDiv {
@@ -106,13 +106,12 @@ img {
     justify-content: space-between;
     width: 100%;
     margin-top: 5px;
-	pointer-events: auto;
+    pointer-events: auto;
 }
 
 .circles {
-    width: 20px;
-    height: 20px;
+    width: 5px;
+    height: 5px;
     border-radius: 50%;
     background-color: darkgray; 
-    pointer-events: auto;
 }
