@@ -7,6 +7,7 @@ function ARProjection(projectionDiv) {
     this.movingX = null;
     this.endX = null;
     this.xDifference = null;
+    this.swipeDirection = null;
     
     projectionDiv.addEventListener('touchstart', this.handleTouchStart.bind(this));
     
@@ -29,18 +30,7 @@ ARProjection.prototype.handleTouchStart = function(event) {
         this.startX = event.touches[0].clientX;
         
     } else if (event.targetTouches.length == 2) {
-        //trigger audio
-        console.log("play/pause track");
-        if(this.currentView == null){
-            //no current view do nothing
-        } else {
-            //there is a current view
-            if(this.currentView.track == null){
-                //there is no track for this view. do nothing
-            } else {
-                this.currentView.handleAudio();
-            }
-        }   
+        //Potentially add two-finger swipe event to skip through music  
     }
 }
 
@@ -51,7 +41,7 @@ ARProjection.prototype.handleTouchMove = function(event) {
         this.movingX = event.touches[0].clientX;
 
     } else if(event.targetTouches == 2){
-        //may skip audio
+        //Potentially add two-finger swipe event to skip through music  
     }
     
     //makeTransition
@@ -80,24 +70,14 @@ ARProjection.prototype.setFSM = function(startState, fsm) {
     this.states = fsm;
     this.currentState = fsm[startState];
 }
-/*
-ARProjection.addView(view) {
-    this.views.push(view);    
-    this.numViews++;
-    
-    if(numViews == 1){
-        this.currentView = view;
-    }
-}*/
 
 ARProjection.prototype.swipedRight = function() {
-        
-    var currentScreen = this.currentView;
-    this.currentView.handleAudio();
-    console.log("currentScreen "+ this.currentView);
-    var viewPos = this.views.indexOf(this.currentView);
     
-    console.log("view positon " + viewPos);
+    this.swipeDirection = "right"; 
+    
+    //current view position
+    var viewPos = this.views.indexOf(this.currentView);
+        
     if(currentScreen == this.views[0]) {
         //nothing can happen
     } else {
@@ -105,52 +85,17 @@ ARProjection.prototype.swipedRight = function() {
         viewPos--;
         newPos = viewPos;
         this.currentView = this.views[newPos];
-        this.currentView.handleAudio();
-        console.log("new position "+ newPos);
-        console.log(this.currentView.playState);
-        changingDiv.classList.add('rightSwipeTranslate');
-        
-        switch(newPos) {
-            case 0:
-                changingDiv.style.left = "0px";
-                circle1.style.backgroundColor = "white";          
-                circle2.style.backgroundColor = "darkgray";
-                circle3.style.backgroundColor = "darkgray";
-                circle4.style.backgroundColor = "darkgray";
-                break;
-            case 1:
-                changingDiv.style.left = "-100%";
-                circle1.style.backgroundColor = "darkgray";
-                circle2.style.backgroundColor = "white";
-                circle3.style.backgroundColor = "darkgray";
-                circle4.style.backgroundColor = "darkgray";
-                break;
-            case 2:
-                changingDiv.style.left = "-200%";
-                circle1.style.backgroundColor = "darkgray";  
-                circle2.style.backgroundColor = "darkgray";
-                circle3.style.backgroundColor = "white";
-                circle4.style.backgroundColor = "darkgray";
-                break;
-            default:
-                console.log("No change");
-        }
-        
-        //remove transiton
-        changingDiv.classList.remove('rightSwipeTranslate');      
+        this.currentView.transitionAnimation(newPos, swipeDirection);    
     }
- 
-   
 }
 
 ARProjection.prototype.swipedLeft = function() {
-        
-    var currentScreen = this.currentView;
-    this.currentView.handleAudio();
-    console.log(this.currentView.playState);
+    
+    this.swipeDirection = "left";
+    
+    //current view position
     var viewPos = this.views.indexOf(currentScreen);
     
-    console.log("view position "+ viewPos);
     if(currentScreen == this.views[3]) {
         //nothing can happen
     } else {
@@ -158,44 +103,10 @@ ARProjection.prototype.swipedLeft = function() {
         viewPos++;
         var newPos = viewPos;
         this.currentView = this.views[newPos];
-         this.currentView.handleAudio();
-        console.log(this.currentView.playState);
-        
-        changingDiv.classList.add('leftSwipeTranslate');
-        console.log("new position "+newPos);
-        switch(newPos) {
-            case 1:
-                changingDiv.style.left = "-100%";
-                circle1.style.backgroundColor = "darkgray";
-                circle2.style.backgroundColor = "white";
-                circle3.style.backgroundColor = "darkgray";
-                circle4.style.backgroundColor = "darkgray";
-                break;
-            case 2:
-                changingDiv.style.left = "-200%";
-                circle1.style.backgroundColor = "darkgray";  
-                circle2.style.backgroundColor = "darkgray";
-                circle3.style.backgroundColor = "white";
-                circle4.style.backgroundColor = "darkgray";
-                break;
-            case 3:
-                changingDiv.style.left = "-300%";
-                circle1.style.backgroundColor = "darkgray";  
-                circle2.style.backgroundColor = "darkgray";
-                circle3.style.backgroundColor = "darkgray";
-                circle4.style.backgroundColor = "white";
-                break;
-            default:
-                console.log("No change");
-        }
-        
-        //remove transiton
-        changingDiv.classList.remove('leftSwipeTranslate');      
+        this.currentView.transitionAnimation(newPos, swipeDirection);     
     }
 }
 
 ARProjection.prototype.makeTransition = function() {
     //
 }
-
-
