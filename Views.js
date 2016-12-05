@@ -87,7 +87,7 @@ View.prototype.handleAudio = function() {
     }else if(this.playState == "paused") {
         //play track
         this.track.play();
-        this.playState = "playing
+        this.playState = "playing";
         
     } else {
         this.track.pause();
