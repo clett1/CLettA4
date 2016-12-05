@@ -9,11 +9,11 @@ function View(params) {
     this.playState = params.playState;
     this.isVisible = params.visibility;
     
-    //add event listener to image
-    if(this.image != null) {
-        this.image.addEventListener("touchstart", this.handleAudio.bind(this));
-        console.log("image event listener is getting added")
-    }
+    if(this.image != null)
+        divImg = this.image;
+    else {
+     divImg.addEventListener("touchstart", this.handleAudio.bind(this));
+    }   
 };
 
 
