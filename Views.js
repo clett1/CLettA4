@@ -8,25 +8,22 @@ function View(params) {
     this.track = params.track;
     this.playState = params.playState;
     this.isVisible = params.visibility;
-    this.controlButton = params.controlButton;
     
     //add event listener to image
     if(this.image != null) {
-        this.image.addEventListener("touchstart", this.handleDoubleTouch.bind(this));
+        this.image.addEventListener("touchstart", this.handleTouch.bind(this));
     
     }
 };
 
-View.prototype.handleDoubleTouch = function(event) {
-    if(targetTouches.length == 2) {
+View.prototype.handTouch = function(event) {
         if(this.playState == "paused") {
             this.track.pause();
-        
+            this.playState = "paused";
         } else {
             this.track.play();
+            this.playState = "playing";
         }
-    
-    }
 }
 
 /*
