@@ -159,6 +159,18 @@ changingDiv.appendChild(page2);
 changingDiv.appendChild(page3);
 changingDiv.appendChild(page4);
 
+circle2.addEventListener("touchstart", function(event){
+    secondView.handleAudio();
+}, false);
+
+circle3.addEventListener("touchstart", function(event){
+    secondView.handleAudio();
+}, false);
+
+circle4.addEventListener("touchstart", function(event){
+    secondView.handleAudio();
+}, false);
+
 
 //Append all divs to projection Div
 staticDiv.appendChild(changingDiv); 
