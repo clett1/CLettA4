@@ -60,7 +60,7 @@ ARProjection.prototype.setFSM = function(startState, fsm) {
     this.currentState = fsm[startState];
 }
 
-ARProjection.prototype.rightArrowClicked = function() {
+ARProjection.prototype.rightArrowClicked = function(event) {
     
     this.swipeDirection = "right"; 
     
@@ -83,7 +83,7 @@ ARProjection.prototype.rightArrowClicked = function() {
     }
 }
 
-ARProjection.prototype.swipedLeft = function() {
+ARProjection.prototype.swipedLeft = function(event) {
     
     this.swipeDirection = "left";
     
