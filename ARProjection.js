@@ -33,7 +33,8 @@ ARProjection.prototype.rightArrowClicked = function(event) {
         this.views[viewPos].isVisible = "false";
         
         if(this.views[viewPos].track != null) {
-            this.views[viewPos].track.pause();   
+            this.views[viewPos].track.pause(); 
+            this.views[viewPos].playState = "paused";
         }
         
         viewPos++;
@@ -43,6 +44,7 @@ ARProjection.prototype.rightArrowClicked = function(event) {
         this.views[newPos].isVisible = "true";
         //must start initial play here because audio events in mobile need user click event to load
         this.views[newPos].track.play();
+        this.views[newPos].playState = "playing";
         this.currentView.transitionAnimation(newPos, this.moveDirection);    
     }
 }
