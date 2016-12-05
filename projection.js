@@ -1,27 +1,49 @@
 var holdUpTrack = new Audio('audio/holdup.mp3');
 //holdUpTrack = new WebAudioAPISound("audio/holdup.mp3", {loop: true});
 holdUpTrack.onloadstart = function() {
-   alert("Audio load starting");
+   console.log("Audio load starting");
 };
 holdUpTrack.onloadeddata = function() {
-  alert("HoldUp load complete"); 
+  console.log("HoldUp load complete"); 
 };
 
 var KMagicTrack = new Audio('audio/24KMagic.mp3');
 KMagicTrack.onloadstart = function() {
-   alert("Audio load starting");
+   console.log("KMagic load starting");
 };
 KMagicTrack.onloadeddata = function() {
-  alert("KMagicTrack load complete"); 
+  console.log("KMagicTrack load complete"); 
 };
 
 var calvinHarrisTrack = new Audio('audio/thisiswhatyoucamefor.mp3');
 calvinHarrisTrack.onloadstart = function() {
-   alert("Audio load starting");
+   console.log("Calvin harris load starting");
 };
 calvinHarrisTrack.onloadeddata = function() {
-  alert("Calvin Harris track load complete"); 
+  console.log("Calvin Harris track load complete"); 
 };
+
+var holdUp = document.createElement("img");
+holdUp.setAttribute("src", "holdup.png");
+
+holdUp.onload = function() {
+    page2.appendChild(holdUp);
+}
+
+var playImg = document.createElement("img");
+playImg.setAttribute("src", "play.png");
+
+playImg.onload = function() {
+   console.log("playImg loaded");
+}
+
+var pauseImg = document.createElement("img");
+pauseImg.setAttribute("src", "pause.png");
+
+pauseImg.onload = function() {
+   console.log("pauseImg loaded");
+}
+
 
 /** The next block of code creates the div element that will appear when the target is found.
    Styles for both divs can be found in style.css
