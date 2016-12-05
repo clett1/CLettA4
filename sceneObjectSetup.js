@@ -93,7 +93,7 @@ circleContainer.appendChild(circle3);
 circleContainer.appendChild(circle4);
 
 circle1.style.backgroundColor = "white";
-
+   
 //**************** first view ****************
 var titleDiv = document.createElement('div');
 titleDiv.className = "contentContainer";
