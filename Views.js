@@ -81,7 +81,7 @@ View.prototype.controlButtonPress = function(event) {
     console.log(this.isVisible);
     console.log("Button pressed");
     if(this.isVisble == "true") {
-        console.log(this button can be pressed);
+        console.log("this button can be pressed");
         this.handleAudio();
     }
 }
