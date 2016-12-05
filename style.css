@@ -30,9 +30,11 @@ a {
 
 .allElementsContainer {
     display: flex;
-	flex-direction: row;
-	justify-content: center;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
+    width: 140px;
+
 }
 
 .projectionContainer {
