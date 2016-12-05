@@ -12,15 +12,15 @@ KMagicTrack.onloadstart = function() {
    alert("Audio load starting");
 };
 KMagicTrack.onloadeddata = function() {
-  alert("HoldUp load complete"); 
+  alert("KMagicTrack load complete"); 
 };
 
 var calvinHarrisTrack = new Audio('audio/thisiswhatyoucamefor.mp3');
-KMagicTrack.onloadstart = function() {
+calvinHarrisTrack.onloadstart = function() {
    alert("Audio load starting");
 };
-KMagicTrack.onloadeddata = function() {
-  alert("HoldUp load complete"); 
+calvinHarrisTrack.onloadeddata = function() {
+  alert("Calvin Harris track load complete"); 
 };
 
 /** The next block of code creates the div element that will appear when the target is found.
