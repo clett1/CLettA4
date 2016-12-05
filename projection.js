@@ -160,15 +160,17 @@ changingDiv.appendChild(page3);
 changingDiv.appendChild(page4);
 
 circle2.addEventListener("touchstart", function(event){
-    secondView.handleAudio();
+   console.log("play track 1");
+   holdUpTrack.play();
 }, false);
 
 circle3.addEventListener("touchstart", function(event){
-    secondView.handleAudio();
+   console.log("play track 1");
+   KMagicTrack.play();
 }, false);
 
 circle4.addEventListener("touchstart", function(event){
-    secondView.handleAudio();
+    calvinHarrisTrack.play();
 }, false);
 
 
