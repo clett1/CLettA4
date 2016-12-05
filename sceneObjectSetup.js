@@ -206,7 +206,7 @@ allElements.appendChild(projectionDiv);
 allElements.appendChild(rightArrow);
 
 //Create new cssObject Div
-var cssObjectPlaylist = new THREE.CSS3DSprite(projectionDiv);
+var cssObjectPlaylist = new THREE.CSS3DSprite(allElements);
 
 //Create new AR Projection
 var projection = new ARProjection(leftArrow, rightArrow);
