@@ -194,7 +194,7 @@ allElements.appendChild(arrowContainer);
 var cssObjectPlaylist = new THREE.CSS3DSprite(allElements);
 
 //Create new AR Projection
-var projection = new ARProjection(leftArrow, rightArrow);
+var projection = new ARProjection(leftArrow, rightArrow, projectionDiv);
 
 projection.addView(titleView);
 projection.addView(secondView);
