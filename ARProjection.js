@@ -40,7 +40,7 @@ ARProjection.prototype.handleTouchMove = function(event) {
         //trigger target touches
         this.movingX = event.touches[0].clientX;
 
-    } else if(event.targetTouches == 2){
+    } else if(event.targetTouches.length == 2){
         //Potentially add two-finger swipe event to skip through music  
     }
     
