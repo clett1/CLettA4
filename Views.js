@@ -10,11 +10,24 @@ function View(params) {
     this.isVisible = params.visibility;
     this.controlButton = params.controlButton;
     
-    //this.controlButton.addEventListener("touchstart", this.controlButtonPress.bind(this));
-    console.log(this.controlButton);
-   //Listen for touch start event
-  
+    //add event listener to image
+    if(this.image != null) {
+        this.image.addEventListener("touchstart", this.handleDoubleTouch.bind(this));
+    
+    }
 };
+
+View.prototype.handleDoubleTouch = function() {
+    if(targetTouches.length == 2) {
+        if(this.playState == "paused") {
+            this.track.pause();
+        
+        } else {
+            this.track.play();
+        }
+    
+    }
+}
 
 /*
 Methods for View
