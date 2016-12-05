@@ -11,20 +11,11 @@ function View(params) {
     
     //add event listener to image
     if(this.image != null) {
-        this.image.addEventListener("touchstart", this.handleTouch.bind(this));
+        this.image.addEventListener("touchstart", this.handleAudio.bind(this));
     
     }
 };
 
-View.prototype.handleTouch = function(event) {
-        if(this.playState == "paused") {
-            this.track.pause();
-            this.playState = "paused";
-        } else {
-            this.track.play();
-            this.playState = "playing";
-        }
-}
 
 /*
 Methods for View
@@ -91,15 +82,12 @@ View.prototype.handleAudio = function() {
         console.log("This element has no audio file");   
     }else if(this.playState == "paused") {
         //play track
-        console.log("play track");
         this.track.play();
-        console.log(this.track);
         this.playState = "playing";
         //change button state
     } else {
         console.log("pause track");
         this.track.pause();
-        console.log(this.track);
         this.playState = "paused";
         //change button state
     }
