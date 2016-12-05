@@ -29,30 +29,30 @@ View.prototype.transitionAnimation = function(newPosition, direction) {
         switch(newPosition) {
             case 0:
                 changingDiv.style.left = "0px";
-                circle1.style.backgroundColor = "white";          
-                circle2.style.backgroundColor = "darkgray";
-                circle3.style.backgroundColor = "darkgray";
-                circle4.style.backgroundColor = "darkgray";
+                bar1.style.backgroundColor = "white";          
+                bar2.style.backgroundColor = "#FFD259";
+                bar3.style.backgroundColor = "#FFD259";
+                bar4.style.backgroundColor = "#FFD259";
                 break;
             case 1:
                 changingDiv.style.left = "-100%";
-                circle1.style.backgroundColor = "darkgray";
-                circle2.style.backgroundColor = "white";
-                circle3.style.backgroundColor = "darkgray";
-                circle4.style.backgroundColor = "darkgray";
+                bar1.style.backgroundColor = "#FFD259";
+                bar2.style.backgroundColor = "white";
+                bar3.style.backgroundColor = "#FFD259";
+                bar4.style.backgroundColor = "#FFD259";
                 break;
             case 2:
                 changingDiv.style.left = "-200%";
-                circle1.style.backgroundColor = "darkgray";  
-                circle2.style.backgroundColor = "darkgray";
-                circle3.style.backgroundColor = "white";
-                circle4.style.backgroundColor = "darkgray";
+                bar1.style.backgroundColor = "#FFD259";  
+                bar2.style.backgroundColor = "#FFD259";
+                bar3.style.backgroundColor = "white";
+                bar4.style.backgroundColor = "#FFD259";
                 break;
             case 3:
                 changingDiv.style.left = "-300%";
-                circle1.style.backgroundColor = "darkgray";  
-                circle2.style.backgroundColor = "darkgray";
-                circle3.style.backgroundColor = "darkgray";
+                circle1.style.backgroundColor = "#FFD259";  
+                circle2.style.backgroundColor = "#FFD259";
+                circle3.style.backgroundColor = "#FFD259";
                 circle4.style.backgroundColor = "white";
                 break;
             default:
