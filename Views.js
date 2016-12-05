@@ -3,12 +3,11 @@ Page View constructor
 */
 function View(params) {
     this.parent = null;
-    this.isVisible = false;
-
     
     this.image = params.image;
     this.track = params.track;
     this.playState = params.playState;
+    this.isVisible = params.visibility;
     this.controlButton = params.controlButton;
     
     //this.controlButton.addEventListener("touchstart", this.controlButtonPress.bind(this));
